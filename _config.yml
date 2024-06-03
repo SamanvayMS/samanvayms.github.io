@@ -8,13 +8,13 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Samanvay's Homepage"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Samanvay Malapally Sudhakara"
 description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://samanvayms.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "SamanvayMS/samanvayms.github.io" # GitHub username/repo-name for your site
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -22,9 +22,9 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Samanvay Malapally Sudhakara"
   pronouns         : # example: "she/her"  
-  bio              : "A graduate student at UIUC, passionate about leveraging AI and data to innovate trading strategies."
+  bio              : "Quant | Data Scientist | Machine Learning Engineer | Researcher"
   location         : "Champaign, Illinois"
   employer         : "University of Illinois, Urbana-Champaign"
   uri              : # URL

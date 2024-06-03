@@ -81,7 +81,6 @@ redirect_from:
 - **Dimensionality Reduction of Orderbook Data through VAEs:** Variational Autoencoders for efficient dimensionality reduction of high-dimensional orderbook data, enhancing computational efficiency and predictive accuracy.
 - **AI-Driven Stock Signal Extraction Using Langchain and OpenAI API:** Utilize Langchain and OpenAI's API to extract trading signals from news RSS feeds and financial data analysis, synthesizing diverse data streams into predictive models for equity price forecasting.
 
-
 ## [Certifications](https://www.linkedin.com/in/samanvay-malapally-sudhakara-148836212/details/certifications/)
 
 - **Bloomberg Market Concepts:** Portfolio Management, Equities, Fixed Income, Macro Economics, Terminal Basics.
