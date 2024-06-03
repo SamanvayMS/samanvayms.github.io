@@ -204,19 +204,13 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
+  projects:
     output: true
     permalink: /:collection/:path/
-  portfolio1:
+  workexperience:
     output: true
     permalink: /:collection/:path/
-  portfolio2:
-    output: true
-    permalink: /:collection/:path/
-  portfolio3:
-    output: true
-    permalink: /:collection/:path/
-  portfolio4:
+  certifications:
     output: true
     permalink: /:collection/:path/
   talks:
@@ -262,46 +256,28 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
+  # _projects
   - scope:
       path: ""
-      type: portfolio
+      type: projects
     values:
       layout: single
       author_profile: true
       share: true
       comment: true
-  # _portfolio1
+  # _workexperience
   - scope:
       path: ""
-      type: portfolio1
+      type: workexperience
     values:
       layout: single
       author_profile: true
       share: true
       comment: true
-  # _portfolio2
+  # Certifications
   - scope:
       path: ""
-      type: portfolio2
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _portfolio3
-  - scope:
-      path: ""
-      type: portfolio3
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _portfolio4
-  - scope:
-      path: ""
-      type: portfolio4
+      type: certifications
     values:
       layout: single
       author_profile: true

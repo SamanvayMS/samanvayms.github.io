@@ -4,23 +4,17 @@ main:
     # url: /cv/
     url: /files/SamanvayResume.pdf
 
-  - title: "Quantitative Finance"
+  - title: "Work Experience"
     url: /portfolio/
 
-  - title: "Algorithmic Trading"
-    url: /portfolio1/
-
-  - title: "Large Language Models"
-    url: /potfolio2/
-
-  - title: "Machine Learning"
-    url: /portfolio3/
-
-  - title: "Game Theory"
-    url: /portfolio4/
+  - title: "Projects"
+    url: /projects/
     
   - title: "Publications"
     url: /publications/
+
+  - title: "Certifications"
+    url: /certifications/
 
   # - title: "Talks"
   #   url: /talks/    
