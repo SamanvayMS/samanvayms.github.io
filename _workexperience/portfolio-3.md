@@ -1,6 +1,6 @@
 ---
 title: "JIA Finance - Generative AI intern"
-excerpt: "Built a Comprehensive "
+excerpt: "Developed a Chatbot using OpenAI API, LangChain, and FAISS/Chroma DB for interpreting mortgage guidelines."
 collection: workexperience
 ---
 
@@ -10,4 +10,4 @@ collection: workexperience
 
 Due to Non-Disclosure Agreements, I am unable to provide a link to the repository.
 
-[Chatbot](/images/workexperience/RAGbot.png)
+![Chatbot](/images/workexperience/RAGbot.png)

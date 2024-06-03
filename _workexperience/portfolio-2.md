@@ -13,4 +13,4 @@ collection: workexperience
 
 Due to Non-Disclosure Agreements, I am unable to provide a link to the repository.
 
-[MBS](/images/workexperience/MBS.png)
+![MBS](/images/workexperience/MBS.png)
