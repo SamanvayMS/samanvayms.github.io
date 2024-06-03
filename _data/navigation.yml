@@ -4,6 +4,21 @@ main:
     # url: /cv/
     url: /files/SamanvayResume.pdf
 
+  - title: "Quantitative Finance"
+    url: /portfolio/
+
+  - title: "Algorithmic Trading"
+    url: /portfolio1/
+
+  - title: "Large Language Models"
+    url: /potfolio2/
+
+  - title: "Machine Learning"
+    url: /portfolio3/
+
+  - title: "Game Theory"
+    url: /portfolio4/
+    
   - title: "Publications"
     url: /publications/
 
@@ -12,9 +27,6 @@ main:
 
   # - title: "Teaching"
   #   url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
         
   # - title: "Blog Posts"
   #   url: /year-archive/

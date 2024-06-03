@@ -26,7 +26,7 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Quant | Data Scientist | Machine Learning Engineer | Researcher"
   location         : "Champaign, Illinois"
-  employer         : "University of Illinois, Urbana-Champaign"
+  employer         : "UIUC"
   uri              : # URL
   email            : "smalapallysudhakara@gmail.com" 
 
@@ -207,6 +207,18 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
+  portfolio1:
+    output: true
+    permalink: /:collection/:path/
+  portfolio2:
+    output: true
+    permalink: /:collection/:path/
+  portfolio3:
+    output: true
+    permalink: /:collection/:path/
+  portfolio4:
+    output: true
+    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
@@ -254,6 +266,42 @@ defaults:
   - scope:
       path: ""
       type: portfolio
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _portfolio1
+  - scope:
+      path: ""
+      type: portfolio1
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _portfolio2
+  - scope:
+      path: ""
+      type: portfolio2
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _portfolio3
+  - scope:
+      path: ""
+      type: portfolio3
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _portfolio4
+  - scope:
+      path: ""
+      type: portfolio4
     values:
       layout: single
       author_profile: true
