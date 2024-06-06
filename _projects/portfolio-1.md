@@ -5,8 +5,6 @@ collection: projects
 ---
 [Link to the project](https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2023/fin556_algo_fall_2023_group_01/group_01_project)
 
-# Project Overview
-
 ## Introduction
 
 This project involves the development of a high-frequency trading (HFT) strategy using Strategy Studio, a multi-asset class strategy development software. The goal is to capture market inefficiencies through rapid execution and sophisticated algorithms. The project covers the entire journey from initial concept to deployment, including rigorous backtesting, parameter optimization, and results analysis.
@@ -91,7 +89,7 @@ The project involved hyperparameter tuning for different models to optimize perf
 The project evaluated strategies using metrics like Sharpe Ratio, Sortino Ratio, Max Drawdown, and Net PnL. These metrics provided insights into the risk-adjusted performance and robustness of the strategies.
 
 ![image](images/HFT1/194850results_plot.png)
-![image](images/194850additional_results_plot.png)
+![image](images/HFT1/194850additional_results_plot.png)
 
 ## Challenges and Future Work
 
