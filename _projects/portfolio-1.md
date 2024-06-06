@@ -1,6 +1,6 @@
 ---
 title: "High-Frequency Trading Strategy Development with RCMX Strategy Studio"
-excerpt: "This project involves the development of a high-frequency trading (HFT) strategy using Strategy Studio, a multi-asset class strategy development software. The goal is to capture market inefficiencies through rapid execution and sophisticated algorithms. The project covers the entire journey from initial concept to deployment, including rigorous backtesting, parameter optimization, and results analysis."
+excerpt: "This project involves the development of a high-frequency trading (HFT) strategy using Strategy Studio, a multi-asset class strategy development software. The goal is to capture market inefficiencies through rapid execution and sophisticated algorithms. The project covers the entire journey from initial concept to deployment, including rigorous backtesting, parameter optimization, and results analysis.<br>[Link to the project](https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2023/fin556_algo_fall_2023_group_01/group_01_project)"
 collection: projects
 ---
 [Link to the project](https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2023/fin556_algo_fall_2023_group_01/group_01_project)

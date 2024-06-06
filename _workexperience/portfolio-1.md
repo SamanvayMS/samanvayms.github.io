@@ -1,6 +1,6 @@
 ---
 title: "bp - Quantitative Trading Analyst"
-excerpt: "Helped design,evaluate and optimise a Forex Ladder Trading Strategy"
+excerpt: "Helped design,evaluate and optimise a Forex Ladder Trading Strategy<br>[link_to_repository](https://github.com/SamanvayMS/bp-Trading)"
 collection: workexperience
 ---
 
