@@ -1,11 +1,30 @@
 ---
-title: "Machine Learning Specialization (DeepLearning.AI)"
-excerpt: "<br/><img src='/images/certificates/Certificate1.pdf'>"
+title: "Deep Learning Specialization (DeepLearning.AI)"
+excerpt: """Courses:- <br>
+- Neural Networks and Deep Learning<br/>
+- Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br/>
+- Structuring Machine Learning Projects<br/>
+- Convolutional Neural Networks<br/>
+- Sequence Models<br/><br/>
+<img src='/images/certificates/Certificate2.pdf'>"""
 collection: certifications
 ---
 
-Built ML models with NumPy & scikit-learn, built & trained supervised models for prediction & binary classification tasks (linear, logistic regression)
-Built & trained a neural network with TensorFlow to perform multi-class classification, & built & used decision trees & tree ensemble methods
-Applied best practices for ML development & used unsupervised learning techniques for unsupervised learning including clustering & anomaly detection
-Built recommender systems with a collaborative filtering approach & a content-based deep learning method & built a deep reinforcement learning model.
-![image](/images/certificates/Certificate1.pdf)
+
+
+## Courses:-
+
+- **Neural Networks and Deep Learning**
+![img](/images/certificates/certificate2-3.pdf)
+
+- **Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization**
+![img](/images/certificates/certificate2-4.pdf)
+
+- **Structuring Machine Learning Projects**
+![img](/images/certificates/certificate2-2.pdf)
+
+- **Convolutional Neural Networks**
+![img](/images/certificates/certificate2-5.pdf)
+
+- **Sequence Models**
+![img](/images/certificates/certificate2-1.pdf)
