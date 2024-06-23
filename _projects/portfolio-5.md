@@ -1,6 +1,6 @@
 ---
 title: "Reinforcement Learning Agents for Algorithmic Trading"
-excerpt: ".<br>[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/RLTrading.md?ref_type=heads)"
+excerpt: "Designed, implemented, and backtested Deep Deterministic Policy Gradient (DDPG) Market Making Agent and Deep Q Network (DQN) Market Taking Agent for algorithmic trading. Utilized Strategy Studio for backtesting and validation.<br>[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/RLTrading.md?ref_type=heads)"
 collection: projects
 ---
 [Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/RLTrading.md?ref_type=heads)
