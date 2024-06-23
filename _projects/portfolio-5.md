@@ -1,68 +1,17 @@
 ---
-title: "Guide to Running Projects with Strategy Studio"
-excerpt: "This project provides a guide to running projects with Strategy Studio. It is intended for users who want to learn more on how to run projects with Strategy Studio and how to modfiy the code to suit their needs.<br>[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/StrategyStudioGuide.md?ref_type=heads#22-makefile-and-command-guide)"
+title: "Reinforcement Learning Agents for Algorithmic Trading"
+excerpt: ".<br>[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/RLTrading.md?ref_type=heads)"
 collection: projects
 ---
-[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/StrategyStudioGuide.md?ref_type=heads#22-makefile-and-command-guide)
+[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/RLTrading.md?ref_type=heads)
 
-## Overview
+In this project, I designed, implemented, and backtested a Deep Deterministic Policy Gradient (DDPG) Market Making Agent and a Deep Q Network (DQN) Market Taking Agent to explore innovative approaches in algorithmic trading. The Market Making Agent focused on earning profits from bid-ask spreads while managing inventory levels and mitigating risks, whereas the Market Taking Agent aimed to generate alpha by executing decisive buy and sell actions in the market. Strategy Studio was employed for backtesting these agents' performance in simulated market environments.
 
-**Description:**
-This project utilizes Strategy Studio, a high-performance C++ multi-asset class strategy development platform. It focuses on creating, testing, and optimizing algorithmic trading strategies, showcasing efficient handling of complex financial data and backtesting requirements.
+Key contributions include:
 
-**Key Features:**
+- Developing a comprehensive state representation capturing essential market features such as bid-ask spread, order book imbalance, and volatility.
+- Designing reward functions to reflect trading objectives and guide the learning process.
+- Implementing neural network architectures for DQN and DDPG agents, including experience replay mechanisms to enhance learning efficiency.
+- Utilizing Strategy Studio for backtesting and validating agent performance.
 
-1. **Multi-Asset Class Support:** Flexibility in developing strategies for various markets.
-2. **High Performance:** Quick backtesting and strategy evaluation.
-3. **Modular Design:** Easy integration and customization.
-
-## Building and Managing Strategies
-
-**Strategy Directory Structure:**
-Organized into directories for provision scripts, strategy code, and result files, ensuring easy access and management of all components.
-
-**Makefile and Command Guide:**
-A Makefile compiles the strategy and executes related commands. Key variables like `INSTANCE_NAME`, `STRATEGY_NAME`, `START_DATE`, `END_DATE`, and `SYMBOLS` are configured to tailor the strategy. Commands such as `make_executable`, `delete_instance`, `clean_dlls`, `move_strategy_dll`, and `start_server` manage strategy execution.
-
-## Running Strategies with Python Scripts
-
-**Automated Command Execution Script:**
-`make_with_python.py` automates Makefile command execution for managing and running backtests, ensuring clean error handling and structured output.
-
-**Parameter Optimization Script:**
-`parameter_optimisation.py` uses the `optuna` library to optimize trading strategy parameters, identifying the best-performing configuration through automated backtesting.
-
-**Use Cases:**
-
-- **Automated Testing:** Executes multiple make commands in sequence.
-- **Parameter Tuning:** Identifies optimal trading strategy parameters.
-
-## Provision Scripts
-
-**Start Server Script (`start_server.sh`):**
-Automates starting the strategy server, ensuring a clean start.
-
-**Git Pull Script (`git_pull.sh`):**
-Automates updating the local repository with the latest changes.
-
-**Create Instance Script (`create_instance.sh`):**
-Automates creating strategy instances with specific configurations.
-
-**Delete Instance Script (`delete_instance.py`):**
-Facilitates removing strategy instances from the database.
-
-**Run Strategy Script (`run_backtest.sh`):**
-Executes backtests over a specified date range.
-
-**Generate Results Script (`generate_results.sh`):**
-Runs backtests and exports comprehensive results, generating detailed reports.
-
-**Edit Parameters Script (`edit_parameters.sh`):**
-Simplifies modifying strategy settings.
-
-**Get Results Script (`get_results.py`):**
-Processes and analyzes backtesting results, calculating performance metrics and generating visual plots.
-
-## Conclusion
-
-This project showcases the comprehensive use of Strategy Studio for developing, testing, and optimizing algorithmic trading strategies. The structured approach to managing strategies, automated command execution, and parameter optimization highlight the platform's efficiency and flexibility, making it an invaluable tool for quantitative traders and financial analysts.
+This project showcased a multidisciplinary approach, integrating deep learning, reinforcement learning, and quantitative finance methodologies to create and optimize advanced trading algorithms.

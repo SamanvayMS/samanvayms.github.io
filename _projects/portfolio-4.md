@@ -1,5 +1,5 @@
 ---
-title: "Guide to Running Projects with Strategy Studio"
+title: "Financial Machine Learning Projects"
 excerpt: "This project provides a guide to running projects with Strategy Studio. It is intended for users who want to learn more on how to run projects with Strategy Studio and how to modfiy the code to suit their needs.<br>[Link to the project](https://gitlab.engr.illinois.edu/ie497_ie597_independent_study_spring_2024/ie497_ie597_spring_2024_group_03/group_03_project/-/blob/main/StrategyStudioGuide.md?ref_type=heads#22-makefile-and-command-guide)"
 collection: projects
 ---
