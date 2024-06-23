@@ -21,7 +21,7 @@ repository               : "SamanvayMS/samanvayms.github.io" # GitHub username/r
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "samanvay.jpeg"
   name             : "Samanvay Malapally Sudhakara"
   pronouns         : # example: "she/her"  
   bio              : "Quant | Data Scientist | Machine Learning Engineer | Researcher"
