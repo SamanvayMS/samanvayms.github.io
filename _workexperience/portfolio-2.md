@@ -4,6 +4,8 @@ excerpt: "Built a Credit Default Model, a Prepayment Model, a Loss Severity mode
 collection: workexperience
 ---
 
+link to repository unavailable due to NDA
+
 - Utilized **AWS Sagemaker and Redshift Connector** for EDA on over **100M Fannie Mae mortgage records**, applying data manipulation and visualization tools (pandas,matplotlib,seaborn) for adding additional Macroeconomic factors and gathering insights on the dataset.
 - Modeled **loan survival and default rates curves**, employing the **Cox Proportional Hazard Model and Kaplan Meier Estimator** and assessing the impact of macroeconomic factors.
 - Bootstrapped Historical Data to **calibrate a Cox Ingersoll Ross (CIR) interest rate model**.
