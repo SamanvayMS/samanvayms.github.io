@@ -1,16 +1,16 @@
 ---
 title: "Deep Learning Specialization (DeepLearning.AI)"
-excerpt: """Courses:- <br>
+excerpt: "Courses:- <br>
 - Neural Networks and Deep Learning<br/>
 - Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br/>
 - Structuring Machine Learning Projects<br/>
 - Convolutional Neural Networks<br/>
 - Sequence Models<br/><br/>
-<img src='/images/certificates/Certificate2.pdf'>"""
+<img src='/images/certificates/Certificate2.pdf'>"
 collection: certifications
 ---
 
-<!-- ## Courses:-
+## Courses:-
 
 - **Neural Networks and Deep Learning**
 ![img](/images/certificates/certificate2-3.pdf)
@@ -25,4 +25,4 @@ collection: certifications
 ![img](/images/certificates/certificate2-5.pdf)
 
 - **Sequence Models**
-![img](/images/certificates/certificate2-1.pdf) -->
+![img](/images/certificates/certificate2-1.pdf)
