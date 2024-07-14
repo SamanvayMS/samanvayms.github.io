@@ -10,8 +10,6 @@ excerpt: """Courses:- <br>
 collection: certifications
 ---
 
-
-
 ## Courses:-
 
 - **Neural Networks and Deep Learning**
