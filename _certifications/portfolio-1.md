@@ -10,7 +10,7 @@ excerpt: """Courses:- <br>
 collection: certifications
 ---
 
-## Courses:-
+<!-- ## Courses:-
 
 - **Neural Networks and Deep Learning**
 ![img](/images/certificates/certificate2-3.pdf)
@@ -25,4 +25,4 @@ collection: certifications
 ![img](/images/certificates/certificate2-5.pdf)
 
 - **Sequence Models**
-![img](/images/certificates/certificate2-1.pdf)
+![img](/images/certificates/certificate2-1.pdf) -->

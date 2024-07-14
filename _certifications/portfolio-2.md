@@ -9,10 +9,13 @@ excerpt: """Courses:- <br>
 collection: certifications
 ---
 
-Built ML models with NumPy & scikit-learn, built & trained supervised models for prediction & binary classification tasks (linear, logistic regression)
-Built & trained a neural network with TensorFlow to perform multi-class classification, & built & used decision trees & tree ensemble methods
+Built Machine Learning models with NumPy & scikit-learn, built & trained supervised models for prediction & binary classification tasks (linear, logistic regression)
+Built & trained a neural network with TensorFlow to perform multi-class classification, built & utilized decision trees & tree ensemble methods
 Applied best practices for ML development & used unsupervised learning techniques for unsupervised learning including clustering & anomaly detection
 Built recommender systems with a collaborative filtering approach & a content-based deep learning method & built a deep reinforcement learning model.
+
+## Projects:-
+
 
 ## Courses:-
 
@@ -27,3 +30,4 @@ Built recommender systems with a collaborative filtering approach & a content-ba
 
 - **Sequences, Time Series and Prediction**
 ![img](/images/certificates/certificate3-1.pdf)
+
