@@ -6,7 +6,7 @@ excerpt: "Courses:- <br>
 - Structuring Machine Learning Projects<br/>
 - Convolutional Neural Networks<br/>
 - Sequence Models<br/><br/>
-<img src='/images/certificates/Certificate2.pdf'>"
+<img src='/images/certificates/certificate2-6.pdf'>"
 collection: certifications
 ---
 

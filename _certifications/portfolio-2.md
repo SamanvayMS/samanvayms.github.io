@@ -5,7 +5,7 @@ excerpt: "Courses:- <br>
 - Advanced Learning Algorithms<br/>
 - Unsupervised Learning, Recommenders, Reinforcement Learning<br/>
 - Sequences, Time Series and Prediction<br/><br/>
-<img src='/images/certificates/Certificate2.pdf'>"
+<img src='/images/certificates/certificate1.pdf'>"
 collection: certifications
 ---
 
