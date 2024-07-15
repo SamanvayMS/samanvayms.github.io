@@ -7,31 +7,45 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal website! I am a Graduate Student at the University of Illinois Urbana-Champaign. I am deeply passionate about leveraging technology and data-driven techniques to extract alpha in the markets. With a strong foundation in Quantitative Finance, Generative AI, Machine Learning, Game Theory, and Reinforcement Learning, I thrive on creating innovative trading algorithms and strategies. My goal is to deploy these strategies in real-world scenarios to achieve significant results and push the boundaries of quantitative finance.
+Welcome to my personal website! I am a Graduate Student in Financial Engineering at the University of Illinois Urbana-Champaign. With a strong foundation in Machine Learning and Quantitative Finance, I am deeply passionate about leveraging technology and data-driven techniques to find innovative solutions for problems in Finance, Trading and other data-Intensive fields.
 
-## My Interests
+## Skills and Interests
+
+### Machine Learning and Artificial intelligence
+
+- **Regression and Classification** :- Linear Regression, Logistic Regression, Lasso Regression, Ridge Regression
+- **Decision Trees and Ensemble Learning (Bagging and Boosting)** :- Decision Trees, Random Forests, Gradient Boosting, AdaBoost, XGBoost
+- **Clustering and Dimensionality Reduction** :- K-Means Clustering, Hierarchical Clustering, PCA, t-SNE, LDA
+- **Natural Language Processing** :- Text Preprocessing, Text Classification, Sentiment Analysis, Word Embeddings, Word to Vec
+- **Deep Learning** :- Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, LSTM, GRU, Transformers
+- **Generative AI** :- Variational Autoencoders, Generative Adversarial Networks
+- **Reinforcement Learning** :- Q-Learning, Deep Q-Learning, Policy Gradient Methods, Actor-Critic Methods, DQN, DDPG, PPO
+
+### Data Science and Data Engineering
+
+- **Data Analysis** :- Data Cleaning, Data Preprocessing, Data Visualization, Exploratory Data Analysis
+- **Cloud Computing** :- AWS, Google Cloud, Azure
+- **Big Data Technologies** :- Hadoop, Airflow, Kafka
+- **Databases** :- SQL, NoSQL, MongoDB, MySQL, PostgreSQL
+- **Data Warehousing** :- Snowflake, Redshift, BigQuery
+- **CI/CD Pipelines** :- Jenkins, Cloud Run
+
+### Econometric and Statistical Analysis
+
+- **Time Series Analysis** :- ARIMA, SARIMA, Seasonal Decomposition, Exponential Smoothing, GARCH, Sequence Models
+- **Statistical Inference** :- Hypothesis Testing, Confidence Intervals, ANOVA, Chi-Square Tests, Goodness of Fit Tests, Correlation Analysis
+- **Game Theory** :- Nash Equilibrium, Auction Theory, Mechanism Design, Mean Field Games, Evolutionary Game Theory, Cooperative Game Theory, Stochastic Games, Strategic Learning
 
 ### Quantitative Finance and Algorithmic Trading
 
-Quantitative finance is my playground. I am dedicated to exploring new approaches to algorithmic trading and continually seek to expand my knowledge in this evolving field. My aim is to push the boundaries of quantitative finance by developing innovative strategies that can adapt to changing market conditions and deliver consistent returns.
+- **Financial Modeling** :- CAPM, Fama-French Model, Black-Scholes Model, Binomial Option Pricing Model, Monte Carlo Simulation, Interest Rate Modelling , Implied Volatility Surface Modelling
+- **Financial Derivatives** :- Options, Futures, Swaps, Forwards, Interest Rate Derivatives, Mortage-Backed Securities, Credit Derivatives
+- **Risk Management** :- Value at Risk, Conditional Value at Risk, Stress Testing, Backtesting, Risk Parity, Portfolio Optimization
+- **Algorithmic Trading** :- Momentum Trading, Mean Reversion Trading, Pairs Trading, Statistical Arbitrage, Market Making, High-Frequency Trading, Sentiment Analysis
+- **Quantitative skills** :- Stochastic Calculus, Portfolio Management, Market Microstructure, Numerical methods, Trading Sytems Design, Financial Machine Learning
 
-### Generative AI and Machine Learning
+## Research Interests:-
 
-My journey in the world of AI and Machine Learning has been driven by a fascination with how these technologies can revolutionize various domains, particularly finance. I am constantly exploring new models and techniques to enhance Information Extraction, Sentiment Analysis, and Predictive Modeling in the financial domain.
-I'm also interested in Sequence-to-Sequence models such as LSTMs, Transformers for enhancing Derivative Pricing, Risk Management, and Portfolio Optimization.
-
-### Game Theory and Reinforcement Learning
-
-Understanding the strategic interactions in competitive environments has always intrigued me. Game Theory provides a robust framework for understanding these interactions and designing mechanisms for optimal decision-making. Reinforcement Learning, on the other hand, offers a powerful tool for developing these optimal strategies in dynamic environments. I'm passionate about combining these two fields to create cutting-edge trading algorithms that can adapt to changing market conditions and outperform traditional strategies.
-
-### Derivatives Trading and Risk Management
-
-Derivatives are a powerful tool for managing risk and enhancing returns. With close to 4+ years of experience in trading options and futures, and I am passionate about developing advanced strategies that leverage derivatives to optimize risk-return profiles. My goal is to combine the aforementioned areas of interest to create cutting-edge derivative trading strategies.
-
-## My Approach
-
-My approach is rooted in rigorous research, data-driven analysis, and continuous learning. I believe that a deep understanding of the underlying principles and mechanisms is essential and must be rooted in a solid foundation of theory and practice.
-
-## Let's Connect
-
-Feel free to explore my page to learn more about my professional journey and accomplishments. If you share similar interests or have exciting ideas to discuss, don't hesitate to reach out!
+- **Fractal Geometry in Finance** :- Fractal Time Series Analysis with BPE Tokenizers for Improved Montecarlo Asset Pricing
+- **Reinforcement Learning Trading Strategies** :- Deep Reinforcement Learning for Portfolio Optimization and medium and high frequency trading
+- **Mean Field Games in Finance** :- Mean Field Games for Optimal Portfolio Allocation and Investing Strategies
