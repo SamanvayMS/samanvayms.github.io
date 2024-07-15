@@ -1,6 +1,6 @@
 ---
 title: "Deep Learning Specialization (DeepLearning.AI)"
-excerpt: "Courses:- <br>
+excerpt: "Courses:- <br/>
 - Neural Networks and Deep Learning<br/>
 - Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization<br/>
 - Structuring Machine Learning Projects<br/>

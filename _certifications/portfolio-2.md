@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning Specialization (DeepLearning.AI)"
-excerpt: "Courses:- <br>
+excerpt: "Courses:- <br/>
 - Supervised Machine Learning: Regression and Classification<br/>
 - Advanced Learning Algorithms<br/>
 - Unsupervised Learning, Recommenders, Reinforcement Learning<br/>
