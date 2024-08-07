@@ -14,4 +14,3 @@ The project encompasses various machine learning tasks, including:
 5. **Credit Card Default Prediction**: Implementing Decision Tree and RandomForest classifiers with high accuracy.
 6. **Corporate Bond Credit Rating Classification**: Using advanced classifiers and achieving high accuracy with RandomForest.
 7. **Economic Cycle Prediction**: Using RandomForest and AdaBoost regressors, achieving high R² scores across various timeframes.
-

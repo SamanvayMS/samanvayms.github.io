@@ -1,18 +1,23 @@
 ---
 title: "JIA Finance - Quantitative Analyst"
-excerpt: "Built a Credit Default Model, a Prepayment Model, a Loss Severity model and Calibrated a Cox-Ingersoll-Ross Interest rate Model to model and price Mortgage Backed Securities"
+excerpt: "Jan 2023 - Aug 2023, New York, NY (remote)"
 collection: workexperience
 ---
 
-link to repository unavailable due to NDA
+- Automated Mortgage Guidelines Interpretation leveraging OpenAI GPT 3.5, GPT 4 APIs, LangChain, FAISS/Chroma DB vectorstore for rapid ingestion
+& validation of documents resulting in enhanced speed & accuracy of mortgage processing.
+- Engineered specialized task-specific Retrieval Augmented Generation (RAG) Q&A chains that refined query processing using a recursive tree approach
+combined with LLM-based memoization which significantly increased response accuracy for queries boosting zero shot accuracy by 30 %.
 
-- Utilized **AWS Sagemaker and Redshift Connector** for EDA on over **100M Fannie Mae mortgage records**, applying data manipulation and visualization tools (pandas,matplotlib,seaborn) for adding additional Macroeconomic factors and gathering insights on the dataset.
-- Modeled **loan survival and default rates curves**, employing the **Cox Proportional Hazard Model and Kaplan Meier Estimator** and assessing the impact of macroeconomic factors.
-- Bootstrapped Historical Data to **calibrate a Cox Ingersoll Ross (CIR) interest rate model**.
-- Examined various Macroeconomic Factors affecting **Mortgage Prepayment** and established a **Prepayment Model** based on empirical data.
-- Developed a **Loss Severity Model** using loss recovery data from historical mortgage defaults.
-- Crafted a comprehensive **cash flow model for Residential Mortgage Backed Securities (RMBS)** integrating credit default, prepayment, and loss severity with the interest rate model.
+![Chatbot](/images/workexperience/RAGbot.png)
 
-Due to Non-Disclosure Agreements, I am unable to provide a link to the repository.
+- Exploratory Data Analysis on over 100M Fannie Mae mortgage records using Tableau along with Data Cleaning & Feature Engineering with AWS
+Sagemaker & Redshift Connector, applying various other data manipulation & visualization tools for actionable insights.
+- Modeled loan survival & default rates curves employing the Cox Proportional Hazard Model & Kaplan Meier Estimator & assessed the impact of various
+macroeconomic factors such as changes in unemployment rates & income on default & delinquency rates.
+- Crafted a comprehensive cash flow model for Mortgage Backed Securities (MBS) integrating credit default, prepayment, & loss severity models with a
+yield curve calibrated Cox Ingersoll Ross (CIR) Interest Rate model.
 
 ![MBS](/images/workexperience/MBS.png)
+
+Due to Non-Disclosure Agreements, I am unable to provide a link to the repository.

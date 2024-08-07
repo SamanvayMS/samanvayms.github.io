@@ -13,13 +13,14 @@ This project entails the comprehensive development, testing, and deployment of s
 ### Centralized Strategy Engine on OANDA's V20 Platform
 
 - **Algorithm Development**: Created sophisticated algorithms tailored for medium frequency trading.
-- **Data Scraping**: Incorporated advanced data scraping technologies for both live and historical data.
+- **Data Warehousing**: Incorporated advanced data warehousing technologies for storing and retrieving live data using BigQuery and Google Cloud Storage.
 - **Multi-Strategy Operation**: Enhanced engine's capability to simultaneously operate multiple trading strategies while tracking positions and profits locally, allowing seamless deployment of multiple instances on the same account without conflict.
 
 ### Structure
 
 - **Adapters for Multiple Brokers**: Developed adapters for OANDA, Binance and Kite Connect APIs to facilitate data streaming and trading across Forex, Crypto and Equity markets.
 - **Data Handling**: Implemented robust data handling mechanisms for efficient data processing and analysis. uses a combination of websockets and REST APIs for real-time data streaming and tick and orderbook management.
+- **Data Warehousing**: Above Data is directed to Google Cloud Storage and BigQuery for efficient data warehousing and retrieval and analysis with BI tools.
 - **Centralized Strategy Engine**: Centralized strategy engine for efficient trading strategy management, risk management and deployment across multiple markets.
 - **Strategy Traders**: Developed individual strategy traders with unique strategies and instruments that can be deployed on the centralized engine independently and with their own risk management parameters and position tracking.
 
