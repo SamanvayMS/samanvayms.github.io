@@ -21,13 +21,13 @@ Welcome to my personal website! I am a Graduate Student in Financial Engineering
 - **Generative AI** :- Variational Autoencoders, Generative Adversarial Networks
 - **Reinforcement Learning** :- Q-Learning, Deep Q-Learning, Policy Gradient Methods, Actor-Critic Methods, DQN, DDPG, PPO
 
-### Data Science and Data Engineering
+### Big Data and Cloud Computing
 
-- **Big Data** :- Data Cleaning, Data Preprocessing, Data Visualization, Exploratory Data Analysis
+- **Data Techniques** :- Data Cleaning, Data Preprocessing, Data Visualization, Exploratory Data Analysis, ETL Pipelines, MapReduce
 - **Cloud Computing** :- AWS, Google Cloud, Azure
 - **Big Data Technologies** :- Hadoop, Airflow, Kafka, Spark
-- **Databases** :- SQL, NoSQL (MongoDB, MySQL, PostgreSQL)
-- **Data Warehousing** :- Snowflake, Redshift, BigQuery
+- **Databases** :- SQL, NoSQL (MongoDB, MySQL, PostgreSQL, MS SQL Server, sqlite)
+- **Data Warehousing** :- Snowflake, Redshift, BigQuery, Databricks
 - **CI/CD Pipelines** :- Jenkins, Cloud Run
 
 ### Econometric and Statistical Analysis
@@ -49,4 +49,4 @@ Welcome to my personal website! I am a Graduate Student in Financial Engineering
 - **Fractal Geometry in Finance** :- Fractal Time Series Analysis with BPE Tokenizers for Improved Montecarlo Asset Pricing.
 - **Reinforcement Learning Trading Strategies** :- Deep Reinforcement Learning for Portfolio Optimization and medium and high frequency trading.
 - **Mean Field Games in Finance** :- Mean Field Games for Optimal Portfolio Allocation and Investing Strategies.
-- **Generative AI for Finance** :- Generative Adversarial Networks for Synthetic Data Generation in Finance and Trading. 
+- **Generative AI for Finance** :- Generative Adversarial Networks for Synthetic Data Generation in Finance and Trading.
