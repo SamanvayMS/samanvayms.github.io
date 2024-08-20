@@ -23,10 +23,10 @@ Welcome to my personal website! I am a Graduate Student in Financial Engineering
 
 ### Data Science and Data Engineering
 
-- **Data Analysis** :- Data Cleaning, Data Preprocessing, Data Visualization, Exploratory Data Analysis
+- **Big Data** :- Data Cleaning, Data Preprocessing, Data Visualization, Exploratory Data Analysis
 - **Cloud Computing** :- AWS, Google Cloud, Azure
-- **Big Data Technologies** :- Hadoop, Airflow, Kafka
-- **Databases** :- SQL, NoSQL, MongoDB, MySQL, PostgreSQL
+- **Big Data Technologies** :- Hadoop, Airflow, Kafka, Spark
+- **Databases** :- SQL, NoSQL (MongoDB, MySQL, PostgreSQL)
 - **Data Warehousing** :- Snowflake, Redshift, BigQuery
 - **CI/CD Pipelines** :- Jenkins, Cloud Run
 
@@ -46,6 +46,7 @@ Welcome to my personal website! I am a Graduate Student in Financial Engineering
 
 ## Research Interests:-
 
-- **Fractal Geometry in Finance** :- Fractal Time Series Analysis with BPE Tokenizers for Improved Montecarlo Asset Pricing
-- **Reinforcement Learning Trading Strategies** :- Deep Reinforcement Learning for Portfolio Optimization and medium and high frequency trading
-- **Mean Field Games in Finance** :- Mean Field Games for Optimal Portfolio Allocation and Investing Strategies
+- **Fractal Geometry in Finance** :- Fractal Time Series Analysis with BPE Tokenizers for Improved Montecarlo Asset Pricing.
+- **Reinforcement Learning Trading Strategies** :- Deep Reinforcement Learning for Portfolio Optimization and medium and high frequency trading.
+- **Mean Field Games in Finance** :- Mean Field Games for Optimal Portfolio Allocation and Investing Strategies.
+- **Generative AI for Finance** :- Generative Adversarial Networks for Synthetic Data Generation in Finance and Trading. 

@@ -19,5 +19,3 @@ macroeconomic factors such as changes in unemployment rates & income on default 
 yield curve calibrated Cox Ingersoll Ross (CIR) Interest Rate model.
 
 ![MBS](/images/workexperience/MBS.png)
-
-Due to Non-Disclosure Agreements, I am unable to provide a link to the repository.
