@@ -10,7 +10,7 @@ export const site = {
   greeting: "Hi, I'm Sam.",
   /** Rotating typewriter phrases in the hero */
   taglines: [
-    "Quantitative Analyst @ Northwestern Mutual",
+    "Quantitative Associate @ Northwestern Mutual",
     "Quant Developer",
     "Machine Learning Engineer",
     "Building systematic trading strategies",
@@ -33,7 +33,7 @@ export const site = {
     eyebrow: "Who I am",
     heading: "About",
     paragraphs: [
-      "I'm a quant and data scientist working at the intersection of machine learning and financial markets. I hold an MS in Financial Engineering from the University of Illinois Urbana-Champaign, and I currently work as a Quantitative Analyst at Northwestern Mutual in Milwaukee.",
+      "I'm a quant and data scientist working at the intersection of machine learning and financial markets. I hold an MS in Financial Engineering from the University of Illinois Urbana-Champaign, and I currently work as a Quantitative Associate on the Public Fixed Income team at Northwestern Mutual in Milwaukee.",
       "My work spans the systematic-trading stack — from deep learning and reinforcement learning to market microstructure, derivatives pricing, and production data pipelines.",
     ],
     interestsLabel: "Research interests",
