@@ -3,8 +3,8 @@ import { useReducedMotion } from "framer-motion";
 import { Github, Linkedin, Mail, Egg } from "lucide-react";
 import { site } from "../data/site";
 
-// Mirrors SiteBackground's cycle order (which starts on "waves").
-const LABELS = ["Riding the waves… (click for birds)", "Flocking… (click to hide)", "Background off (click for waves)"];
+// Mirrors SiteBackground's cycle order (which starts on "candles").
+const LABELS = ["Charting the tape… (click to hide)", "Background off (click for candles)"];
 const YEAR = new Date().getFullYear();
 
 export default function Footer() {
