@@ -37,12 +37,25 @@ export default function ExperienceAccordion() {
               onClick={() => setOpenIndex(isOpen ? -1 : i)}
               className="flex w-full items-center gap-4 p-6 text-left md:p-7"
             >
-              <span
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] text-[var(--color-accent)]"
-                aria-hidden
-              >
-                <Icon className="h-4 w-4" />
-              </span>
+              {entry.logo ? (
+                <span
+                  className="flex h-10 shrink-0 items-center justify-center rounded-md bg-white px-1.5"
+                  aria-hidden
+                >
+                  <img
+                    src={entry.logo}
+                    alt=""
+                    className="h-7 w-auto max-w-[104px] object-contain"
+                  />
+                </span>
+              ) : (
+                <span
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] text-[var(--color-accent)]"
+                  aria-hidden
+                >
+                  <Icon className="h-4 w-4" />
+                </span>
+              )}
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="text-base font-semibold text-white sm:text-lg">
@@ -52,7 +65,9 @@ export default function ExperienceAccordion() {
                   </h3>
                   <span className="font-mono text-xs text-[var(--color-mute-500)]">{entry.period}</span>
                 </div>
-                <p className="mt-1 text-sm text-[var(--color-mute-400)]">{entry.location}</p>
+                {entry.location && (
+                  <p className="mt-1 text-sm text-[var(--color-mute-400)]">{entry.location}</p>
+                )}
               </div>
               {hasDetail && (
                 <ChevronDown
@@ -76,7 +91,7 @@ export default function ExperienceAccordion() {
                   transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-6 pl-[4.75rem] pr-6 md:pb-7 md:pr-7">
+                  <div className="px-6 pb-6 md:px-7 md:pb-7">
                     {entry.summary && (
                       <p className="text-sm text-[var(--color-mute-300)]">{entry.summary}</p>
                     )}

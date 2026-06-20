@@ -22,8 +22,21 @@ export interface TimelineEntry {
   summary?: string;    // one-line overview shown above the bullets
   bullets?: string[];  // accomplishments / highlights (optional)
   tech?: string[];     // tech tags; recognized names get a brand icon (optional)
+  logo?: string;       // org logo in /public, rendered on a light tile; falls back to a briefcase/cap icon
 }
 ```
+
+`location` is optional. If `logo` is omitted the entry shows a briefcase (work) or
+graduation-cap (education) icon instead.
+
+## Adding an org logo
+
+Put the logo in `public/images/logos/` and set `logo: "/images/logos/<name>.<ext>"`
+(SVG or PNG; transparent or light works best since it sits on a white tile). Good
+sources: the org's Wikipedia page image
+(`https://en.wikipedia.org/api/rest_v1/page/summary/<Title>` → `originalimage.source`)
+or Wikimedia `Special:FilePath/<File>.svg`. Verify the download is the actual logo
+(not a building photo or a generic globe) by viewing it before wiring it in.
 
 An entry is expandable only if it has a `summary`, `bullets`, or `tech`; otherwise
 it renders as a non-expanding header row (useful for a bare education entry).

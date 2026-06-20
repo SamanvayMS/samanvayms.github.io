@@ -3,17 +3,19 @@ export interface TimelineEntry {
   title: string; // role (work) or degree (education)
   org: string; // company (work) or school (education)
   orgUrl?: string;
-  location: string;
+  location?: string;
   period: string;
   current?: boolean;
   summary?: string;
   bullets?: string[];
   tech?: string[];
+  logo?: string; // path to org logo in /public (rendered on a light tile)
 }
 
 /**
  * Unified timeline (work + education), most-recent first.
  * NOTE: Ramaiah BE dates are approximate — confirm. UIUC coursework to be added.
+ * JIA Finance has no logo (company site is defunct) — drop one in /images/logos/jia.* to add it.
  */
 export const timeline: TimelineEntry[] = [
   {
@@ -23,6 +25,7 @@ export const timeline: TimelineEntry[] = [
     location: "Milwaukee, WI",
     period: "2024 — Present",
     current: true,
+    logo: "/images/logos/northwestern-mutual.svg",
     summary:
       "Quant on the Public Fixed Income team (~$140B AUM) spanning corporate bonds, municipals, EM corporates & sovereigns, high-yield bonds & loans, CLOs, CMBS/MBS/ABS and other structured credit, and fixed-income ETFs — plus the affiliated CLO manager, 720 East (~$3.5B AUM).",
     bullets: [
@@ -39,8 +42,23 @@ export const timeline: TimelineEntry[] = [
     org: "University of Illinois Urbana-Champaign",
     location: "Champaign, IL",
     period: "2022 — 2024",
+    logo: "/images/logos/uiuc.png",
     summary: "Master of Science in Financial Engineering.",
     // Notable coursework to be added.
+  },
+  {
+    kind: "work",
+    title: "Quant",
+    org: "BP (Practicum)",
+    period: "Aug 2023 — Dec 2023",
+    logo: "/images/logos/bp.png",
+    summary: "Forex Ladder Trading Strategy — practicum sponsored by BP.",
+    bullets: [
+      "Enhanced return potential by developing a Forex trading strategy leveraging quantitative techniques for grid & lot-sizing optimisation.",
+      "Sped up backtests up to 2000× using Just-In-Time compilation on tick data from various major currency pairs.",
+      "Optimised proprietary trading models via automated hyperparameter tuning (Optuna, PySwarm, DEAP / genetic algorithms) and validated robustness with Walk-Forward Analysis and Monte Carlo simulations.",
+    ],
+    tech: ["Python", "Numba", "Optuna", "PySwarm", "DEAP"],
   },
   {
     kind: "work",
@@ -48,6 +66,7 @@ export const timeline: TimelineEntry[] = [
     org: "JIA Finance",
     location: "New York, NY (Remote)",
     period: "Jan 2023 — Aug 2023",
+    logo: "/images/logos/jia.png",
     bullets: [
       "Automated mortgage-guideline interpretation with GPT-3.5/4, LangChain, and FAISS/Chroma vector stores for rapid document ingestion and validation.",
       "Engineered task-specific RAG Q&A chains using a recursive-tree approach with LLM-based memoization, boosting zero-shot accuracy by 30%.",
@@ -62,6 +81,7 @@ export const timeline: TimelineEntry[] = [
     org: "Ramaiah Institute of Technology",
     location: "Bengaluru, India",
     period: "2017 — 2021",
+    logo: "/images/logos/ramaiah.png",
     summary: "Bachelor of Engineering in Mechanical Engineering.",
   },
 ];
