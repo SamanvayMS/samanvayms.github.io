@@ -1,0 +1,180 @@
+---
+layout: default
+---
+
+{% include base_path %}
+{% assign author = site.author %}
+
+<main id="main" class="portfolio-shell portfolio-home" role="main">
+  <section class="portfolio-hero" id="home" aria-labelledby="portfolio-hero-title">
+    <div class="portfolio-hero__content reveal">
+      <p class="portfolio-eyebrow">Quantitative finance + machine learning</p>
+      <h1 id="portfolio-hero-title">Hi, I'm Sam</h1>
+      <p class="portfolio-type" data-portfolio-typewriter>Graduate student in Financial Engineering at UIUC.</p>
+      <p class="portfolio-hero__summary">
+        I build data-driven systems for finance, trading, risk, and research: from market microstructure experiments to ML pipelines and production analytics.
+      </p>
+      <div class="portfolio-actions" aria-label="Primary actions">
+        <a class="portfolio-button portfolio-button--primary" href="{{ base_path }}/projects/">View projects</a>
+        <a class="portfolio-button" href="{{ base_path }}/files/SamanvayResume.pdf">Open CV</a>
+        {% if author.email %}
+          <a class="portfolio-button portfolio-button--ghost" href="mailto:{{ author.email }}">Email</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="portfolio-hero__visual reveal">
+      <div class="market-panel" aria-hidden="true">
+        <span class="market-panel__ticker">ALPHA</span>
+        <span class="market-panel__value">+2.48%</span>
+        <span class="market-panel__line market-panel__line--one"></span>
+        <span class="market-panel__line market-panel__line--two"></span>
+        <span class="market-panel__bar"></span>
+      </div>
+      <div class="portrait-frame">
+        {% if author.avatar contains "://" %}
+          <img src="{{ author.avatar }}" alt="{{ author.name }}">
+        {% else %}
+          <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }}">
+        {% endif %}
+      </div>
+      <div class="hero-note">
+        <span>Current focus</span>
+        <strong>Financial ML, trading systems, and generative AI for markets</strong>
+      </div>
+    </div>
+
+    <div class="portfolio-stats reveal" aria-label="Portfolio summary">
+      <a href="{{ base_path }}/projects/">
+        <strong>{{ site.projects | size }}</strong>
+        <span>Projects</span>
+      </a>
+      <a href="{{ base_path }}/workexperience/">
+        <strong>{{ site.workexperience | size }}</strong>
+        <span>Roles</span>
+      </a>
+      <a href="{{ base_path }}/certifications/">
+        <strong>{{ site.certifications | size }}</strong>
+        <span>Credentials</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-section home-section--content" id="about" aria-labelledby="about-title">
+    <div class="section-heading reveal">
+      <p class="portfolio-eyebrow">Profile</p>
+      <h2 id="about-title">About and research direction</h2>
+      <p>Academic context and research interests are preserved from the original site and presented as a cleaner reading experience.</p>
+    </div>
+    <div class="home-prose page__content reveal">
+      {{ content }}
+    </div>
+  </section>
+
+  <section class="home-section home-section--skills" id="skills" aria-labelledby="skills-title">
+    <div class="section-heading reveal">
+      <p class="portfolio-eyebrow">Capability map</p>
+      <h2 id="skills-title">Skills without the wall of text</h2>
+      <p>A compact view of the same technical inventory, organized by how I use it: modeling, systems, inference, and markets.</p>
+    </div>
+
+    <div class="skill-showcase reveal">
+      <div class="skill-signal-strip" aria-label="Skills summary">
+        {% for item in site.data.skills.summary %}
+          <div class="skill-signal">
+            <strong>{{ item.value }}</strong>
+            <span>{{ item.label }}</span>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="skill-domain-grid">
+        {% for domain in site.data.skills.domains %}
+          <article class="skill-domain{% if domain.featured %} skill-domain--featured{% endif %}">
+            <div class="skill-domain__header">
+              <span class="skill-domain__index">0{{ forloop.index }}</span>
+              <div>
+                <h3>{{ domain.title }}</h3>
+                <p>{{ domain.summary }}</p>
+              </div>
+            </div>
+
+            <div class="skill-cluster-list">
+              {% for cluster in domain.clusters %}
+                <div class="skill-cluster">
+                  <span class="skill-cluster__label">{{ cluster.label }}</span>
+                  <div class="skill-chip-cloud">
+                    {% for skill in cluster.items %}
+                      <span>{{ skill }}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section" id="featured-projects" aria-labelledby="featured-projects-title">
+    <div class="section-heading reveal">
+      <p class="portfolio-eyebrow">Selected work</p>
+      <h2 id="featured-projects-title">Project portfolio</h2>
+      <p>Representative work across market microstructure, reinforcement learning, financial machine learning, cloud deployment, and LLMs.</p>
+    </div>
+    <div class="portfolio-card-grid portfolio-card-grid--featured">
+      {% for post in site.projects limit: 4 %}
+        {% include portfolio-card.html post=post %}
+      {% endfor %}
+    </div>
+    <div class="section-footer reveal">
+      <a class="portfolio-button" href="{{ base_path }}/projects/">Explore all projects</a>
+    </div>
+  </section>
+
+  <section class="home-section" id="experience-preview" aria-labelledby="experience-title">
+    <div class="section-heading reveal">
+      <p class="portfolio-eyebrow">Experience</p>
+      <h2 id="experience-title">Recent roles</h2>
+      <p>Work spanning data science, quantitative finance, NLP, mortgage analytics, risk modeling, and production data systems.</p>
+    </div>
+    <div class="portfolio-timeline">
+      {% for post in site.workexperience %}
+        {% include portfolio-card.html post=post timeline=true %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="home-section home-section--contact" id="contact" aria-labelledby="contact-title">
+    <div class="section-heading reveal">
+      <p class="portfolio-eyebrow">Contact</p>
+      <h2 id="contact-title">Let us connect</h2>
+      <p>For research, quant finance, machine learning engineering, and collaboration conversations.</p>
+    </div>
+    <div class="contact-links reveal">
+      {% if author.email %}
+        <a href="mailto:{{ author.email }}">
+          <span>Email</span>
+          <strong>{{ author.email }}</strong>
+        </a>
+      {% endif %}
+      {% if author.github %}
+        <a href="https://github.com/{{ author.github }}">
+          <span>GitHub</span>
+          <strong>github.com/{{ author.github }}</strong>
+        </a>
+      {% endif %}
+      {% if author.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ author.linkedin }}">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/{{ author.linkedin }}</strong>
+        </a>
+      {% endif %}
+      <a href="{{ base_path }}/files/SamanvayResume.pdf">
+        <span>CV</span>
+        <strong>SamanvayResume.pdf</strong>
+      </a>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,40 @@
+{% include base_path %}
+{% assign post = include.post %}
+{% assign card_text = post.title | append: " " | append: post.excerpt | append: " " | append: post.content | downcase %}
+{% capture card_tags %}
+{% if card_text contains "trading" or card_text contains "market" or card_text contains "strategy" %} trading{% endif %}
+{% if card_text contains "machine learning" or card_text contains "deep learning" or card_text contains "neural" or card_text contains "llm" or card_text contains "language model" or card_text contains "reinforcement" %} machine-learning{% endif %}
+{% if card_text contains "finance" or card_text contains "mortgage" or card_text contains "risk" or card_text contains "bond" or card_text contains "credit" %} finance{% endif %}
+{% if card_text contains "automation" or card_text contains "pipeline" or card_text contains "bash" or card_text contains "makefile" %} automation{% endif %}
+{% if card_text contains "cloud" or card_text contains "aws" or card_text contains "google cloud" or card_text contains "bigquery" or card_text contains "spark" or card_text contains "kafka" or card_text contains "redshift" %} cloud{% endif %}
+{% if post.collection == "certifications" %} credential machine-learning{% endif %}
+{% endcapture %}
+{% assign normalized_tags = card_tags | strip %}
+
+<article class="portfolio-card reveal{% if include.timeline %} portfolio-card--timeline{% endif %}" data-portfolio-card data-tags="{{ normalized_tags }}">
+  <div class="portfolio-card__meta">
+    <span>{{ post.collection | default: "portfolio" | replace: "workexperience", "experience" | capitalize }}</span>
+    {% if post.date %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y" }}</time>
+    {% endif %}
+  </div>
+
+  <h2 class="portfolio-card__title">
+    <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+  </h2>
+
+  {% if post.excerpt %}
+    <p class="portfolio-card__excerpt">{{ post.excerpt | strip_html | truncate: 260 }}</p>
+  {% endif %}
+
+  <div class="portfolio-card__tags" aria-label="Topics">
+    {% if normalized_tags contains "trading" %}<span>Trading</span>{% endif %}
+    {% if normalized_tags contains "machine-learning" %}<span>ML/AI</span>{% endif %}
+    {% if normalized_tags contains "finance" %}<span>Finance</span>{% endif %}
+    {% if normalized_tags contains "automation" %}<span>Automation</span>{% endif %}
+    {% if normalized_tags contains "cloud" %}<span>Cloud/Data</span>{% endif %}
+    {% if post.collection == "certifications" %}<span>Credential</span>{% endif %}
+  </div>
+
+  <a class="portfolio-card__link" href="{{ base_path }}{{ post.url }}">Open detail</a>
+</article>

@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if page.collection_name == "workexperience" %}
+  {% assign items = site.workexperience %}
+{% elsif page.collection_name == "certifications" %}
+  {% assign items = site.certifications %}
+{% else %}
+  {% assign items = site.projects %}
+{% endif %}
+
+<main id="main" class="portfolio-shell portfolio-archive-page" role="main">
+  <header class="portfolio-page-hero reveal">
+    <p class="portfolio-eyebrow">{{ page.eyebrow | default: page.title }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.intro %}
+      <p>{{ page.intro }}</p>
+    {% endif %}
+  </header>
+
+  {% if page.enable_filters %}
+    <div class="portfolio-filter-bar reveal" data-portfolio-filters aria-label="Filter projects">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="trading">Trading</button>
+      <button type="button" data-filter="machine-learning">ML/AI</button>
+      <button type="button" data-filter="finance">Finance</button>
+      <button type="button" data-filter="automation">Automation</button>
+      <button type="button" data-filter="cloud">Cloud/Data</button>
+    </div>
+  {% endif %}
+
+  {% if page.timeline %}
+    <section class="portfolio-timeline portfolio-timeline--page">
+      {% for post in items %}
+        {% include portfolio-card.html post=post timeline=true %}
+      {% endfor %}
+    </section>
+  {% else %}
+    <section class="portfolio-card-grid">
+      {% for post in items %}
+        {% include portfolio-card.html post=post %}
+      {% endfor %}
+    </section>
+  {% endif %}
+</main>
