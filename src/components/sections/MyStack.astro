@@ -14,7 +14,7 @@ import { StackTile } from "../ui/StackTile.tsx";
     <div class="mt-12">
       {
         stackGroups.map((group, i) => (
-          <Reveal client:visible index={i} className={i > 0 ? "mt-12" : ""}>
+          <Reveal client:visible index={i} className={i > 0 ? "mt-8" : ""}>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr] md:gap-8">
               <h3 class="pt-1 text-sm font-semibold uppercase tracking-wider text-[var(--color-mute-400)]">
                 {group.label}
