@@ -9,6 +9,12 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   {
+    title: "CFA Level I",
+    issuer: "CFA Institute",
+    summary:
+      "Passed Level I of the Chartered Financial Analyst program, covering ethics, quantitative methods, economics, financial reporting, corporate finance, equities, fixed income, derivatives, alternatives, and portfolio management.",
+  },
+  {
     title: "Deep Learning Specialization",
     issuer: "DeepLearning.AI",
     summary:
