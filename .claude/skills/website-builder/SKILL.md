@@ -22,7 +22,7 @@ Read **only** the reference file for the task at hand (each is self-contained):
 
 | Task | Data file to edit | Read |
 |------|-------------------|------|
-| Add / edit a **work experience** entry | `src/data/experience.ts` | [references/experience.md](references/experience.md) |
+| Add / edit a **timeline** entry (work or education) | `src/data/experience.ts` | [references/timeline.md](references/timeline.md) |
 | Add / edit a **project** (and its filter tags) | `src/data/projects.ts` | [references/projects.md](references/projects.md) |
 | Add / edit a **certification** | `src/data/certifications.ts` | [references/certifications.md](references/certifications.md) |
 | Add / edit **skills** (domains, clusters, stat cards) | `src/data/skills.ts` | [references/skills.md](references/skills.md) |

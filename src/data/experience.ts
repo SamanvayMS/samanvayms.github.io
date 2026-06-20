@@ -1,23 +1,25 @@
-export interface Experience {
-  role: string;
-  company: string;
-  companyUrl?: string;
+export interface TimelineEntry {
+  kind: "work" | "education";
+  title: string; // role (work) or degree (education)
+  org: string; // company (work) or school (education)
+  orgUrl?: string;
   location: string;
   period: string;
   current?: boolean;
   summary?: string;
-  bullets: string[];
-  tech: string[];
+  bullets?: string[];
+  tech?: string[];
 }
 
 /**
- * Most-recent first. NOTE: Northwestern Mutual is a placeholder — fill in the
- * real start date and accomplishments. Discover's end date is an assumption.
+ * Unified timeline (work + education), most-recent first.
+ * NOTE: Ramaiah BE dates are approximate — confirm. UIUC coursework to be added.
  */
-export const experience: Experience[] = [
+export const timeline: TimelineEntry[] = [
   {
-    role: "Quantitative Associate",
-    company: "Northwestern Mutual",
+    kind: "work",
+    title: "Quantitative Associate",
+    org: "Northwestern Mutual",
     location: "Milwaukee, WI",
     period: "2024 — Present",
     current: true,
@@ -32,29 +34,18 @@ export const experience: Experience[] = [
     tech: ["Python", "Streamlit", "dbt", "Snowflake", "Tableau", "SQL"],
   },
   {
-    role: "Data Scientist",
-    company: "Discover Financial Services",
-    location: "Chicago, IL",
-    period: "2023 — 2024",
-    bullets: [
-      "Developed and deployed credit-risk assessment models (scikit-learn tree ensembles, TensorFlow deep models), increasing loan-default prediction accuracy by 30% and lowering the overall risk profile.",
-      "Enhanced sentiment analysis for market sentiment and creditworthiness assessment with neural-network models, improving performance by 30%.",
-      "Built real-time data pipelines with Apache Spark and Kafka, cutting data latency by 25% for more timely credit-risk decisions.",
-      "Implemented AWS Redshift warehousing for a 35% gain in query performance, and tuned MySQL/SQL queries for a 25% retrieval speedup.",
-    ],
-    tech: [
-      "Python",
-      "scikit-learn",
-      "TensorFlow",
-      "Apache Spark",
-      "Apache Kafka",
-      "AWS Redshift",
-      "SQL",
-    ],
+    kind: "education",
+    title: "MS, Financial Engineering",
+    org: "University of Illinois Urbana-Champaign",
+    location: "Champaign, IL",
+    period: "2022 — 2024",
+    summary: "Master of Science in Financial Engineering.",
+    // Notable coursework to be added.
   },
   {
-    role: "Quantitative Analyst",
-    company: "JIA Finance",
+    kind: "work",
+    title: "Quantitative Analyst",
+    org: "JIA Finance",
     location: "New York, NY (Remote)",
     period: "Jan 2023 — Aug 2023",
     bullets: [
@@ -63,26 +54,14 @@ export const experience: Experience[] = [
       "Ran EDA on 100M+ Fannie Mae mortgage records (Tableau, AWS SageMaker, Redshift) with custom data-cleaning and feature engineering.",
       "Modeled loan survival and default curves (Cox Proportional Hazard, Kaplan-Meier) and built an MBS cash-flow model with a yield-curve-calibrated CIR rate model.",
     ],
-    tech: [
-      "Python",
-      "GPT-4",
-      "LangChain",
-      "FAISS",
-      "AWS SageMaker",
-      "Tableau",
-    ],
+    tech: ["Python", "GPT-4", "LangChain", "FAISS", "AWS SageMaker", "Tableau"],
   },
   {
-    role: "Data Scientist",
-    company: "HCL Technologies",
+    kind: "education",
+    title: "BE, Mechanical Engineering",
+    org: "Ramaiah Institute of Technology",
     location: "Bengaluru, India",
-    period: "Jul 2020 — Jul 2022",
-    bullets: [
-      "Applied NLP to news sentiment and financial reports, building deep-learning models (TensorFlow) for sentiment analysis and topic modeling to inform investment decisions.",
-      "Used statistical methods and time-series forecasting to identify market patterns and optimize trading strategies.",
-      "Prepared and visualized data with Power BI, Docker, and AWS, and containerized ETL processes for consistent, repeatable cloud deployment.",
-      "Documented A/B testing methodology and results for regulatory compliance, presenting actionable model-improvement reports.",
-    ],
-    tech: ["Python", "TensorFlow", "Power BI", "Docker", "AWS"],
+    period: "2017 — 2021",
+    summary: "Bachelor of Engineering in Mechanical Engineering.",
   },
 ];

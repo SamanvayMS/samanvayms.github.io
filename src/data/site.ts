@@ -43,22 +43,12 @@ export const site = {
       "Mean-field games for portfolio allocation",
       "Generative AI for synthetic market data",
     ],
-    education: [
-      {
-        school: "University of Illinois Urbana-Champaign",
-        degree: "MS, Financial Engineering",
-      },
-      {
-        school: "Ramaiah Institute of Technology",
-        degree: "BE, Mechanical Engineering",
-      },
-    ],
   },
 } as const;
 
 export const navLinks: NavLink[] = [
   { label: "About", href: "/#about" },
-  { label: "Work", href: "/#work" },
+  { label: "Timeline", href: "/#timeline" },
   { label: "Projects", href: "/#projects" },
   { label: "Bookshelf", href: "/bookshelf" },
   { label: "Contact", href: "/#contact" },

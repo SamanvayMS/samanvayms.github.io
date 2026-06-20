@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { experience } from "../data/experience";
+import { ChevronDown, Briefcase, GraduationCap } from "lucide-react";
+import { timeline } from "../data/experience";
 import { getTechIcon } from "../lib/techIcons";
 
 function TechTag({ name }: { name: string }) {
@@ -16,17 +16,19 @@ function TechTag({ name }: { name: string }) {
 
 export default function ExperienceAccordion() {
   const reduce = useReducedMotion();
-  // First (current) role open by default.
+  // First entry open by default.
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
     <ul className="mt-12 space-y-4">
-      {experience.map((job, i) => {
+      {timeline.map((entry, i) => {
         const isOpen = openIndex === i;
-        const panelId = `exp-panel-${i}`;
-        const btnId = `exp-btn-${i}`;
+        const panelId = `tl-panel-${i}`;
+        const btnId = `tl-btn-${i}`;
+        const Icon = entry.kind === "education" ? GraduationCap : Briefcase;
+        const hasDetail = !!(entry.summary || entry.bullets?.length || entry.tech?.length);
         return (
-          <li key={`${job.company}-${i}`} className="glass glass-interactive overflow-hidden">
+          <li key={`${entry.org}-${i}`} className="glass glass-interactive overflow-hidden">
             <button
               id={btnId}
               type="button"
@@ -35,27 +37,35 @@ export default function ExperienceAccordion() {
               onClick={() => setOpenIndex(isOpen ? -1 : i)}
               className="flex w-full items-center gap-4 p-6 text-left md:p-7"
             >
+              <span
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] text-[var(--color-accent)]"
+                aria-hidden
+              >
+                <Icon className="h-4 w-4" />
+              </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="text-base font-semibold text-white sm:text-lg">
-                    {job.role}
+                    {entry.title}
                     <span className="text-[var(--color-mute-400)]"> · </span>
-                    <span className="text-[var(--color-accent-light)]">{job.company}</span>
+                    <span className="text-[var(--color-accent-light)]">{entry.org}</span>
                   </h3>
-                  <span className="font-mono text-xs text-[var(--color-mute-500)]">{job.period}</span>
+                  <span className="font-mono text-xs text-[var(--color-mute-500)]">{entry.period}</span>
                 </div>
-                <p className="mt-1 text-sm text-[var(--color-mute-400)]">{job.location}</p>
+                <p className="mt-1 text-sm text-[var(--color-mute-400)]">{entry.location}</p>
               </div>
-              <ChevronDown
-                className={`h-5 w-5 shrink-0 text-[var(--color-mute-400)] transition-transform duration-300 ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-                aria-hidden
-              />
+              {hasDetail && (
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-[var(--color-mute-400)] transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden
+                />
+              )}
             </button>
 
             <AnimatePresence initial={false}>
-              {isOpen && (
+              {isOpen && hasDetail && (
                 <motion.div
                   id={panelId}
                   role="region"
@@ -66,28 +76,32 @@ export default function ExperienceAccordion() {
                   transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-6 md:px-7 md:pb-7">
-                    {job.summary && (
-                      <p className="text-sm text-[var(--color-mute-300)]">{job.summary}</p>
+                  <div className="pb-6 pl-[4.75rem] pr-6 md:pb-7 md:pr-7">
+                    {entry.summary && (
+                      <p className="text-sm text-[var(--color-mute-300)]">{entry.summary}</p>
                     )}
-                    <ul className="mt-3 space-y-2">
-                      {job.bullets.map((b, k) => (
-                        <li
-                          key={k}
-                          className="flex gap-2.5 text-sm leading-relaxed text-[var(--color-mute-300)]"
-                        >
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="mt-5 flex flex-wrap gap-1.5">
-                      {job.tech.map((t) => (
-                        <li key={t}>
-                          <TechTag name={t} />
-                        </li>
-                      ))}
-                    </ul>
+                    {entry.bullets?.length ? (
+                      <ul className="mt-3 space-y-2">
+                        {entry.bullets.map((b, k) => (
+                          <li
+                            key={k}
+                            className="flex gap-2.5 text-sm leading-relaxed text-[var(--color-mute-300)]"
+                          >
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    {entry.tech?.length ? (
+                      <ul className="mt-5 flex flex-wrap gap-1.5">
+                        {entry.tech.map((tname) => (
+                          <li key={tname}>
+                            <TechTag name={tname} />
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                 </motion.div>
               )}

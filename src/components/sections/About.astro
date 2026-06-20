@@ -1,7 +1,6 @@
 ---
 import { site } from "../../data/site";
 import Reveal from "../motion/Reveal.tsx";
-import { GraduationCap } from "lucide-react";
 const { about } = site;
 ---
 
@@ -38,22 +37,6 @@ const { about } = site;
             about.interests.map((it) => (
               <li class="rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] px-3 py-1.5 text-sm text-[var(--color-mute-300)]">
                 {it}
-              </li>
-            ))
-          }
-        </ul>
-      </Reveal>
-
-      <Reveal client:visible className="mt-8">
-        <ul class="space-y-2">
-          {
-            about.education.map((e) => (
-              <li class="flex items-start gap-3 text-sm">
-                <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
-                <span>
-                  <span class="font-medium text-white">{e.degree}</span>
-                  <span class="text-[var(--color-mute-400)]"> · {e.school}</span>
-                </span>
               </li>
             ))
           }
