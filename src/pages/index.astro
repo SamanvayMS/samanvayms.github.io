@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Preloader from "../components/Preloader.tsx";
+import SiteBackground from "../components/SiteBackground.tsx";
 import Nav from "../components/Nav.tsx";
 import Hero from "../components/sections/Hero.astro";
 import About from "../components/sections/About.astro";
@@ -18,6 +19,9 @@ import Footer from "../components/Footer.tsx";
 
 <BaseLayout>
   <Preloader client:load />
+
+  <!-- Fluid animated background behind all content -->
+  <SiteBackground client:idle />
 
   <a
     href="#home"

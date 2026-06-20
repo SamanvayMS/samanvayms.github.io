@@ -7,7 +7,7 @@ export interface StackGroup {
 export const stackGroups: StackGroup[] = [
   {
     label: "Languages",
-    items: ["Python", "C++", "R", "SQL", "Bash"],
+    items: ["Python", "Rust", "C++", "R", "SQL", "Bash"],
   },
   {
     label: "ML / AI",
@@ -21,6 +21,11 @@ export const stackGroups: StackGroup[] = [
       "NumPy",
       "pandas",
       "OpenAI",
+      "Claude Code",
+      "Vertex AI",
+      "OpenRouter",
+      "FAISS",
+      "Chroma DB",
     ],
   },
   {

@@ -32,6 +32,8 @@ import {
   SiOptuna,
   SiStreamlit,
   SiDbt,
+  SiRust,
+  SiClaude,
 } from "react-icons/si";
 import { BloombergIcon, OandaIcon } from "../components/ui/customIcons";
 
@@ -84,6 +86,9 @@ export const techIcons: Record<string, IconComponent> = {
   optuna: SiOptuna,
   streamlit: SiStreamlit,
   dbt: SiDbt,
+  rust: SiRust,
+  claudecode: SiClaude,
+  claude: SiClaude,
   bloomberg: BloombergIcon,
   oanda: OandaIcon,
 };
@@ -129,6 +134,13 @@ export const techColors: Record<string, string> = {
   optuna: "#2D6CDF",
   streamlit: "#FF4B4B",
   dbt: "#FF694B",
+  rust: "#DEA584",
+  claudecode: "#D97757",
+  claude: "#D97757",
+  vertexai: "#4285F4",
+  openrouter: "#7B83EB",
+  faiss: "#4267B2",
+  chromadb: "#FFB000",
   bloomberg: "#FF9E1B",
   oanda: "#00A9CE",
   // text-fallback tiles that still deserve their brand hue

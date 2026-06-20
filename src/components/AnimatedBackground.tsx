@@ -46,21 +46,38 @@ export default function AnimatedBackground({ mode }: { mode: BgMode }) {
       ctx.clearRect(0, 0, w, h);
 
       if (mode === "waves") {
-        const layers = 5;
+        const layers = 6;
+        const waveY = (x: number, yBase: number, amp: number, phase: number, breathe: number) =>
+          yBase +
+          Math.sin(x / 240 + phase) * amp * breathe +
+          Math.sin(x / 95 - phase * 1.25) * (amp * 0.4);
+
         for (let l = 0; l < layers; l++) {
+          const amp = 22 + l * 12;
+          const yBase = h * (0.4 + l * 0.1);
+          const phase = t / 1600 + l * 0.7;
+          const breathe = 1 + 0.12 * Math.sin(t / 3000 + l);
+
+          // Filled translucent band rising from the bottom → a flowing, layered feel.
           ctx.beginPath();
-          const amp = 18 + l * 10;
-          const yBase = h * (0.35 + l * 0.12);
-          const phase = t / 1400 + l * 0.8;
-          for (let x = 0; x <= w; x += 8) {
-            const y =
-              yBase +
-              Math.sin(x / 220 + phase) * amp +
-              Math.sin(x / 90 - phase * 1.3) * (amp * 0.4);
+          ctx.moveTo(0, h);
+          for (let x = 0; x <= w; x += 6) ctx.lineTo(x, waveY(x, yBase, amp, phase, breathe));
+          ctx.lineTo(w, h);
+          ctx.closePath();
+          const grad = ctx.createLinearGradient(0, yBase - amp, 0, h);
+          grad.addColorStop(0, `rgba(14,165,233,${0.05 + l * 0.012})`);
+          grad.addColorStop(1, "rgba(14,165,233,0)");
+          ctx.fillStyle = grad;
+          ctx.fill();
+
+          // Crisp highlight along the crest.
+          ctx.beginPath();
+          for (let x = 0; x <= w; x += 6) {
+            const y = waveY(x, yBase, amp, phase, breathe);
             x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
           }
-          ctx.strokeStyle = `rgba(14,165,233,${0.05 + l * 0.025})`;
-          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = `rgba(56,189,248,${0.06 + l * 0.015})`;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       } else if (mode === "birds") {
