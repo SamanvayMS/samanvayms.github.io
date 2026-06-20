@@ -17,6 +17,7 @@ export const books: Book[] = [
     author: "Yuval Noah Harari",
     category: "History",
     rating: 5,
+    cover: "/images/books/sapiens.jpg",
     note: "A wide-angle history of how Homo sapiens came to shape the world.",
   },
   {
@@ -25,6 +26,7 @@ export const books: Book[] = [
     category: "Economics",
     rating: 5,
     currentlyReading: true,
+    cover: "/images/books/why-nations-fail.jpg",
     note: "On how institutions drive the prosperity and poverty of nations.",
   },
 ];
