@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Preloader from "../components/Preloader.tsx";
+import Nav from "../components/Nav.tsx";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Experience from "../components/sections/Experience.astro";
+import MyStack from "../components/sections/MyStack.astro";
+import Skills from "../components/sections/Skills.astro";
+import Certifications from "../components/sections/Certifications.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import Reveal from "../components/motion/Reveal.tsx";
+import Projects from "../components/Projects.tsx";
+import Contact from "../components/Contact.tsx";
+import Quote from "../components/Quote.tsx";
+import Footer from "../components/Footer.tsx";
+---
+
+<BaseLayout>
+  <Preloader client:load />
+
+  <a
+    href="#home"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-[var(--color-accent)] focus:px-4 focus:py-2 focus:text-sm focus:text-black"
+  >
+    Skip to content
+  </a>
+
+  <Nav client:load />
+
+  <main>
+    <Hero />
+    <About />
+    <Experience />
+    <MyStack />
+    <Skills />
+
+    <!-- Projects (stateful island for show-more) -->
+    <section id="projects" class="section">
+      <div class="shell">
+        <Reveal client:visible>
+          <SectionHeading
+            eyebrow="Things I've built"
+            heading="Projects"
+            sub="Trading systems, financial machine learning, and quantitative tooling."
+          />
+        </Reveal>
+        <Projects client:visible />
+      </div>
+    </section>
+
+    <Certifications />
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="shell">
+        <Reveal client:visible>
+          <SectionHeading eyebrow="Say hello" heading="Let's talk" />
+        </Reveal>
+        <Contact client:visible />
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="section !pt-0">
+      <Quote client:visible />
+    </section>
+  </main>
+
+  <Footer client:visible />
+</BaseLayout>

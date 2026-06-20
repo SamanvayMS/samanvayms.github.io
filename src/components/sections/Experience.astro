@@ -1,0 +1,19 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import Reveal from "../motion/Reveal.tsx";
+import ExperienceAccordion from "../ExperienceAccordion.tsx";
+---
+
+<section id="work" class="section">
+  <div class="shell">
+    <Reveal client:visible>
+      <SectionHeading
+        eyebrow="Where I've worked"
+        heading="Experience"
+        sub="Quantitative research, credit-risk modeling, and applied machine learning across financial services."
+      />
+    </Reveal>
+
+    <ExperienceAccordion client:visible />
+  </div>
+</section>

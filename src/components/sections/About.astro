@@ -1,0 +1,64 @@
+---
+import { site } from "../../data/site";
+import Reveal from "../motion/Reveal.tsx";
+import { GraduationCap } from "lucide-react";
+const { about } = site;
+---
+
+<section id="about" class="section">
+  <div class="shell grid gap-12 md:grid-cols-[280px_1fr] md:gap-16">
+    <!-- Portrait -->
+    <Reveal client:visible className="order-1">
+      <div class="glass mx-auto max-w-[280px] overflow-hidden rounded-2xl p-2">
+        <img
+          src="/images/samanvay.jpeg"
+          alt={site.name}
+          width="280"
+          height="280"
+          loading="lazy"
+          class="aspect-square w-full rounded-xl object-cover"
+        />
+      </div>
+    </Reveal>
+
+    <!-- Copy -->
+    <div class="order-2">
+      <Reveal client:visible once={false}>
+        <p class="eyebrow mb-3">{about.eyebrow}</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{about.heading}</h2>
+        <div class="mt-5 space-y-4 text-[var(--color-mute-300)] leading-relaxed">
+          {about.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </Reveal>
+
+      <Reveal client:visible className="mt-8">
+        <p class="eyebrow mb-3">{about.interestsLabel}</p>
+        <ul class="flex flex-wrap gap-2">
+          {
+            about.interests.map((it) => (
+              <li class="rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] px-3 py-1.5 text-sm text-[var(--color-mute-300)]">
+                {it}
+              </li>
+            ))
+          }
+        </ul>
+      </Reveal>
+
+      <Reveal client:visible className="mt-8">
+        <ul class="space-y-2">
+          {
+            about.education.map((e) => (
+              <li class="flex items-start gap-3 text-sm">
+                <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+                <span>
+                  <span class="font-medium text-white">{e.degree}</span>
+                  <span class="text-[var(--color-mute-400)]"> · {e.school}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </Reveal>
+    </div>
+  </div>
+</section>
