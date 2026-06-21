@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, site } from "../data/site";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 /** Section ids for scroll-spy (anchor links only). */
 const SECTION_IDS = navLinks
@@ -13,7 +14,7 @@ function hashOf(href: string): string | null {
 }
 
 export default function Nav() {
-  const reduce = useReducedMotion();
+  const reduce = useStaticMotion();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -78,7 +79,7 @@ export default function Nav() {
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
       initial={reduce ? false : { opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
+      transition={{ duration: 0.6, ease: EASE_OUT }}
     >
       <div className="relative">
         <div
@@ -97,7 +98,7 @@ export default function Nav() {
           {/* Desktop links */}
           <ul className="hidden items-center gap-1 sm:flex">
             {navLinks.map((link) => {
-              const isActive = active && link.href === `/#${active}`;
+              const isActive = link.href === `/#${active}`;
               return (
                 <li key={link.href}>
                   <a
@@ -139,7 +140,7 @@ export default function Nav() {
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.96 }}
-              transition={{ duration: 0.2, ease: [0, 0, 0.2, 1] }}
+              transition={{ duration: 0.2, ease: EASE_OUT }}
             >
               {navLinks.map((link) => (
                 <li key={link.href}>

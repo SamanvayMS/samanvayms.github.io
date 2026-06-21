@@ -2,10 +2,8 @@ export interface TimelineEntry {
   kind: "work" | "education";
   title: string; // role (work) or degree (education)
   org: string; // company (work) or school (education)
-  orgUrl?: string;
   location?: string;
   period: string;
-  current?: boolean;
   summary?: string;
   bullets?: string[];
   tech?: string[];
@@ -24,7 +22,6 @@ export const timeline: TimelineEntry[] = [
     org: "Northwestern Mutual",
     location: "Milwaukee, WI",
     period: "2024 — Present",
-    current: true,
     logo: "/images/logos/northwestern-mutual.svg",
     summary:
       "Quant on the Public Fixed Income team (~$140B AUM) spanning corporate bonds, municipals, EM corporates & sovereigns, high-yield bonds & loans, CLOs, CMBS/MBS/ABS and other structured credit, and fixed-income ETFs — plus the affiliated CLO manager, 720 East (~$3.5B AUM).",

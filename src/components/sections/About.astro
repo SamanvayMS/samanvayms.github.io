@@ -1,6 +1,7 @@
 ---
 import { site } from "../../data/site";
 import Reveal from "../motion/Reveal.tsx";
+import SectionHeading from "../ui/SectionHeading.astro";
 const { about } = site;
 ---
 
@@ -23,8 +24,7 @@ const { about } = site;
     <!-- Copy -->
     <div class="order-2">
       <Reveal client:visible once={false}>
-        <p class="eyebrow mb-3">{about.eyebrow}</p>
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{about.heading}</h2>
+        <SectionHeading eyebrow={about.eyebrow} heading={about.heading} />
         <div class="mt-5 space-y-4 text-[var(--color-mute-300)] leading-relaxed">
           {about.paragraphs.map((p) => <p>{p}</p>)}
         </div>

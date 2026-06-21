@@ -1,21 +1,12 @@
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Briefcase, GraduationCap } from "lucide-react";
 import { timeline } from "../data/experience";
-import { getTechIcon } from "../lib/techIcons";
-
-function TechTag({ name }: { name: string }) {
-  const Icon = getTechIcon(name);
-  return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] px-2.5 py-1 text-xs text-[var(--color-mute-300)]">
-      {Icon ? <Icon className="h-3.5 w-3.5 opacity-80" aria-hidden /> : null}
-      {name}
-    </span>
-  );
-}
+import { TechRow } from "./ui/TechBadge";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 export default function ExperienceAccordion() {
-  const reduce = useReducedMotion();
+  const reduce = useStaticMotion();
   // First entry open by default.
   const [openIndex, setOpenIndex] = useState<number>(0);
 
@@ -88,7 +79,7 @@ export default function ExperienceAccordion() {
                   initial={reduce ? { opacity: 1 } : { height: 0, opacity: 0 }}
                   animate={reduce ? { opacity: 1 } : { height: "auto", opacity: 1 }}
                   exit={reduce ? { opacity: 1 } : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
+                  transition={{ duration: 0.3, ease: EASE_OUT }}
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-6 md:px-7 md:pb-7">
@@ -108,15 +99,7 @@ export default function ExperienceAccordion() {
                         ))}
                       </ul>
                     ) : null}
-                    {entry.tech?.length ? (
-                      <ul className="mt-5 flex flex-wrap gap-1.5">
-                        {entry.tech.map((tname) => (
-                          <li key={tname}>
-                            <TechTag name={tname} />
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
+                    {entry.tech?.length ? <TechRow items={entry.tech} className="mt-5" /> : null}
                   </div>
                 </motion.div>
               )}

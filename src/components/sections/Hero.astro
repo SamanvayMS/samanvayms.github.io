@@ -2,7 +2,8 @@
 import { site } from "../../data/site";
 import Typewriter from "../Typewriter.tsx";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
-const compact = import.meta.env.PUBLIC_NOFX === "1";
+import { FX_DISABLED } from "../../lib/fx";
+const compact = FX_DISABLED;
 ---
 
 <section

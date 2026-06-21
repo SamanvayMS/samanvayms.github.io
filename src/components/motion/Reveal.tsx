@@ -1,6 +1,6 @@
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
-import { FX_DISABLED } from "../../lib/fx";
+import { EASE_OUT, useStaticMotion } from "../../lib/motion";
 
 interface RevealProps {
   children: ReactNode;
@@ -28,22 +28,18 @@ export default function Reveal({
   className,
   as = "div",
 }: RevealProps) {
-  const reduce = useReducedMotion();
-  if (FX_DISABLED) {
+  const staticMotion = useStaticMotion();
+  if (staticMotion) {
     const Tag = as;
     return <Tag className={className}>{children}</Tag>;
   }
 
   const variants: Variants = {
-    hidden: reduce ? { opacity: 1 } : { opacity: 0, y },
+    hidden: { opacity: 0, y },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: reduce ? 0 : duration,
-        delay: reduce ? 0 : delay + index * stagger,
-        ease: [0, 0, 0.2, 1],
-      },
+      transition: { duration, delay: delay + index * stagger, ease: EASE_OUT },
     },
   };
 

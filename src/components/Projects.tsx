@@ -1,28 +1,23 @@
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Github, ExternalLink, Lock } from "lucide-react";
 import { SiGitlab } from "react-icons/si";
 import { projects, type Project } from "../data/projects";
 import { TechBadge } from "./ui/TechBadge";
-import { FX_DISABLED } from "../lib/fx";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 const INITIAL = 6;
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const reduce = useReducedMotion();
-  const motionProps =
-    reduce || FX_DISABLED
-      ? { initial: false as const }
-      : {
-          initial: { opacity: 0, y: 20 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, amount: 0.15 },
-          transition: {
-            duration: 0.5,
-            delay: (index % INITIAL) * 0.05,
-            ease: [0, 0, 0.2, 1] as [number, number, number, number],
-          },
-        };
+  const staticMotion = useStaticMotion();
+  const motionProps = staticMotion
+    ? { initial: false as const }
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.15 },
+        transition: { duration: 0.5, delay: (index % INITIAL) * 0.05, ease: EASE_OUT },
+      };
   return (
     <motion.article className="glass glass-interactive flex h-full flex-col p-6" {...motionProps}>
       <div className="flex items-start justify-between gap-3">
@@ -91,13 +86,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-// Unique tags across all projects, ordered by frequency then name.
-const ALL_TAGS = (() => {
+// Filter pills: "All" plus unique tags across all projects, ordered by frequency then name.
+const FILTERS = (() => {
   const counts = new Map<string, number>();
   for (const p of projects) for (const t of p.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
-  return [...counts.entries()]
+  const tags = [...counts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([t]) => t);
+  return ["All", ...tags];
 })();
 
 export default function Projects() {
@@ -118,7 +114,7 @@ export default function Projects() {
     <div className="mt-10">
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by topic">
-        {["All", ...ALL_TAGS].map((tag) => {
+        {FILTERS.map((tag) => {
           const active = filter === tag;
           return (
             <button

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useStaticMotion } from "../lib/motion";
 
 interface TypewriterProps {
   phrases: string[];
@@ -14,7 +14,7 @@ export default function Typewriter({
   deletingSpeed = 30,
   pauseMs = 2000,
 }: TypewriterProps) {
-  const reduce = useReducedMotion();
+  const reduce = useStaticMotion();
   const [text, setText] = useState("");
   const [i, setI] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");

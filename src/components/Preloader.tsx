@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FX_DISABLED } from "../lib/fx";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
+import { useScrollLock } from "../lib/useScrollLock";
 
 const LINES = [
   "Calibrating the yield curve…",
@@ -17,7 +19,7 @@ function pickLine() {
 }
 
 export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: number }) {
-  const reduce = useReducedMotion();
+  const staticMotion = useStaticMotion();
   const [pct, setPct] = useState(FX_DISABLED ? 100 : 0);
   const [done, setDone] = useState(FX_DISABLED);
   // Default line for SSR; randomize after mount to avoid hydration mismatch.
@@ -28,7 +30,7 @@ export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: nu
   }, []);
 
   useEffect(() => {
-    if (reduce || FX_DISABLED) {
+    if (staticMotion) {
       setPct(100);
       setDone(true);
       return;
@@ -48,20 +50,10 @@ export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: nu
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [minDurationMs, reduce]);
+  }, [minDurationMs, staticMotion]);
 
   // Lock scroll while the overlay is up.
-  useEffect(() => {
-    const root = document.documentElement;
-    if (!done) {
-      root.style.overflow = "hidden";
-    } else {
-      root.style.overflow = "";
-    }
-    return () => {
-      root.style.overflow = "";
-    };
-  }, [done]);
+  useScrollLock(!done);
 
   return (
     <AnimatePresence>
@@ -74,7 +66,7 @@ export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: nu
           aria-valuemax={100}
           aria-label="Loading"
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: EASE_OUT }}
         >
           <div className="flex flex-col items-center">
             <motion.span

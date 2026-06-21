@@ -1,7 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, BookOpen } from "lucide-react";
 import { books, type Book } from "../data/books";
-import { FX_DISABLED } from "../lib/fx";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -43,7 +43,7 @@ function Cover({ book }: { book: Book }) {
 }
 
 function BookCard({ book, index }: { book: Book; index: number }) {
-  const reduce = useReducedMotion();
+  const staticMotion = useStaticMotion();
   const reading = book.currentlyReading;
   return (
     <motion.article
@@ -52,9 +52,11 @@ function BookCard({ book, index }: { book: Book; index: number }) {
           ? "border-[var(--color-glass-16)] bg-[var(--color-glass-08)] hover:scale-[1.02]"
           : "border-[var(--color-glass-08)] bg-[var(--color-glass-06)]"
       } hover:border-[var(--color-glass-16)] hover:bg-[var(--color-glass-08)]`}
-      initial={reduce || FX_DISABLED ? false : { opacity: 0, y: 30 }}
+      initial={staticMotion ? false : { opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: reduce ? 0 : 0.6, delay: reduce ? 0 : index * 0.1, ease: [0, 0, 0.2, 1] }}
+      transition={
+        staticMotion ? { duration: 0 } : { duration: 0.6, delay: index * 0.1, ease: EASE_OUT }
+      }
     >
       {reading && (
         <span className="pointer-events-none absolute -right-2 -top-2 z-[2] rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:scale-110 group-hover:opacity-100">

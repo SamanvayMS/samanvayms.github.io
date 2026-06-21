@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Award, Eye, X, ExternalLink } from "lucide-react";
 import { certifications, type Certification } from "../data/certifications";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
+import { useScrollLock } from "../lib/useScrollLock";
 
 export default function CertGrid() {
-  const reduce = useReducedMotion();
+  const reduce = useStaticMotion();
   const [active, setActive] = useState<Certification | null>(null);
 
   useEffect(() => {
@@ -13,12 +15,7 @@ export default function CertGrid() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.style.overflow = active ? "hidden" : "";
-    return () => {
-      document.documentElement.style.overflow = "";
-    };
-  }, [active]);
+  useScrollLock(!!active);
 
   return (
     <>
@@ -78,7 +75,7 @@ export default function CertGrid() {
               initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.97, y: 10 }}
-              transition={{ duration: reduce ? 0 : 0.25, ease: [0, 0, 0.2, 1] }}
+              transition={{ duration: reduce ? 0 : 0.25, ease: EASE_OUT }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between gap-3 border-b border-[var(--color-glass-08)] px-5 py-3">

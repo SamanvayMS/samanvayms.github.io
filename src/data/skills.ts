@@ -5,7 +5,6 @@ export interface SkillCluster {
 
 export interface SkillDomain {
   title: string;
-  slug: string;
   summary: string;
   featured?: boolean;
   clusters: SkillCluster[];
@@ -21,7 +20,6 @@ export const skillsSummary = [
 export const skillDomains: SkillDomain[] = [
   {
     title: "Machine Learning and AI",
-    slug: "ml",
     summary:
       "Modeling stack for prediction, language, representation learning, and sequential decision making.",
     clusters: [
@@ -53,7 +51,6 @@ export const skillDomains: SkillDomain[] = [
   },
   {
     title: "Data, Cloud, and Pipelines",
-    slug: "data",
     summary:
       "Production-oriented data engineering across cloud systems, databases, warehouses, and automation.",
     clusters: [
@@ -75,7 +72,6 @@ export const skillDomains: SkillDomain[] = [
   },
   {
     title: "Econometrics and Statistics",
-    slug: "stats",
     summary:
       "Statistical inference, time series modeling, and strategic systems for market behavior.",
     clusters: [
@@ -95,7 +91,6 @@ export const skillDomains: SkillDomain[] = [
   },
   {
     title: "Quant Finance and Trading",
-    slug: "finance",
     featured: true,
     summary:
       "Finance-native modeling across derivatives, risk, market microstructure, and systematic trading.",

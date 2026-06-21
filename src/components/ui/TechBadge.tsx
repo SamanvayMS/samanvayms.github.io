@@ -15,9 +15,20 @@ export function TechBadge({ name }: TechBadgeProps) {
   );
 }
 
-export function TechRow({ items, label = "Tech stack" }: { items: string[]; label?: string }) {
+export function TechRow({
+  items,
+  label = "Tech stack",
+  className = "",
+}: {
+  items: string[];
+  label?: string;
+  className?: string;
+}) {
   return (
-    <ul className="flex flex-wrap gap-1.5" aria-label={`${label}: ${items.join(", ")}`}>
+    <ul
+      className={`flex flex-wrap gap-1.5 ${className}`.trim()}
+      aria-label={`${label}: ${items.join(", ")}`}
+    >
       {items.map((t) => (
         <li key={t}>
           <TechBadge name={t} />

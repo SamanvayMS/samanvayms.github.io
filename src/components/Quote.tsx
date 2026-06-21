@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { RefreshCw } from "lucide-react";
 import { quotes } from "../data/quotes";
+import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 function dayOfYearIndex() {
   const now = new Date();
@@ -11,7 +12,7 @@ function dayOfYearIndex() {
 }
 
 export default function Quote() {
-  const reduce = useReducedMotion();
+  const reduce = useStaticMotion();
   // Deterministic SSR default; sync to "today" after mount.
   const [i, setI] = useState(0);
 
@@ -31,10 +32,10 @@ export default function Quote() {
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-          transition={{ duration: 0.4, ease: [0, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: EASE_OUT }}
           aria-live="polite"
         >
-          <p className="text-xl font-medium italic leading-relaxed text-[var(--color-mute-200)] text-white sm:text-2xl">
+          <p className="text-xl font-medium italic leading-relaxed text-white sm:text-2xl">
             “{q.text}”
           </p>
           <footer className="mt-4 text-sm text-[var(--color-mute-400)]">— {q.author}</footer>
