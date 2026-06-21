@@ -42,6 +42,13 @@ export const certifications: Certification[] = [
     url: "/images/certificates/Certificate1.pdf",
   },
   {
+    title: "Retrieval Augmented Generation (RAG)",
+    issuer: "DeepLearning.AI",
+    summary:
+      "Building RAG systems end to end — chunking, embeddings, retrieval, and grounding LLM responses in external knowledge.",
+    url: "/images/certificates/rag-deeplearning.pdf",
+  },
+  {
     title: "Bloomberg Market Concepts",
     issuer: "Bloomberg",
     summary:
