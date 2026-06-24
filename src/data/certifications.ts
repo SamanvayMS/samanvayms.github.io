@@ -5,6 +5,8 @@ export interface Certification {
   courses?: string[];
   /** Link to the certificate PDF in /public */
   url?: string;
+  /** External credential verification link (e.g. coursera.org/verify/...) */
+  verifyUrl?: string;
 }
 
 export const certifications: Certification[] = [
@@ -47,6 +49,7 @@ export const certifications: Certification[] = [
     summary:
       "Building RAG systems end to end — chunking, embeddings, retrieval, and grounding LLM responses in external knowledge.",
     url: "/images/certificates/rag-deeplearning.pdf",
+    verifyUrl: "https://coursera.org/verify/T3TQRTWQFGZS",
   },
   {
     title: "Bloomberg Market Concepts",

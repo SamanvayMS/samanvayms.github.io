@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, Eye, X, ExternalLink } from "lucide-react";
+import { Award, Eye, X, ExternalLink, BadgeCheck } from "lucide-react";
 import { certifications, type Certification } from "../data/certifications";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
 import { useScrollLock } from "../lib/useScrollLock";
@@ -43,14 +43,28 @@ export default function CertGrid() {
               </ul>
             )}
 
-            {cert.url && (
-              <button
-                type="button"
-                onClick={() => setActive(cert)}
-                className="mt-5 inline-flex items-center gap-1.5 border-t border-[var(--color-glass-08)] pt-4 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
-              >
-                <Eye className="h-4 w-4" /> View certificate
-              </button>
+            {(cert.url || cert.verifyUrl) && (
+              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[var(--color-glass-08)] pt-4">
+                {cert.url && (
+                  <button
+                    type="button"
+                    onClick={() => setActive(cert)}
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
+                  >
+                    <Eye className="h-4 w-4" /> View certificate
+                  </button>
+                )}
+                {cert.verifyUrl && (
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
+                  >
+                    <BadgeCheck className="h-4 w-4" /> Verify
+                  </a>
+                )}
+              </div>
             )}
           </article>
         ))}
