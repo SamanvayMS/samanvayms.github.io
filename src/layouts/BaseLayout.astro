@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.short} — ${site.name}`,
+  description = "Quantitative analyst and data scientist. Systematic trading, financial machine learning, and production data pipelines.",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/images/samanvay.jpeg" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Avoid white flash before the preloader island hydrates -->
+    <style is:inline>
+      html {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body class="grain antialiased">
+    <slot />
+  </body>
+</html>

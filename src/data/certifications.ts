@@ -1,0 +1,61 @@
+export interface Certification {
+  title: string;
+  issuer: string;
+  summary?: string;
+  courses?: string[];
+  /** Link to the certificate PDF in /public */
+  url?: string;
+  /** External credential verification link (e.g. coursera.org/verify/...) */
+  verifyUrl?: string;
+}
+
+export const certifications: Certification[] = [
+  {
+    title: "CFA Level II",
+    issuer: "CFA Institute",
+    summary:
+      "Passed Levels I and II of the Chartered Financial Analyst program, with Level II emphasizing asset valuation across equities, fixed income, derivatives, and alternatives, plus financial reporting, quantitative methods, and portfolio management.",
+  },
+  {
+    title: "Deep Learning Specialization",
+    issuer: "DeepLearning.AI",
+    summary:
+      "Five-course specialization covering the foundations and practice of modern deep learning.",
+    courses: [
+      "Neural Networks and Deep Learning",
+      "Improving Deep Neural Networks",
+      "Structuring Machine Learning Projects",
+      "Convolutional Neural Networks",
+      "Sequence Models",
+    ],
+    url: "/images/certificates/certificate2-6.pdf",
+  },
+  {
+    title: "Machine Learning Specialization",
+    issuer: "DeepLearning.AI",
+    summary:
+      "Supervised and unsupervised learning, recommenders, and deep reinforcement learning with NumPy, scikit-learn, and TensorFlow.",
+    courses: [
+      "Supervised Machine Learning: Regression and Classification",
+      "Advanced Learning Algorithms",
+      "Unsupervised Learning, Recommenders, Reinforcement Learning",
+      "Sequences, Time Series and Prediction",
+    ],
+    url: "/images/certificates/Certificate1.pdf",
+  },
+  {
+    title: "Retrieval Augmented Generation (RAG)",
+    issuer: "DeepLearning.AI",
+    summary:
+      "Building RAG systems end to end — chunking, embeddings, retrieval, and grounding LLM responses in external knowledge.",
+    url: "/images/certificates/rag-deeplearning.pdf",
+    verifyUrl: "https://coursera.org/verify/T3TQRTWQFGZS",
+  },
+  {
+    title: "Bloomberg Market Concepts",
+    issuer: "Bloomberg",
+    summary:
+      "Economic indicators, currencies, fixed income, and equities — hands-on with the Bloomberg Terminal and real-time market data.",
+    url: "/images/certificates/certificate_of_completion.pdf",
+  },
+];

@@ -1,0 +1,33 @@
+---
+import { stackGroups } from "../../data/stack";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Reveal from "../motion/Reveal.tsx";
+import { StackTile } from "../ui/StackTile.tsx";
+---
+
+<section id="stack" class="section">
+  <div class="shell">
+    <Reveal client:visible>
+      <SectionHeading eyebrow="Tools I reach for" heading="My Stack" />
+    </Reveal>
+
+    <div class="mt-12">
+      {
+        stackGroups.map((group, i) => (
+          <Reveal client:visible index={i} className={i > 0 ? "mt-8" : ""}>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr] md:gap-8">
+              <h3 class="pt-1 text-sm font-semibold uppercase tracking-wider text-[var(--color-mute-400)]">
+                {group.label}
+              </h3>
+              <div class="flex flex-wrap gap-3">
+                {group.items.map((item) => (
+                  <StackTile name={item} />
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>
