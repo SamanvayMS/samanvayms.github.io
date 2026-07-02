@@ -2,6 +2,7 @@ export interface TimelineEntry {
   kind: "work" | "education";
   title: string; // role (work) or degree (education)
   org: string; // company (work) or school (education)
+  orgUrl?: string; // optional — renders a "visit site" link in the expanded panel
   location?: string;
   period: string;
   summary?: string;
@@ -33,6 +34,19 @@ export const timeline: TimelineEntry[] = [
       "Automated end-of-day report ingestion to deliver data 4 hours earlier each day, and built parallel Streamlit tooling to compare and analyze Agency MBS pools and cohorts from eMBS loan-level data.",
     ],
     tech: ["Python", "Streamlit", "dbt", "Snowflake", "SQL"],
+  },
+  {
+    kind: "work",
+    title: "Partner",
+    org: "SGM Associates",
+    orgUrl: "https://app.sgm-associates.com",
+    period: "2025 — Present",
+    summary:
+      "Side venture alongside my full-time role — a quantamental fund deploying proprietary capital (no external funds) in Indian equities across NSE, BSE & MCX.",
+    bullets: [
+      "ML models generate alpha signals, filtered through fundamental research into high-conviction positions.",
+      "Systematic risk management drives position sizing and portfolio rebalancing.",
+    ],
   },
   {
     kind: "education",

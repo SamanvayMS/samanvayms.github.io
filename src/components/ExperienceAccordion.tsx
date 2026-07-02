@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Briefcase, GraduationCap } from "lucide-react";
+import { ChevronDown, Briefcase, GraduationCap, ExternalLink } from "lucide-react";
 import { timeline } from "../data/experience";
 import { TechRow } from "./ui/TechBadge";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
@@ -100,6 +100,17 @@ export default function ExperienceAccordion() {
                       </ul>
                     ) : null}
                     {entry.tech?.length ? <TechRow items={entry.tech} className="mt-5" /> : null}
+                    {entry.orgUrl && (
+                      <a
+                        href={entry.orgUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm text-[var(--color-accent-light)] transition-colors hover:text-white"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        {entry.orgUrl.replace(/^https?:\/\//, "")}
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               )}
