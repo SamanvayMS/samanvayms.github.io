@@ -15,7 +15,7 @@ export interface TimelineEntry {
   kind: "work" | "education";
   title: string;       // job role (work) OR degree (education), e.g. "MS, Financial Engineering"
   org: string;         // company (work) OR school (education)
-  orgUrl?: string;     // optional — makes the org name a link
+  orgUrl?: string;     // optional — renders a "visit site" link in the expanded panel
   location: string;    // e.g. "Milwaukee, WI"
   period: string;      // free text, e.g. "2024 — Present" or "2022 — 2024"
   current?: boolean;   // true for the present role
