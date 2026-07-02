@@ -9,8 +9,7 @@ import Experience from "../components/sections/Experience.astro";
 import MyStack from "../components/sections/MyStack.astro";
 import Skills from "../components/sections/Skills.astro";
 import Certifications from "../components/sections/Certifications.astro";
-import SectionHeading from "../components/ui/SectionHeading.astro";
-import Reveal from "../components/motion/Reveal.tsx";
+import Section from "../components/ui/Section.astro";
 import Projects from "../components/Projects.tsx";
 import Contact from "../components/Contact.tsx";
 import Quote from "../components/Quote.tsx";
@@ -30,7 +29,7 @@ import Footer from "../components/Footer.tsx";
     Skip to content
   </a>
 
-  <Nav client:load />
+  <Nav client:idle />
 
   <main>
     <Hero />
@@ -40,30 +39,20 @@ import Footer from "../components/Footer.tsx";
     <Skills />
 
     <!-- Projects (stateful island for show-more) -->
-    <section id="projects" class="section">
-      <div class="shell">
-        <Reveal client:visible>
-          <SectionHeading
-            eyebrow="Things I've built"
-            heading="Projects"
-            sub="Trading systems, financial machine learning, and quantitative tooling."
-          />
-        </Reveal>
-        <Projects client:visible />
-      </div>
-    </section>
+    <Section
+      id="projects"
+      eyebrow="Things I've built"
+      heading="Projects"
+      sub="Trading systems, financial machine learning, and quantitative tooling."
+    >
+      <Projects client:visible />
+    </Section>
 
     <Certifications />
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="shell">
-        <Reveal client:visible>
-          <SectionHeading eyebrow="Say hello" heading="Let's talk" />
-        </Reveal>
-        <Contact client:visible />
-      </div>
-    </section>
+    <Section id="contact" eyebrow="Say hello" heading="Let's talk">
+      <Contact client:visible />
+    </Section>
 
     <!-- Quote -->
     <section class="section !pt-0">

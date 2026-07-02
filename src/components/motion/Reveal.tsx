@@ -2,51 +2,36 @@ import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 import { EASE_OUT, useStaticMotion } from "../../lib/motion";
 
+const Y = 24;
+const DURATION = 0.6;
+const STAGGER = 0.05;
+
 interface RevealProps {
   children: ReactNode;
-  /** Vertical offset to animate from (px). */
-  y?: number;
-  duration?: number;
-  delay?: number;
-  /** Index for staggered groups: delay += index * stagger. */
+  /** Index for staggered groups: delay = index * 0.05s. */
   index?: number;
-  stagger?: number;
   /** Animate only once, or re-trigger on each scroll-in. */
   once?: boolean;
   className?: string;
-  as?: "div" | "section" | "li" | "ul" | "article" | "span";
 }
 
-export default function Reveal({
-  children,
-  y = 24,
-  duration = 0.6,
-  delay = 0,
-  index = 0,
-  stagger = 0.05,
-  once = true,
-  className,
-  as = "div",
-}: RevealProps) {
+export default function Reveal({ children, index = 0, once = true, className }: RevealProps) {
   const staticMotion = useStaticMotion();
   if (staticMotion) {
-    const Tag = as;
-    return <Tag className={className}>{children}</Tag>;
+    return <div className={className}>{children}</div>;
   }
 
   const variants: Variants = {
-    hidden: { opacity: 0, y },
+    hidden: { opacity: 0, y: Y },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration, delay: delay + index * stagger, ease: EASE_OUT },
+      transition: { duration: DURATION, delay: index * STAGGER, ease: EASE_OUT },
     },
   };
 
-  const MotionTag = motion[as];
-
   return (
-    <MotionTag
+    <motion.div
       className={className}
       variants={variants}
       initial="hidden"
@@ -54,6 +39,6 @@ export default function Reveal({
       viewport={{ once, amount: 0.2 }}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }

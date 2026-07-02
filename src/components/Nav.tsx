@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, site } from "../data/site";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
+import { useEscapeKey } from "../lib/useEscapeKey";
 
 /** Section ids for scroll-spy (anchor links only). */
 const SECTION_IDS = navLinks
@@ -44,18 +45,12 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  useEscapeKey(() => setOpen(false));
 
   const onNav = (href: string) => (e: React.MouseEvent) => {
     const hash = hashOf(href);
-    const onHome =
-      window.location.pathname === "/" || window.location.pathname === "";
     // Smooth-scroll only when the target section exists on the current page.
-    if (hash && onHome) {
+    if (hash) {
       const el = document.querySelector(hash);
       if (el) {
         e.preventDefault();
@@ -63,14 +58,6 @@ export default function Nav() {
       }
     }
     setOpen(false);
-  };
-
-  const pillStyle: React.CSSProperties = {
-    backgroundColor: scrolled ? "rgba(0,0,0,0.30)" : "transparent",
-    backdropFilter: scrolled ? "blur(12px)" : "none",
-    WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-    border: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid transparent",
-    transition: "all 0.3s ease",
   };
 
   return (
@@ -83,8 +70,9 @@ export default function Nav() {
     >
       <div className="relative">
         <div
-          className="flex items-center gap-1 rounded-full px-3 py-2 sm:px-5"
-          style={pillStyle}
+          className={`nav-pill flex items-center gap-1 rounded-full px-3 py-2 sm:px-5 ${
+            scrolled ? "nav-pill-scrolled" : ""
+          }`}
         >
           {/* Brand → home */}
           <a

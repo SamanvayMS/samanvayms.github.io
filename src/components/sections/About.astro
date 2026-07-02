@@ -35,9 +35,7 @@ const { about } = site;
         <ul class="flex flex-wrap gap-2">
           {
             about.interests.map((it) => (
-              <li class="rounded-full border border-[var(--color-glass-08)] bg-[var(--color-glass-04)] px-3 py-1.5 text-sm text-[var(--color-mute-300)]">
-                {it}
-              </li>
+              <li class="chip rounded-full px-3 py-1.5 text-sm">{it}</li>
             ))
           }
         </ul>

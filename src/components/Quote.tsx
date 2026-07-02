@@ -24,7 +24,7 @@ export default function Quote() {
   const q = quotes[i];
 
   return (
-    <div className="shell-wide mx-auto max-w-3xl text-center">
+    <div className="mx-auto max-w-3xl text-center">
       <p className="eyebrow mb-6">Quote of the day</p>
       <AnimatePresence mode="wait">
         <motion.blockquote

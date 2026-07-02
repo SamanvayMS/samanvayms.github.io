@@ -18,7 +18,9 @@ function pickLine() {
   return LINES[new Date().getSeconds() % LINES.length];
 }
 
-export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: number }) {
+const MIN_DURATION_MS = 1500;
+
+export default function Preloader() {
   const staticMotion = useStaticMotion();
   const [pct, setPct] = useState(FX_DISABLED ? 100 : 0);
   const [done, setDone] = useState(FX_DISABLED);
@@ -38,7 +40,7 @@ export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: nu
     const start = performance.now();
     let raf = 0;
     const tick = (now: number) => {
-      const t = Math.min(1, Math.max(0, (now - start) / minDurationMs));
+      const t = Math.min(1, Math.max(0, (now - start) / MIN_DURATION_MS));
       // ease-out so it decelerates toward 100
       const eased = 1 - Math.pow(1 - t, 2);
       setPct(Math.max(0, Math.min(100, Math.round(eased * 100))));
@@ -50,7 +52,7 @@ export default function Preloader({ minDurationMs = 1500 }: { minDurationMs?: nu
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [minDurationMs, staticMotion]);
+  }, [staticMotion]);
 
   // Lock scroll while the overlay is up.
   useScrollLock(!done);

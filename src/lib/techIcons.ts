@@ -39,121 +39,88 @@ import { BloombergIcon, OandaIcon } from "../components/ui/customIcons";
 
 type IconComponent = ComponentType<{ className?: string; style?: CSSProperties }>;
 
-/** Normalize a tech label to a lookup key. */
-export function techKey(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]/g, "");
+interface TechMeta {
+  icon?: IconComponent;
+  /** Brand color chosen to read well on a near-black background. */
+  color?: string;
 }
 
-/** Simple Icons + custom brand glyphs. Anything not here renders as a text chip. */
-export const techIcons: Record<string, IconComponent> = {
-  python: SiPython,
-  c: SiCplusplus,
-  r: SiR,
-  bash: SiGnubash,
-  tensorflow: SiTensorflow,
-  pytorch: SiPytorch,
-  scikitlearn: SiScikitlearn,
-  keras: SiKeras,
-  huggingface: SiHuggingface,
-  huggingfacetransformers: SiHuggingface,
-  langchain: SiLangchain,
-  numpy: SiNumpy,
-  pandas: SiPandas,
-  googlecloud: SiGooglecloud,
-  bigquery: SiGooglecloud,
-  apachespark: SiApachespark,
-  spark: SiApachespark,
-  apachekafka: SiApachekafka,
-  kafka: SiApachekafka,
-  apacheairflow: SiApacheairflow,
-  airflow: SiApacheairflow,
-  hadoop: SiApachehadoop,
-  docker: SiDocker,
-  postgresql: SiPostgresql,
-  mysql: SiMysql,
-  snowflake: SiSnowflake,
-  databricks: SiDatabricks,
-  plotly: SiPlotly,
-  numbajit: SiNumba,
-  numba: SiNumba,
-  git: SiGit,
-  github: SiGithub,
-  gitlab: SiGitlab,
-  openai: SiOpenai,
-  gpt4: SiOpenai,
-  gpt2: SiOpenai,
-  jupyter: SiJupyter,
-  optuna: SiOptuna,
-  streamlit: SiStreamlit,
-  dbt: SiDbt,
-  rust: SiRust,
-  claudecode: SiClaude,
-  claude: SiClaude,
-  bloomberg: BloombergIcon,
-  oanda: OandaIcon,
+/** Alternate spellings → canonical key (applied inside techKey). */
+const ALIASES: Record<string, string> = {
+  spark: "apachespark",
+  kafka: "apachekafka",
+  airflow: "apacheairflow",
+  numbajit: "numba",
+  gpt4: "openai",
+  gpt2: "openai",
+  claude: "claudecode",
+  huggingfacetransformers: "huggingface",
 };
 
-/** Brand colors chosen to read well on a near-black background. */
-export const techColors: Record<string, string> = {
-  python: "#4B8BBE",
-  c: "#649AD2",
-  r: "#276DC3",
-  bash: "#7CC04B",
-  tensorflow: "#FF6F00",
-  pytorch: "#EE4C2C",
-  scikitlearn: "#F7931E",
-  keras: "#FF4136",
-  huggingface: "#FFD21E",
-  langchain: "#3FB984",
-  numpy: "#4DABCF",
-  pandas: "#E70488",
-  googlecloud: "#4285F4",
-  bigquery: "#669DF6",
-  apachespark: "#E25A1C",
-  spark: "#E25A1C",
-  apachekafka: "#D6D6D6",
-  kafka: "#D6D6D6",
-  apacheairflow: "#36B7F0",
-  airflow: "#36B7F0",
-  hadoop: "#FFCA28",
-  docker: "#2496ED",
-  postgresql: "#5A8DD6",
-  mysql: "#4479A1",
-  snowflake: "#29B5E8",
-  databricks: "#FF3621",
-  plotly: "#7C84F0",
-  numba: "#00A3E0",
-  numbajit: "#00A3E0",
-  git: "#F05032",
-  github: "#EDEDED",
-  gitlab: "#FC6D26",
-  openai: "#74AA9C",
-  gpt4: "#74AA9C",
-  gpt2: "#74AA9C",
-  jupyter: "#F37626",
-  optuna: "#2D6CDF",
-  streamlit: "#FF4B4B",
-  dbt: "#FF694B",
-  rust: "#DEA584",
-  claudecode: "#D97757",
-  claude: "#D97757",
-  vertexai: "#4285F4",
-  openrouter: "#7B83EB",
-  faiss: "#4267B2",
-  chromadb: "#FFB000",
-  bloomberg: "#FF9E1B",
-  oanda: "#00A9CE",
-  // text-fallback tiles that still deserve their brand hue
-  aws: "#FF9900",
-  azure: "#3FA9F5",
-  tableau: "#4E79A7",
-  powerbi: "#F2C811",
+/** Normalize a tech label to a lookup key. */
+export function techKey(name: string): string {
+  const key = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return ALIASES[key] ?? key;
+}
+
+/**
+ * Simple Icons + custom brand glyphs and colors, one entry per tech.
+ * Anything not here renders as a text chip; color-only entries are
+ * text-fallback tiles that still deserve their brand hue.
+ */
+const techMeta: Record<string, TechMeta> = {
+  python: { icon: SiPython, color: "#4B8BBE" },
+  c: { icon: SiCplusplus, color: "#649AD2" },
+  r: { icon: SiR, color: "#276DC3" },
+  bash: { icon: SiGnubash, color: "#7CC04B" },
+  tensorflow: { icon: SiTensorflow, color: "#FF6F00" },
+  pytorch: { icon: SiPytorch, color: "#EE4C2C" },
+  scikitlearn: { icon: SiScikitlearn, color: "#F7931E" },
+  keras: { icon: SiKeras, color: "#FF4136" },
+  huggingface: { icon: SiHuggingface, color: "#FFD21E" },
+  langchain: { icon: SiLangchain, color: "#3FB984" },
+  numpy: { icon: SiNumpy, color: "#4DABCF" },
+  pandas: { icon: SiPandas, color: "#E70488" },
+  googlecloud: { icon: SiGooglecloud, color: "#4285F4" },
+  bigquery: { icon: SiGooglecloud, color: "#669DF6" },
+  apachespark: { icon: SiApachespark, color: "#E25A1C" },
+  apachekafka: { icon: SiApachekafka, color: "#D6D6D6" },
+  apacheairflow: { icon: SiApacheairflow, color: "#36B7F0" },
+  hadoop: { icon: SiApachehadoop, color: "#FFCA28" },
+  docker: { icon: SiDocker, color: "#2496ED" },
+  postgresql: { icon: SiPostgresql, color: "#5A8DD6" },
+  mysql: { icon: SiMysql, color: "#4479A1" },
+  snowflake: { icon: SiSnowflake, color: "#29B5E8" },
+  databricks: { icon: SiDatabricks, color: "#FF3621" },
+  plotly: { icon: SiPlotly, color: "#7C84F0" },
+  numba: { icon: SiNumba, color: "#00A3E0" },
+  git: { icon: SiGit, color: "#F05032" },
+  github: { icon: SiGithub, color: "#EDEDED" },
+  gitlab: { icon: SiGitlab, color: "#FC6D26" },
+  openai: { icon: SiOpenai, color: "#74AA9C" },
+  jupyter: { icon: SiJupyter, color: "#F37626" },
+  optuna: { icon: SiOptuna, color: "#2D6CDF" },
+  streamlit: { icon: SiStreamlit, color: "#FF4B4B" },
+  dbt: { icon: SiDbt, color: "#FF694B" },
+  rust: { icon: SiRust, color: "#DEA584" },
+  claudecode: { icon: SiClaude, color: "#D97757" },
+  bloomberg: { icon: BloombergIcon, color: "#FF9E1B" },
+  oanda: { icon: OandaIcon, color: "#00A9CE" },
+  // color-only (no icon available)
+  vertexai: { color: "#4285F4" },
+  openrouter: { color: "#7B83EB" },
+  faiss: { color: "#4267B2" },
+  chromadb: { color: "#FFB000" },
+  aws: { color: "#FF9900" },
+  azure: { color: "#3FA9F5" },
+  tableau: { color: "#4E79A7" },
+  powerbi: { color: "#F2C811" },
 };
 
 export function getTechIcon(name: string): IconComponent | undefined {
-  return techIcons[techKey(name)];
+  return techMeta[techKey(name)]?.icon;
 }
 
 export function getTechColor(name: string): string | undefined {
-  return techColors[techKey(name)];
+  return techMeta[techKey(name)]?.color;
 }

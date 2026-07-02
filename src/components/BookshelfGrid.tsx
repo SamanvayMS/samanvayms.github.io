@@ -3,6 +3,9 @@ import { Star, BookOpen } from "lucide-react";
 import { books, type Book } from "../data/books";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
+const STAR_FILLED = "#ECC94B";
+const STAR_EMPTY = "#4A5568";
+
 function Stars({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-0.5" aria-label={`Rated ${rating} out of 5`}>
@@ -12,8 +15,8 @@ function Stars({ rating }: { rating: number }) {
           <Star
             key={i}
             className="h-3.5 w-3.5"
-            style={{ color: filled ? "#ECC94B" : "#4A5568" }}
-            fill={filled ? "#ECC94B" : "none"}
+            style={{ color: filled ? STAR_FILLED : STAR_EMPTY }}
+            fill={filled ? STAR_FILLED : "none"}
             aria-hidden
           />
         );
@@ -47,11 +50,9 @@ function BookCard({ book, index }: { book: Book; index: number }) {
   const reading = book.currentlyReading;
   return (
     <motion.article
-      className={`group relative flex h-full flex-col rounded-xl border p-6 backdrop-blur-[6px] transition-all duration-300 ${
-        reading
-          ? "border-[var(--color-glass-16)] bg-[var(--color-glass-08)] hover:scale-[1.02]"
-          : "border-[var(--color-glass-08)] bg-[var(--color-glass-06)]"
-      } hover:border-[var(--color-glass-16)] hover:bg-[var(--color-glass-08)]`}
+      className={`glass glass-interactive group relative flex h-full flex-col p-6 ${
+        reading ? "border-[var(--color-glass-16)] bg-[var(--color-glass-08)] hover:scale-[1.02]" : ""
+      }`}
       initial={staticMotion ? false : { opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={
@@ -98,10 +99,7 @@ function BookCard({ book, index }: { book: Book; index: number }) {
 
 export default function BookshelfGrid() {
   return (
-    <div
-      className="grid gap-6"
-      style={{ gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}
-    >
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6">
       {books.map((book, i) => (
         <BookCard key={book.title} book={book} index={i} />
       ))}

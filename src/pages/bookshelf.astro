@@ -2,14 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AnimatedBackground from "../components/AnimatedBackground.tsx";
 import BookshelfGrid from "../components/BookshelfGrid.tsx";
+import { site } from "../data/site";
 import { ArrowLeft } from "lucide-react";
 ---
 
-<BaseLayout title="Bookshelf — Sam">
+<BaseLayout title={`Bookshelf — ${site.short}`}>
   <!-- Animated candlestick background behind content -->
-  <div class="fixed inset-0 z-0" aria-hidden="true">
-    <AnimatedBackground client:idle mode="candles" />
-  </div>
+  <AnimatedBackground client:idle mode="candles" />
 
   <main class="relative z-10 min-h-screen px-4 py-20 sm:px-6 lg:px-8">
     <header class="mb-8">
