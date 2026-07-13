@@ -25,10 +25,16 @@ export const site = {
   },
   resume: "/files/SamanvayResume.pdf",
   /**
-   * Replace with your Formspree form id (https://formspree.io/ → New form).
-   * Until then the contact form falls back to a mailto: link.
+   * Set to your Formspree endpoint (https://formspree.io/ → New form →
+   * "https://formspree.io/f/<id>") to enable real form submissions.
+   * While undefined the contact form falls back to a mailto: link.
    */
-  formspreeEndpoint: "https://formspree.io/f/your-form-id",
+  formspreeEndpoint: undefined as string | undefined,
+  hero: {
+    eyebrow: "Quant · Data Scientist · Milwaukee",
+    intro:
+      "I build systematic trading strategies and financial machine-learning systems — from reinforcement-learning agents to production data pipelines.",
+  },
   about: {
     eyebrow: "Who I am",
     heading: "About",
@@ -50,6 +56,7 @@ export const navLinks: NavLink[] = [
   { label: "About", href: "/#about" },
   { label: "Timeline", href: "/#timeline" },
   { label: "Projects", href: "/#projects" },
+  { label: "Repositories", href: "/repositories" },
   { label: "Bookshelf", href: "/bookshelf" },
   { label: "Contact", href: "/#contact" },
 ];

@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { MapPin, Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { MapPin, Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { site } from "../data/site";
+import { SocialLinks } from "./ui/SocialLinks";
 
 type Status = "idle" | "sending" | "success" | "error";
-
-const isPlaceholder = site.formspreeEndpoint.includes("your-form-id");
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -14,8 +13,8 @@ export default function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // No Formspree id configured yet → fall back to a prefilled email.
-    if (isPlaceholder) {
+    // No Formspree endpoint configured yet → fall back to a prefilled email.
+    if (!site.formspreeEndpoint) {
       const subject = encodeURIComponent(`Portfolio message from ${data.get("name") ?? ""}`);
       const body = encodeURIComponent(
         `${data.get("message") ?? ""}\n\n— ${data.get("name") ?? ""} (${data.get("email") ?? ""})`,
@@ -66,26 +65,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="mt-4 flex gap-2">
-          <a
-            href={site.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-            className="glass glass-interactive inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--color-mute-300)]"
-          >
-            <Github className="h-5 w-5" />
-          </a>
-          <a
-            href={site.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-            className="glass glass-interactive inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--color-mute-300)]"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-        </div>
+        <SocialLinks glass includeEmail={false} className="mt-4" />
       </div>
 
       {/* Right: form */}

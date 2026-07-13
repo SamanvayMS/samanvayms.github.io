@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Eye, X, ExternalLink, BadgeCheck } from "lucide-react";
 import { certifications, type Certification } from "../data/certifications";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
 import { useScrollLock } from "../lib/useScrollLock";
+import { useEscapeKey } from "../lib/useEscapeKey";
 
 export default function CertGrid() {
   const reduce = useStaticMotion();
   const [active, setActive] = useState<Certification | null>(null);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
+  useEscapeKey(() => setActive(null));
   useScrollLock(!!active);
 
   return (

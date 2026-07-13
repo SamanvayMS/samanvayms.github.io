@@ -1,7 +1,8 @@
 ---
 import { site } from "../../data/site";
 import Typewriter from "../Typewriter.tsx";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { SocialLinks } from "../ui/SocialLinks.tsx";
+import { ArrowDown } from "lucide-react";
 import { FX_DISABLED } from "../../lib/fx";
 const compact = FX_DISABLED;
 ---
@@ -22,7 +23,7 @@ const compact = FX_DISABLED;
   </div>
 
   <div class="shell section relative z-10 w-full">
-    <p class="eyebrow mb-5">Quant · Data Scientist · Milwaukee</p>
+    <p class="eyebrow mb-5">{site.hero.eyebrow}</p>
 
     <h1 class="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
       {site.greeting}
@@ -33,8 +34,7 @@ const compact = FX_DISABLED;
     </p>
 
     <p class="mt-6 max-w-xl text-base leading-relaxed text-[var(--color-mute-400)] sm:text-lg">
-      I build systematic trading strategies and financial machine-learning systems —
-      from reinforcement-learning agents to production data pipelines.
+      {site.hero.intro}
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -53,33 +53,7 @@ const compact = FX_DISABLED;
         Résumé
       </a>
 
-      <div class="ml-1 flex items-center gap-1">
-        <a
-          href={site.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-mute-400)] transition-colors hover:text-white"
-        >
-          <Github className="h-5 w-5" />
-        </a>
-        <a
-          href={site.socials.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn profile"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-mute-400)] transition-colors hover:text-white"
-        >
-          <Linkedin className="h-5 w-5" />
-        </a>
-        <a
-          href={`mailto:${site.email}`}
-          aria-label="Email"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--color-mute-400)] transition-colors hover:text-white"
-        >
-          <Mail className="h-5 w-5" />
-        </a>
-      </div>
+      <SocialLinks className="ml-1 items-center" />
     </div>
   </div>
 

@@ -1,8 +1,89 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { navLinks, site } from "../data/site";
+import { repositories, pagesUrl } from "../data/repositories";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
+import { useEscapeKey } from "../lib/useEscapeKey";
+
+/** Desktop-only "Repositories" nav item: a hover/click dropdown of hosted repo
+ *  pages, with a footer link to the full /repositories page. */
+function RepoMenu() {
+  const reduce = useStaticMotion();
+  const [open, setOpen] = useState(false);
+  const [onPage, setOnPage] = useState(false);
+  const closeTimer = useRef<number | null>(null);
+
+  useEscapeKey(() => setOpen(false));
+  useEffect(() => {
+    setOnPage(window.location.pathname.startsWith("/repositories"));
+  }, []);
+
+  const openNow = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setOpen(true);
+  };
+  const closeSoon = () => {
+    closeTimer.current = window.setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <li className="relative" onMouseEnter={openNow} onMouseLeave={closeSoon}>
+      <a
+        href="/repositories"
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-current={onPage ? "page" : undefined}
+        className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+          onPage ? "text-white" : "text-[var(--color-mute-400)] hover:text-white"
+        }`}
+      >
+        Repositories
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+          aria-hidden
+        />
+      </a>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            /* pt-3 forms a hover bridge so the gap below the pill stays hoverable */
+            className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: EASE_OUT }}
+          >
+            <div className="glass w-72 overflow-hidden rounded-2xl p-1.5">
+              <ul className="max-h-[70vh] overflow-y-auto">
+                {repositories.map((r) => (
+                  <li key={r.slug}>
+                    <a
+                      href={pagesUrl(r.slug)}
+                      className="block rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-glass-08)]"
+                    >
+                      <span className="block text-sm font-medium text-white">{r.name}</span>
+                      <span className="block truncate text-xs text-[var(--color-mute-400)]">
+                        {r.tagline}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/repositories"
+                className="mt-1 block rounded-xl px-3 py-2 text-center text-xs font-medium text-[var(--color-accent-light)] transition-colors hover:bg-[var(--color-glass-08)]"
+              >
+                View all repositories &rarr;
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </li>
+  );
+}
 
 /** Section ids for scroll-spy (anchor links only). */
 const SECTION_IDS = navLinks
@@ -44,18 +125,12 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  useEscapeKey(() => setOpen(false));
 
   const onNav = (href: string) => (e: React.MouseEvent) => {
     const hash = hashOf(href);
-    const onHome =
-      window.location.pathname === "/" || window.location.pathname === "";
     // Smooth-scroll only when the target section exists on the current page.
-    if (hash && onHome) {
+    if (hash) {
       const el = document.querySelector(hash);
       if (el) {
         e.preventDefault();
@@ -63,14 +138,6 @@ export default function Nav() {
       }
     }
     setOpen(false);
-  };
-
-  const pillStyle: React.CSSProperties = {
-    backgroundColor: scrolled ? "rgba(0,0,0,0.30)" : "transparent",
-    backdropFilter: scrolled ? "blur(12px)" : "none",
-    WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-    border: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid transparent",
-    transition: "all 0.3s ease",
   };
 
   return (
@@ -83,8 +150,9 @@ export default function Nav() {
     >
       <div className="relative">
         <div
-          className="flex items-center gap-1 rounded-full px-3 py-2 sm:px-5"
-          style={pillStyle}
+          className={`nav-pill flex items-center gap-1 rounded-full px-3 py-2 sm:px-5 ${
+            scrolled ? "nav-pill-scrolled" : ""
+          }`}
         >
           {/* Brand → home */}
           <a
@@ -98,6 +166,8 @@ export default function Nav() {
           {/* Desktop links */}
           <ul className="hidden items-center gap-1 sm:flex">
             {navLinks.map((link) => {
+              // Repositories renders as a dropdown rather than a plain link.
+              if (link.href === "/repositories") return <RepoMenu key={link.href} />;
               const isActive = link.href === `/#${active}`;
               return (
                 <li key={link.href}>

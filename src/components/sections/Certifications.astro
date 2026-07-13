@@ -1,15 +1,8 @@
 ---
-import SectionHeading from "../ui/SectionHeading.astro";
-import Reveal from "../motion/Reveal.tsx";
+import Section from "../ui/Section.astro";
 import CertGrid from "../CertGrid.tsx";
 ---
 
-<section id="certifications" class="section">
-  <div class="shell">
-    <Reveal client:visible>
-      <SectionHeading eyebrow="Credentials" heading="Certifications" />
-    </Reveal>
-
-    <CertGrid client:visible />
-  </div>
-</section>
+<Section id="certifications" eyebrow="Credentials" heading="Certifications">
+  <CertGrid client:visible />
+</Section>

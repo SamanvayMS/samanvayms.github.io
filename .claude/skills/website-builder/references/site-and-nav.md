@@ -15,6 +15,7 @@ export const site = {
   socials: { github, linkedin },  // social link URLs
   resume,          // path to résumé PDF in /public (e.g. /files/SamanvayResume.pdf)
   formspreeEndpoint,               // see "Contact form" below
+  hero: { eyebrow, intro },        // hero eyebrow line + intro paragraph
   about: {
     eyebrow, heading,
     paragraphs: [...],             // About body paragraphs
@@ -33,9 +34,9 @@ export const site = {
 ## Contact form
 
 The contact form (`src/components/Contact.tsx`) POSTs to `site.formspreeEndpoint`.
-While it contains the placeholder `your-form-id`, the form falls back to opening a
-prefilled `mailto:` to `site.email`. To enable real submissions, create a form at
-formspree.io and replace the endpoint with `https://formspree.io/f/<id>`.
+While it is `undefined`, the form falls back to opening a prefilled `mailto:` to
+`site.email`. To enable real submissions, create a form at formspree.io and set the
+endpoint to `https://formspree.io/f/<id>`.
 
 ## Navigation (`navLinks` in `src/data/site.ts`)
 

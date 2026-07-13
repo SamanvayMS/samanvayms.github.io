@@ -22,11 +22,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     <motion.article className="glass glass-interactive flex h-full flex-col p-6" {...motionProps}>
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-base font-semibold leading-snug text-white">{project.title}</h3>
-        {project.featured ? (
-          <span className="shrink-0 rounded-full bg-[var(--color-accent)]/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[var(--color-accent-light)]">
-            Featured
-          </span>
-        ) : null}
+        {project.featured ? <span className="badge-accent shrink-0">Featured</span> : null}
       </div>
 
       {project.context ? (
@@ -46,36 +42,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </ul>
 
       <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-[var(--color-glass-08)] pt-4">
-        {project.github ? (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
-          >
-            <Github className="h-4 w-4" /> GitHub
-          </a>
-        ) : null}
-        {project.gitlab ? (
-          <a
-            href={project.gitlab}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
-          >
-            <SiGitlab className="h-4 w-4" /> GitLab
-          </a>
-        ) : null}
-        {project.demo ? (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
-          >
-            <ExternalLink className="h-4 w-4" /> Demo
-          </a>
-        ) : null}
+        {[
+          { href: project.github, Icon: Github, label: "GitHub" },
+          { href: project.gitlab, Icon: SiGitlab, label: "GitLab" },
+          { href: project.demo, Icon: ExternalLink, label: "Demo" },
+        ]
+          .filter((l) => l.href)
+          .map(({ href, Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-300)] transition-colors hover:text-white"
+            >
+              <Icon className="h-4 w-4" /> {label}
+            </a>
+          ))}
         {project.proprietary ? (
           <span className="inline-flex items-center gap-1.5 text-sm text-[var(--color-mute-500)]">
             <Lock className="h-4 w-4" /> Available on request
@@ -122,10 +105,10 @@ export default function Projects() {
               type="button"
               onClick={() => selectFilter(tag)}
               aria-pressed={active}
-              className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
+              className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
                 active
-                  ? "border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent-light)]"
-                  : "border-[var(--color-glass-08)] bg-[var(--color-glass-04)] text-[var(--color-mute-300)] hover:border-[var(--color-glass-16)] hover:text-white"
+                  ? "border border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent-light)]"
+                  : "chip hover:border-[var(--color-glass-16)] hover:text-white"
               }`}
             >
               {tag}

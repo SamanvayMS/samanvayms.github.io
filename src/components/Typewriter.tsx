@@ -1,24 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useStaticMotion } from "../lib/motion";
 
-interface TypewriterProps {
-  phrases: string[];
-  typingSpeed?: number;
-  deletingSpeed?: number;
-  pauseMs?: number;
-}
+const TYPING_SPEED = 50;
+const DELETING_SPEED = 30;
+const PAUSE_MS = 2000;
 
-export default function Typewriter({
-  phrases,
-  typingSpeed = 50,
-  deletingSpeed = 30,
-  pauseMs = 2000,
-}: TypewriterProps) {
+export default function Typewriter({ phrases }: { phrases: string[] }) {
   const reduce = useStaticMotion();
   const [text, setText] = useState("");
   const [i, setI] = useState(0);
-  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
-  const timer = useRef<number | undefined>(undefined);
+  const [phase, setPhase] = useState<"typing" | "deleting">("typing");
 
   useEffect(() => {
     if (reduce) {
@@ -26,33 +17,26 @@ export default function Typewriter({
       return;
     }
     const full = phrases[i % phrases.length];
-    let delay: number;
+    let timer: number;
 
     if (phase === "typing") {
-      if (text === full) {
-        delay = pauseMs;
-        timer.current = window.setTimeout(() => setPhase("deleting"), delay);
-        return;
-      }
-      delay = typingSpeed + (text.length % 3) * 12; // light cadence jitter
-      timer.current = window.setTimeout(
-        () => setText(full.slice(0, text.length + 1)),
-        delay,
-      );
-    } else if (phase === "deleting") {
+      timer =
+        text === full
+          ? window.setTimeout(() => setPhase("deleting"), PAUSE_MS)
+          : window.setTimeout(
+              () => setText(full.slice(0, text.length + 1)),
+              TYPING_SPEED + (text.length % 3) * 12, // light cadence jitter
+            );
+    } else {
       if (text === "") {
         setI((v) => (v + 1) % phrases.length);
         setPhase("typing");
         return;
       }
-      delay = deletingSpeed;
-      timer.current = window.setTimeout(
-        () => setText(full.slice(0, text.length - 1)),
-        delay,
-      );
+      timer = window.setTimeout(() => setText(full.slice(0, text.length - 1)), DELETING_SPEED);
     }
-    return () => window.clearTimeout(timer.current);
-  }, [text, phase, i, phrases, typingSpeed, deletingSpeed, pauseMs, reduce]);
+    return () => window.clearTimeout(timer);
+  }, [text, phase, i, phrases, reduce]);
 
   return (
     <span aria-hidden="true">

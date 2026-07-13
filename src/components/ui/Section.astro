@@ -1,0 +1,22 @@
+---
+import Reveal from "../motion/Reveal.tsx";
+import SectionHeading from "./SectionHeading.astro";
+
+/** Standard home-page section: id anchor + shell + revealed heading + slot. */
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  heading: string;
+  sub?: string;
+}
+const { id, eyebrow, heading, sub } = Astro.props;
+---
+
+<section id={id} class="section">
+  <div class="shell">
+    <Reveal client:visible>
+      <SectionHeading eyebrow={eyebrow} heading={heading} sub={sub} />
+    </Reveal>
+    <slot />
+  </div>
+</section>
