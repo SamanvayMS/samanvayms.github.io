@@ -34,8 +34,13 @@
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
 
+  /* Opaque dark base for floating overlays (dropdowns, popovers) — page text
+     must not read through them the way it can through the translucent glass. */
+  --color-surface-overlay: rgba(9, 9, 11, 0.97);
+
   /* Shadows */
   --shadow-glass: 0 10px 30px -12px rgba(0, 0, 0, 0.7);
+  --shadow-overlay: 0 16px 40px -12px rgba(0, 0, 0, 0.9);
 }
 
 /* ============================================================
@@ -94,6 +99,17 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     box-shadow: var(--shadow-glass);
+  }
+
+  /* Floating overlay panel — same visual family as .glass, but opaque so the
+     content underneath can't garble the text. */
+  .glass-panel {
+    background-color: var(--color-surface-overlay);
+    border: 1px solid var(--color-glass-12);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-overlay);
   }
 
   .glass-interactive {

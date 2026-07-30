@@ -11,8 +11,7 @@ export const site = {
   /** Rotating typewriter phrases in the hero */
   taglines: [
     "Quantitative Associate @ Northwestern Mutual",
-    "Quant Developer",
-    "Machine Learning Engineer",
+    "Machine Learning and AI",
     "Building systematic trading strategies",
     "Turning market data into signal",
     "From credit-risk models to RL trading agents",
@@ -31,23 +30,22 @@ export const site = {
    */
   formspreeEndpoint: undefined as string | undefined,
   hero: {
-    eyebrow: "Quant · Data Scientist · Milwaukee",
-    intro:
-      "I build systematic trading strategies and financial machine-learning systems — from reinforcement-learning agents to production data pipelines.",
+    eyebrow: "Quant · AI Engineer · Milwaukee",
   },
   about: {
     eyebrow: "Who I am",
     heading: "About",
     paragraphs: [
-      "I'm a quant and data scientist working at the intersection of machine learning and financial markets. I hold an MS in Financial Engineering from the University of Illinois Urbana-Champaign, and I currently work as a Quantitative Associate on the Public Fixed Income team at Northwestern Mutual in Milwaukee.",
-      "My work spans the systematic-trading stack — from deep learning and reinforcement learning to market microstructure, derivatives pricing, and production data pipelines.",
+      "Quant on the buy side of public fixed income at Northwestern Mutual Investment Management Company, working across IG and HY corporates, EM credit, securitized products (MBS/CMBS/CLO/ABS), munis, rates and macro, and fixed income derivatives.",
+      "Away from the day job I build systematic trading end to end: reinforcement learning agents and the market environments they train in, agentic equity research analysts that turn filings and disclosures into structured signal, and the execution, data, and serving infrastructure required to actually run any of it in production. Python, C++, Rust.",
+      "MS in Financial Engineering, University of Illinois Urbana-Champaign. CFA Level III candidate.",
     ],
     interestsLabel: "Research interests",
     interests: [
-      "Fractal geometry in finance",
-      "Reinforcement-learning trading",
-      "Mean-field games for portfolio allocation",
-      "Generative AI for synthetic market data",
+      "Reinforcement learning in trading",
+      "Mean-field games",
+      "LLM-driven research analysts",
+      "Attention-based Monte Carlo for derivative pricing",
     ],
   },
 } as const;
