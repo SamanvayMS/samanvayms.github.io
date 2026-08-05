@@ -1,29 +1,7 @@
 import { motion } from "framer-motion";
-import { Star, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { books, type Book } from "../data/books";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
-
-const STAR_FILLED = "#ECC94B";
-const STAR_EMPTY = "#4A5568";
-
-function Stars({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-0.5" aria-label={`Rated ${rating} out of 5`}>
-      {Array.from({ length: 5 }).map((_, i) => {
-        const filled = i < rating;
-        return (
-          <Star
-            key={i}
-            className="h-3.5 w-3.5"
-            style={{ color: filled ? STAR_FILLED : STAR_EMPTY }}
-            fill={filled ? STAR_FILLED : "none"}
-            aria-hidden
-          />
-        );
-      })}
-    </div>
-  );
-}
 
 function Cover({ book }: { book: Book }) {
   if (book.cover) {
@@ -78,12 +56,9 @@ function BookCard({ book, index }: { book: Book; index: number }) {
         <Cover book={book} />
       </div>
 
-      <div className="mb-2 flex items-start justify-between gap-2">
-        <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-mute-300)]">
-          {book.category}
-        </span>
-        <Stars rating={book.rating} />
-      </div>
+      <span className="mb-2 block text-xs font-medium uppercase tracking-wide text-[var(--color-mute-300)]">
+        {book.category}
+      </span>
 
       <div className="h-20">
         <h2 className="line-clamp-2 text-xl font-bold leading-tight text-white">{book.title}</h2>

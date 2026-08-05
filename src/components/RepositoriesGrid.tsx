@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, ArrowUpRight } from "lucide-react";
-import { repositories, pagesUrl, repoUrl, type Repo } from "../data/repositories";
+import { repositories, primaryUrl, repoUrl, hasPages, type Repo } from "../data/repositories";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
 
 const CHIP_BG = "color-mix(in srgb, var(--color-accent) 14%, transparent)";
@@ -20,10 +20,10 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
         {repo.lang}
       </span>
 
-      {/* Stretched primary link → the repo's own hosted GitHub Pages site */}
+      {/* Stretched primary link → the repo's hosted page, or its source if it has none */}
       <h2 className="mt-2 text-xl font-bold leading-tight text-white">
         <a
-          href={pagesUrl(repo.slug)}
+          href={primaryUrl(repo)}
           className="after:absolute after:inset-0 after:content-['']"
         >
           {repo.name}
@@ -48,16 +48,20 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
 
       <div className="mt-5 flex items-center justify-between border-t border-[var(--color-glass-08)] pt-4">
         <span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-mute-300)] transition-colors group-hover:text-white">
-          Open page <ArrowUpRight className="h-4 w-4" aria-hidden />
+          {hasPages(repo) ? "Open page" : "View source"}{" "}
+          <ArrowUpRight className="h-4 w-4" aria-hidden />
         </span>
-        {/* Sits above the stretched link so it stays independently clickable */}
-        <a
-          href={repoUrl(repo.slug)}
-          className="relative z-10 inline-flex items-center gap-1.5 text-xs text-[var(--color-mute-400)] transition-colors hover:text-white"
-          aria-label={`${repo.name} source on GitHub`}
-        >
-          <Github className="h-4 w-4" aria-hidden /> Code
-        </a>
+        {/* Only when it adds a second destination — for repos without a hosted
+            page the stretched link already points at the source. */}
+        {hasPages(repo) && (
+          <a
+            href={repoUrl(repo.slug)}
+            className="relative z-10 inline-flex items-center gap-1.5 text-xs text-[var(--color-mute-400)] transition-colors hover:text-white"
+            aria-label={`${repo.name} source on GitHub`}
+          >
+            <Github className="h-4 w-4" aria-hidden /> Code
+          </a>
+        )}
       </div>
     </motion.article>
   );

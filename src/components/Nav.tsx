@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navLinks, site } from "../data/site";
-import { repositories, pagesUrl } from "../data/repositories";
+import { repositories, primaryUrl } from "../data/repositories";
 import { EASE_OUT, useStaticMotion } from "../lib/motion";
 import { useEscapeKey } from "../lib/useEscapeKey";
 
@@ -55,12 +55,12 @@ function RepoMenu() {
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.97 }}
             transition={{ duration: 0.18, ease: EASE_OUT }}
           >
-            <div className="glass w-72 overflow-hidden rounded-2xl p-1.5">
+            <div className="glass glass-panel w-72 overflow-hidden rounded-2xl p-1.5">
               <ul className="max-h-[70vh] overflow-y-auto">
                 {repositories.map((r) => (
                   <li key={r.slug}>
                     <a
-                      href={pagesUrl(r.slug)}
+                      href={primaryUrl(r)}
                       className="block rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-glass-08)]"
                     >
                       <span className="block text-sm font-medium text-white">{r.name}</span>
@@ -206,7 +206,7 @@ export default function Nav() {
           {open && (
             <motion.ul
               id="mobile-menu"
-              className="glass absolute left-1/2 top-full mt-2 w-44 -translate-x-1/2 overflow-hidden rounded-2xl p-1.5 sm:hidden"
+              className="glass glass-panel absolute left-1/2 top-full mt-2 w-44 -translate-x-1/2 overflow-hidden rounded-2xl p-1.5 sm:hidden"
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.96 }}
