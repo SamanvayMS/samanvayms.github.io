@@ -89,4 +89,12 @@ export const projects: Project[] = [
     tech: ["PyTorch", "GPT-2", "Tokenizers", "NLP", "Python"],
     github: "https://github.com/SamanvayMS/Large-Language-Models",
   },
+  {
+    title: "JAX: Novice to Expert",
+    tags: ["Machine Learning", "Reinforcement Learning"],
+    summary:
+      "An 18-notebook curriculum taking JAX from first principles to custom GPU kernels, classic algorithms, and deep RL — covering jit and tracing, autodiff, vmap, pytrees, sharding, and a from-scratch neural net. Notebooks are executed end-to-end before shipping, so the outputs are measured rather than written by hand.",
+    tech: ["JAX", "Flax", "Optax", "Python", "Jupyter"],
+    github: "https://github.com/SamanvayMS/Jax",
+  },
 ];

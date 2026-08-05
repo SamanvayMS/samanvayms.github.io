@@ -1,9 +1,12 @@
 /**
  * Repositories showcased in the nav dropdown and on /repositories.
  *
- * Each repo hosts its OWN one-page site via GitHub Pages (an index.html in the
- * repo itself), served at https://samanvayms.github.io/<slug>/. This site only
- * stores links + metadata — no repository source is ever copied in here.
+ * Most repos host their OWN one-page site via GitHub Pages (an index.html in
+ * the repo itself), served at https://samanvayms.github.io/<slug>/. Those that
+ * don't set `pages: false` and are linked to their source instead — use
+ * `primaryUrl()` / `hasPages()` rather than assuming a Pages URL exists.
+ *
+ * This site only stores links + metadata — no repository source is copied here.
  */
 export interface Repo {
   /** Display title */
@@ -16,6 +19,12 @@ export interface Repo {
   lang: string;
   /** Topic chips */
   tags: string[];
+  /**
+   * Whether the repo hosts its own GitHub Pages site. Defaults to true.
+   * Set false for repos without one — the card then points at the source
+   * instead of a Pages URL that would 404.
+   */
+  pages?: boolean;
 }
 
 const OWNER = "SamanvayMS";
@@ -27,7 +36,23 @@ export const pagesUrl = (slug: string) =>
 /** Source URL for a repo. */
 export const repoUrl = (slug: string) => `https://github.com/${OWNER}/${slug}`;
 
+/** Whether a repo has its own hosted Pages site. The single place the
+ *  optional-defaults-to-true `pages` flag is decoded. */
+export const hasPages = (repo: Repo) => repo.pages !== false;
+
+/** Where a repo card points: its hosted page, or the source if it has none. */
+export const primaryUrl = (repo: Repo) =>
+  hasPages(repo) ? pagesUrl(repo.slug) : repoUrl(repo.slug);
+
 export const repositories: Repo[] = [
+  {
+    name: "JAX: Novice to Expert",
+    slug: "Jax",
+    tagline:
+      "An 18-notebook curriculum from first principles to custom GPU kernels and deep RL.",
+    lang: "Python · Jupyter",
+    tags: ["JAX", "Deep Learning", "Reinforcement Learning"],
+  },
   {
     name: "finagent-exa",
     slug: "finagent-exa",

@@ -101,12 +101,12 @@
     box-shadow: var(--shadow-glass);
   }
 
-  /* Floating overlay panel — same visual family as .glass, but opaque so the
-     content underneath can't garble the text. */
+  /* Modifier for floating overlays (dropdowns, popovers). Compose onto .glass —
+     `class="glass glass-panel"` — so the shape stays shared and only the fill
+     goes opaque, keeping page text from reading through and garbling labels. */
   .glass-panel {
     background-color: var(--color-surface-overlay);
-    border: 1px solid var(--color-glass-12);
-    border-radius: var(--radius-xl);
+    border-color: var(--color-glass-12);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--shadow-overlay);
