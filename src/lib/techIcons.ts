@@ -13,17 +13,15 @@ import {
   SiNumpy,
   SiPandas,
   SiGooglecloud,
-  SiApachespark,
   SiApachekafka,
-  SiApacheairflow,
-  SiApachehadoop,
   SiDocker,
   SiPostgresql,
   SiMysql,
   SiSnowflake,
-  SiDatabricks,
   SiPlotly,
   SiNumba,
+  SiDuckdb,
+  SiSqlite,
   SiGit,
   SiGithub,
   SiGitlab,
@@ -35,7 +33,7 @@ import {
   SiRust,
   SiClaude,
 } from "react-icons/si";
-import { BloombergIcon, OandaIcon } from "../components/ui/customIcons";
+import { BloombergIcon, OandaIcon, VllmIcon, LlamaIndexIcon } from "../components/ui/customIcons";
 
 type IconComponent = ComponentType<{ className?: string; style?: CSSProperties }>;
 
@@ -43,13 +41,17 @@ interface TechMeta {
   icon?: IconComponent;
   /** Brand color chosen to read well on a near-black background. */
   color?: string;
+  /**
+   * Text shown when there is no icon. Without this the tile falls back to the
+   * first three characters of the name, which abbreviates badly ("DuckDB" →
+   * "DUC"). Set it wherever the abbreviation would misrepresent the brand.
+   */
+  label?: string;
 }
 
 /** Alternate spellings → canonical key (applied inside techKey). */
 const ALIASES: Record<string, string> = {
-  spark: "apachespark",
   kafka: "apachekafka",
-  airflow: "apacheairflow",
   numbajit: "numba",
   gpt4: "openai",
   gpt2: "openai",
@@ -83,17 +85,15 @@ const techMeta: Record<string, TechMeta> = {
   pandas: { icon: SiPandas, color: "#E70488" },
   googlecloud: { icon: SiGooglecloud, color: "#4285F4" },
   bigquery: { icon: SiGooglecloud, color: "#669DF6" },
-  apachespark: { icon: SiApachespark, color: "#E25A1C" },
   apachekafka: { icon: SiApachekafka, color: "#D6D6D6" },
-  apacheairflow: { icon: SiApacheairflow, color: "#36B7F0" },
-  hadoop: { icon: SiApachehadoop, color: "#FFCA28" },
   docker: { icon: SiDocker, color: "#2496ED" },
   postgresql: { icon: SiPostgresql, color: "#5A8DD6" },
   mysql: { icon: SiMysql, color: "#4479A1" },
   snowflake: { icon: SiSnowflake, color: "#29B5E8" },
-  databricks: { icon: SiDatabricks, color: "#FF3621" },
   plotly: { icon: SiPlotly, color: "#7C84F0" },
   numba: { icon: SiNumba, color: "#00A3E0" },
+  duckdb: { icon: SiDuckdb, color: "#FFF000" },
+  sqlite: { icon: SiSqlite, color: "#4FA3D1" },
   git: { icon: SiGit, color: "#F05032" },
   github: { icon: SiGithub, color: "#EDEDED" },
   gitlab: { icon: SiGitlab, color: "#FC6D26" },
@@ -106,7 +106,12 @@ const techMeta: Record<string, TechMeta> = {
   claudecode: { icon: SiClaude, color: "#D97757" },
   bloomberg: { icon: BloombergIcon, color: "#FF9E1B" },
   oanda: { icon: OandaIcon, color: "#00A9CE" },
+  vllm: { icon: VllmIcon, color: "#30A2FF" },
+  llamaindex: { icon: LlamaIndexIcon, color: "#E88FD8" },
   // color-only (no icon available)
+  // JAX has no monochrome mark in any icon set; its official logo is a wide
+  // multicolour wordmark that is illegible at tile size, so it renders as text.
+  jax: { color: "#5E97F6", label: "JAX" },
   vertexai: { color: "#4285F4" },
   openrouter: { color: "#7B83EB" },
   faiss: { color: "#4267B2" },
@@ -123,4 +128,9 @@ export function getTechIcon(name: string): IconComponent | undefined {
 
 export function getTechColor(name: string): string | undefined {
   return techMeta[techKey(name)]?.color;
+}
+
+/** Explicit text for icon-less tiles; undefined means use the generic fallback. */
+export function getTechLabel(name: string): string | undefined {
+  return techMeta[techKey(name)]?.label;
 }

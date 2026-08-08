@@ -82,6 +82,20 @@ export const books: Book[] = [
     note: "Approximate dynamic programming, infinite-horizon analysis, and reinforcement learning.",
   },
   {
+    title: "Probabilistic Theory of Mean Field Games, Vol. I",
+    author: "René Carmona & François Delarue",
+    category: "Optimal Control",
+    cover: "/images/books/mean-field-games-vol1.jpg",
+    note: "Mean field FBSDEs and the probabilistic approach to control and games with many players.",
+  },
+  {
+    title: "Probabilistic Theory of Mean Field Games, Vol. II",
+    author: "René Carmona & François Delarue",
+    category: "Optimal Control",
+    cover: "/images/books/mean-field-games-vol2.jpg",
+    note: "Common noise, master equations, and the limit of finite-player games.",
+  },
+  {
     title: "Team of Teams",
     author: "Gen. Stanley McChrystal",
     category: "Leadership",

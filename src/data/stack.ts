@@ -33,14 +33,13 @@ export const stackGroups: StackGroup[] = [
     items: [
       "AWS",
       "Google Cloud",
-      "Spark",
-      "Kafka",
-      "Airflow",
+      "Snowflake",
       "Docker",
       "PostgreSQL",
-      "Snowflake",
-      "Databricks",
+      "SQLite",
+      "DuckDB",
       "BigQuery",
+      "Kafka",
     ],
   },
   {

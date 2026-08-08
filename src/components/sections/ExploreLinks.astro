@@ -1,0 +1,52 @@
+---
+import Reveal from "../motion/Reveal.tsx";
+import { ArrowRight, BookOpen, FolderGit2 } from "lucide-react";
+
+/** Cards linking out to the two standalone pages, so they're reachable from the
+ *  home page and not only from the nav. */
+const pages = [
+  {
+    href: "/repositories",
+    label: "Repositories",
+    blurb: "Every public project, each with its own hosted page.",
+    Icon: FolderGit2,
+  },
+  {
+    href: "/bookshelf",
+    label: "Bookshelf",
+    blurb: "What I read across quant finance, machine learning, and science.",
+    Icon: BookOpen,
+  },
+];
+---
+
+<section class="section !pt-0">
+  <div class="shell grid gap-4 sm:grid-cols-2">
+    {
+      pages.map(({ href, label, blurb, Icon }) => (
+        <Reveal client:visible className="h-full">
+          <a
+            href={href}
+            class="glass glass-interactive group flex h-full items-center gap-4 rounded-2xl p-6 hover:scale-[1.02]"
+          >
+            <span class="chip flex h-11 w-11 shrink-0 items-center justify-center rounded-xl">
+              <Icon className="h-5 w-5 text-[var(--color-accent)]" aria-hidden />
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="flex items-center gap-1.5 text-lg font-semibold text-white">
+                {label}
+                <ArrowRight
+                  className="h-4 w-4 text-[var(--color-mute-400)] transition-transform group-hover:translate-x-1 group-hover:text-white"
+                  aria-hidden
+                />
+              </span>
+              <span class="mt-1 block text-sm leading-relaxed text-[var(--color-mute-400)]">
+                {blurb}
+              </span>
+            </span>
+          </a>
+        </Reveal>
+      ))
+    }
+  </div>
+</section>
