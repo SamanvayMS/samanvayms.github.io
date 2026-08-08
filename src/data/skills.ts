@@ -10,18 +10,11 @@ export interface SkillDomain {
   clusters: SkillCluster[];
 }
 
-export const skillsSummary = [
-  { value: "4", label: "Core domains" },
-  { value: "50+", label: "Methods and tools" },
-  { value: "3", label: "Cloud platforms" },
-  { value: "7", label: "Trading and RL themes" },
-];
-
 export const skillDomains: SkillDomain[] = [
   {
-    title: "Machine Learning and AI",
+    title: "Machine Learning",
     summary:
-      "Modeling stack for prediction, language, representation learning, and sequential decision making.",
+      "Supervised, unsupervised and deep modeling — prediction, representation learning, classical NLP, and sequential decision making.",
     clusters: [
       {
         label: "Regression and classification",
@@ -50,31 +43,29 @@ export const skillDomains: SkillDomain[] = [
     ],
   },
   {
-    title: "Data, Cloud, and Pipelines",
+    title: "Generative AI",
     summary:
-      "Production-oriented data engineering across cloud systems, databases, warehouses, and automation.",
+      "Training, adapting and serving large language models, and the engineering around agents built on them.",
     clusters: [
       {
-        label: "Data techniques",
-        items: ["Data Cleaning", "Data Preprocessing", "Data Visualization", "Exploratory Data Analysis", "ETL Pipelines", "MapReduce"],
-      },
-      { label: "Cloud platforms", items: ["AWS", "Google Cloud", "Azure"] },
-      { label: "Big data systems", items: ["Hadoop", "Airflow", "Kafka", "Spark"] },
-      {
-        label: "Databases",
-        items: ["SQL", "NoSQL", "MongoDB", "MySQL", "PostgreSQL", "MS SQL Server", "SQLite"],
+        label: "LLM training and finetuning",
+        items: ["Pretraining", "Finetuning", "Distillation", "Quantisation", "RLHF", "GRPO", "LoRA", "QLoRA"],
       },
       {
-        label: "Warehousing and CI/CD",
-        items: ["Snowflake", "Redshift", "BigQuery", "Databricks", "Jenkins", "Cloud Run"],
+        label: "Agentic AI",
+        items: ["Prompt Engineering", "Context Engineering", "Loop Engineering", "RAG"],
       },
     ],
   },
   {
     title: "Econometrics and Statistics",
     summary:
-      "Statistical inference, time series modeling, and strategic systems for market behavior.",
+      "Probability, statistical inference, time series modeling, and strategic systems for market behavior.",
     clusters: [
+      {
+        label: "Probability",
+        items: ["Conditional Probability and Bayes' Theorem", "Markov Chains", "Martingales", "Hidden Markov Models"],
+      },
       {
         label: "Time series",
         items: ["ARIMA", "SARIMA", "Seasonal Decomposition", "Exponential Smoothing", "GARCH", "Sequence Models"],
@@ -85,7 +76,7 @@ export const skillDomains: SkillDomain[] = [
       },
       {
         label: "Game theory",
-        items: ["Nash Equilibrium", "Auction Theory", "Mechanism Design", "Mean Field Games", "Evolutionary Game Theory", "Cooperative Game Theory", "Stochastic Games", "Strategic Learning"],
+        items: ["Nash Equilibrium", "Auction Theory", "Mean Field Games", "Stochastic Games"],
       },
     ],
   },
@@ -113,8 +104,24 @@ export const skillDomains: SkillDomain[] = [
       },
       {
         label: "Quant toolkit",
-        items: ["Stochastic Calculus", "Portfolio Management", "Market Microstructure", "Numerical Methods", "Trading Systems Design", "Financial Machine Learning"],
+        items: ["Stochastic Calculus", "Portfolio Management", "Market Microstructure", "Numerical Methods", "Financial Machine Learning"],
       },
     ],
   },
+];
+
+const clusterCount = skillDomains.reduce((n, d) => n + d.clusters.length, 0);
+const itemCount = skillDomains.reduce(
+  (n, d) => n + d.clusters.reduce((m, c) => m + c.items.length, 0),
+  0,
+);
+
+/** Derived from skillDomains so the counts can't drift when clusters change.
+ *  "Trading and RL themes" is a cross-cutting count with no structural home,
+ *  so it stays hand-authored. */
+export const skillsSummary = [
+  { value: `${skillDomains.length}`, label: "Core domains" },
+  { value: `${Math.floor(itemCount / 5) * 5}+`, label: "Methods and tools" },
+  { value: `${clusterCount}`, label: "Skill clusters" },
+  { value: "7", label: "Trading and RL themes" },
 ];

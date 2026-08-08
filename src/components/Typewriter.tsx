@@ -5,6 +5,19 @@ const TYPING_SPEED = 50;
 const DELETING_SPEED = 30;
 const PAUSE_MS = 2000;
 
+/**
+ * Index of the next phrase: always random from [1, len), never repeating the
+ * one just shown. Index 0 is the job title — it types first on every load and
+ * then steps aside for the rotation. Called only from the timer effect, so the
+ * first paint stays deterministic and hydration can't mismatch.
+ */
+function pickNext(current: number, len: number): number {
+  if (len <= 2) return len - 1;
+  let next = current;
+  while (next === current) next = 1 + Math.floor(Math.random() * (len - 1));
+  return next;
+}
+
 export default function Typewriter({ phrases }: { phrases: string[] }) {
   const reduce = useStaticMotion();
   const [text, setText] = useState("");
@@ -29,7 +42,7 @@ export default function Typewriter({ phrases }: { phrases: string[] }) {
             );
     } else {
       if (text === "") {
-        setI((v) => (v + 1) % phrases.length);
+        setI((v) => pickNext(v, phrases.length));
         setPhase("typing");
         return;
       }

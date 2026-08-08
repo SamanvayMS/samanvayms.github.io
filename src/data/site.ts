@@ -8,13 +8,19 @@ export const site = {
   short: "Sam",
   /** Static greeting before the typewriter */
   greeting: "Hi, I'm Sam.",
-  /** Rotating typewriter phrases in the hero */
+  /**
+   * Hero typewriter. The FIRST entry always types first — it's the job title,
+   * the one line every visitor should see. The rest are shuffled after that.
+   */
   taglines: [
     "Quantitative Associate @ Northwestern Mutual",
-    "Machine Learning and AI",
-    "Building systematic trading strategies",
-    "Turning market data into signal",
-    "From credit-risk models to RL trading agents",
+    "Long AI, short my own memory",
+    "We're all just context windows now",
+    "Teaching machines to trade, asking them how",
+    "Human in the loop, allegedly",
+    "My alpha is now a joint venture",
+    "p-hacking, but ethically",
+    "Taught a neural net to lose money faster",
   ],
   location: "Milwaukee, WI",
   email: "smalapallysudhakara@gmail.com",
