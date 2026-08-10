@@ -2,7 +2,7 @@
 @import "@fontsource-variable/inter";
 
 /* ============================================================
-   Design tokens — dark-glass portfolio (modeled on ciangoon.dev)
+   Design tokens - dark-glass portfolio (modeled on ciangoon.dev)
    ============================================================ */
 @theme {
   /* Base */
@@ -13,7 +13,7 @@
   --color-accent: #0ea5e9;
   --color-accent-light: #38bdf8;
 
-  /* whiteAlpha scale — drives every glass surface, border & muted text */
+  /* whiteAlpha scale - drives every glass surface, border & muted text */
   --color-glass-04: rgba(255, 255, 255, 0.04);
   --color-glass-06: rgba(255, 255, 255, 0.06);
   --color-glass-08: rgba(255, 255, 255, 0.08);
@@ -34,7 +34,7 @@
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
 
-  /* Opaque dark base for floating overlays (dropdowns, popovers) — page text
+  /* Opaque dark base for floating overlays (dropdowns, popovers) - page text
      must not read through them the way it can through the translucent glass. */
   --color-surface-overlay: rgba(9, 9, 11, 0.97);
 
@@ -89,7 +89,7 @@
 }
 
 /* ============================================================
-   Components — the reusable dark-glass system
+   Components - the reusable dark-glass system
    ============================================================ */
 @layer components {
   .glass {
@@ -101,8 +101,8 @@
     box-shadow: var(--shadow-glass);
   }
 
-  /* Modifier for floating overlays (dropdowns, popovers). Compose onto .glass —
-     `class="glass glass-panel"` — so the shape stays shared and only the fill
+  /* Modifier for floating overlays (dropdowns, popovers). Compose onto .glass -
+     `class="glass glass-panel"` - so the shape stays shared and only the fill
      goes opaque, keeping page text from reading through and garbling labels. */
   .glass-panel {
     background-color: var(--color-surface-overlay);
@@ -148,7 +148,7 @@
     max-width: 72rem; /* 6xl */
   }
 
-  /* Eyebrow label — mono, tracked, accent */
+  /* Eyebrow label - mono, tracked, accent */
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -157,14 +157,14 @@
     color: var(--color-accent);
   }
 
-  /* Chip — the glass tier below cards: tag pills, interest chips, skill items */
+  /* Chip - the glass tier below cards: tag pills, interest chips, skill items */
   .chip {
     border: 1px solid var(--color-glass-08);
     background-color: var(--color-glass-04);
     color: var(--color-mute-300);
   }
 
-  /* Accent status badge — "Featured", "Focus" */
+  /* Accent status badge - "Featured", "Focus" */
   .badge-accent {
     border-radius: 9999px;
     background-color: color-mix(in srgb, var(--color-accent) 15%, transparent);
@@ -176,7 +176,7 @@
     color: var(--color-accent-light);
   }
 
-  /* Floating nav pill — transparent at top, glass once scrolled */
+  /* Floating nav pill - transparent at top, glass once scrolled */
   .nav-pill {
     border: 1px solid transparent;
     transition:
@@ -193,7 +193,7 @@
 }
 
 /* ============================================================
-   Utilities — atmosphere
+   Utilities - atmosphere
    ============================================================ */
 @layer utilities {
   /* Fine grain/noise overlay for depth */

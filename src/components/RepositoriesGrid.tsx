@@ -51,7 +51,7 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
           {hasPages(repo) ? "Open page" : "View source"}{" "}
           <ArrowUpRight className="h-4 w-4" aria-hidden />
         </span>
-        {/* Only when it adds a second destination — for repos without a hosted
+        {/* Only when it adds a second destination - for repos without a hosted
             page the stretched link already points at the source. */}
         {hasPages(repo) && (
           <a

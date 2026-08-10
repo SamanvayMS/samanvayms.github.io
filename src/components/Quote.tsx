@@ -38,7 +38,7 @@ export default function Quote() {
           <p className="text-xl font-medium italic leading-relaxed text-white sm:text-2xl">
             “{q.text}”
           </p>
-          <footer className="mt-4 text-sm text-[var(--color-mute-400)]">— {q.author}</footer>
+          <footer className="mt-4 text-sm text-[var(--color-mute-400)]">{q.author}</footer>
         </motion.blockquote>
       </AnimatePresence>
 

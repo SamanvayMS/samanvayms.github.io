@@ -4,7 +4,7 @@ import { useStaticMotion } from "../lib/motion";
 export type BgMode = "off" | "candles";
 
 /**
- * Lightweight canvas background — a scrolling candlestick chart.
+ * Lightweight canvas background - a scrolling candlestick chart.
  * Mounts behind all content, ignores pointer events, pauses when tab hidden.
  */
 export default function AnimatedBackground({ mode }: { mode: BgMode }) {

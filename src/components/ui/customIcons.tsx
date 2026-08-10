@@ -31,7 +31,7 @@ export function OandaIcon(props: IconProps) {
   );
 }
 
-/** vLLM — official Simple Icons geometry. */
+/** vLLM - official Simple Icons geometry. */
 export function VllmIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" role="img" {...props}>
@@ -40,7 +40,7 @@ export function VllmIcon(props: IconProps) {
   );
 }
 
-/** LlamaIndex — the llama from the official square mark, monochromed. */
+/** LlamaIndex - the llama from the official square mark, monochromed. */
 export function LlamaIndexIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 1920 1920" role="img" {...props}>

@@ -3,15 +3,15 @@
  *
  * Most repos host their OWN one-page site via GitHub Pages (an index.html in
  * the repo itself), served at https://samanvayms.github.io/<slug>/. Those that
- * don't set `pages: false` and are linked to their source instead — use
+ * don't set `pages: false` and are linked to their source instead - use
  * `primaryUrl()` / `hasPages()` rather than assuming a Pages URL exists.
  *
- * This site only stores links + metadata — no repository source is copied here.
+ * This site only stores links + metadata - no repository source is copied here.
  */
 export interface Repo {
   /** Display title */
   name: string;
-  /** GitHub repo name — used to build both URLs */
+  /** GitHub repo name - used to build both URLs */
   slug: string;
   /** One-line description */
   tagline: string;
@@ -21,7 +21,7 @@ export interface Repo {
   tags: string[];
   /**
    * Whether the repo hosts its own GitHub Pages site. Defaults to true.
-   * Set false for repos without one — the card then points at the source
+   * Set false for repos without one - the card then points at the source
    * instead of a Pages URL that would 404.
    */
   pages?: boolean;

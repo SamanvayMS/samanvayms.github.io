@@ -9,7 +9,7 @@ export const site = {
   /** Static greeting before the typewriter */
   greeting: "Hi, I'm Sam.",
   /**
-   * Hero typewriter. The FIRST entry always types first — it's the job title,
+   * Hero typewriter. The FIRST entry always types first - it's the job title,
    * the one line every visitor should see. The rest are shuffled after that.
    */
   taglines: [
@@ -43,8 +43,7 @@ export const site = {
     heading: "About",
     paragraphs: [
       "Quant on the buy side of public fixed income at Northwestern Mutual Investment Management Company, working across IG and HY corporates, EM credit, securitized products (MBS/CMBS/CLO/ABS), munis, rates and macro, and fixed income derivatives.",
-      "Away from the day job I build systematic trading end to end: reinforcement learning agents and the market environments they train in, agentic equity research analysts that turn filings and disclosures into structured signal, and the execution, data, and serving infrastructure required to actually run any of it in production. Python, C++, Rust.",
-      "MS in Financial Engineering, University of Illinois Urbana-Champaign. CFA Level III candidate.",
+      "Away from the day job I build systematic trading end to end: reinforcement learning agents and the market environments they train in, agentic equity research analysts that turn filings and disclosures into structured signal, and the execution, data, and serving infrastructure required to actually run any of it in production.",
     ],
     interestsLabel: "Research interests",
     interests: [

@@ -47,7 +47,7 @@ export const certifications: Certification[] = [
     title: "Retrieval Augmented Generation (RAG)",
     issuer: "DeepLearning.AI",
     summary:
-      "Building RAG systems end to end — chunking, embeddings, retrieval, and grounding LLM responses in external knowledge.",
+      "Building RAG systems end to end: chunking, embeddings, retrieval, and grounding LLM responses in external knowledge.",
     url: "/images/certificates/rag-deeplearning.pdf",
     verifyUrl: "https://coursera.org/verify/T3TQRTWQFGZS",
   },
@@ -55,7 +55,7 @@ export const certifications: Certification[] = [
     title: "Bloomberg Market Concepts",
     issuer: "Bloomberg",
     summary:
-      "Economic indicators, currencies, fixed income, and equities — hands-on with the Bloomberg Terminal and real-time market data.",
+      "Economic indicators, currencies, fixed income, and equities, hands-on with the Bloomberg Terminal and real-time market data.",
     url: "/images/certificates/certificate_of_completion.pdf",
   },
 ];
