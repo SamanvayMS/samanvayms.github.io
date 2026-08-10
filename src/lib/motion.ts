@@ -5,7 +5,7 @@ import { FX_DISABLED } from "./fx";
 export const EASE_OUT = [0, 0, 0.2, 1] as const;
 
 /**
- * True when motion should be skipped — either the user prefers reduced motion
+ * True when motion should be skipped - either the user prefers reduced motion
  * or the screenshot build flag (PUBLIC_NOFX) is set. Single source of truth so
  * every island disables animation consistently.
  */

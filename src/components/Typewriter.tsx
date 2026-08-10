@@ -7,7 +7,7 @@ const PAUSE_MS = 2000;
 
 /**
  * Index of the next phrase: always random from [1, len), never repeating the
- * one just shown. Index 0 is the job title — it types first on every load and
+ * one just shown. Index 0 is the job title - it types first on every load and
  * then steps aside for the rotation. Called only from the timer effect, so the
  * first paint stays deterministic and hydration can't mismatch.
  */

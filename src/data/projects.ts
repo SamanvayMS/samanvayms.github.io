@@ -6,7 +6,7 @@ export interface Project {
   tags: string[];
   tech: string[];
   featured?: boolean;
-  /** Public repo links — shown as buttons */
+  /** Public repo links - shown as buttons */
   github?: string;
   gitlab?: string;
   demo?: string;
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     featured: true,
     tags: ["Trading", "Machine Learning"],
     summary:
-      "Designed and backtested HFT strategies — latency arbitrage and momentum-based inventory control — on RCMX Strategy Studio, augmented with LSTM and Transformer models for sharper price prediction.",
+      "Designed and backtested HFT strategies (latency arbitrage and momentum-based inventory control) on RCMX Strategy Studio, augmented with LSTM and Transformer models for sharper price prediction.",
     tech: ["Strategy Studio", "C++", "LSTM", "Transformers", "Python"],
     gitlab:
       "https://gitlab.engr.illinois.edu/fin556_algo_market_micro_fall_2023/fin556_algo_fall_2023_group_01/group_01_project",
@@ -77,12 +77,12 @@ export const projects: Project[] = [
     title: "Financial Machine Learning Projects",
     tags: ["Machine Learning"],
     summary:
-      "A suite of financial ML tasks — credit-card default, bond-rating classification, treasury-squeeze prediction, and economic-cycle forecasting — spanning regression, tree ensembles, and dimensionality reduction.",
+      "A suite of financial ML tasks (credit-card default, bond-rating classification, treasury-squeeze prediction, and economic-cycle forecasting) spanning regression, tree ensembles, and dimensionality reduction.",
     tech: ["scikit-learn", "pandas", "NumPy", "Python"],
     github: "https://github.com/SamanvayMS/machine-learning-lab",
   },
   {
-    title: "Large Language Models — Design & Training",
+    title: "Large Language Models: Design & Training",
     tags: ["Machine Learning", "LLM"],
     summary:
       "From-scratch training and fine-tuning of GPT-2, bigram language models, and custom tokenizers for text generation and sentiment analysis.",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     title: "JAX: Novice to Expert",
     tags: ["Machine Learning", "Reinforcement Learning"],
     summary:
-      "An 18-notebook curriculum taking JAX from first principles to custom GPU kernels, classic algorithms, and deep RL — covering jit and tracing, autodiff, vmap, pytrees, sharding, and a from-scratch neural net. Notebooks are executed end-to-end before shipping, so the outputs are measured rather than written by hand.",
+      "An 18-notebook curriculum taking JAX from first principles to custom GPU kernels, classic algorithms, and deep RL, covering jit and tracing, autodiff, vmap, pytrees, sharding, and a from-scratch neural net. Notebooks are executed end-to-end before shipping, so the outputs are measured rather than written by hand.",
     tech: ["JAX", "Flax", "Optax", "Python", "Jupyter"],
     github: "https://github.com/SamanvayMS/Jax",
   },

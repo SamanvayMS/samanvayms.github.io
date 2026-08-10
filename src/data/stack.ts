@@ -3,7 +3,7 @@ export interface StackGroup {
   items: string[];
 }
 
-/** Logo strip — the high-signal tools, grouped. Concept-only skills live in the Skills section. */
+/** Logo strip - the high-signal tools, grouped. Concept-only skills live in the Skills section. */
 export const stackGroups: StackGroup[] = [
   {
     label: "Languages",

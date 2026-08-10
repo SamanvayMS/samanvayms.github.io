@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-  title = `${site.short} — ${site.name}`,
+  title = `${site.short} · ${site.name}`,
   description = "Quantitative analyst and data scientist. Systematic trading, financial machine learning, and production data pipelines.",
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();

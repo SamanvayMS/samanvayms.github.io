@@ -17,7 +17,7 @@ export default function Contact() {
     if (!site.formspreeEndpoint) {
       const subject = encodeURIComponent(`Portfolio message from ${data.get("name") ?? ""}`);
       const body = encodeURIComponent(
-        `${data.get("message") ?? ""}\n\n— ${data.get("name") ?? ""} (${data.get("email") ?? ""})`,
+        `${data.get("message") ?? ""}\n\n${data.get("name") ?? ""} (${data.get("email") ?? ""})`,
       );
       window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
       return;
@@ -108,7 +108,7 @@ export default function Contact() {
 
           {status === "success" && (
             <p role="status" className="flex items-center gap-2 text-sm text-emerald-400">
-              <CheckCircle2 className="h-4 w-4" /> Thanks — your message has been sent.
+              <CheckCircle2 className="h-4 w-4" /> Thanks, your message has been sent.
             </p>
           )}
           {status === "error" && (

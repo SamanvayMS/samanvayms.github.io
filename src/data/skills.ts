@@ -14,7 +14,7 @@ export const skillDomains: SkillDomain[] = [
   {
     title: "Machine Learning",
     summary:
-      "Supervised, unsupervised and deep modeling — prediction, representation learning, classical NLP, and sequential decision making.",
+      "Supervised, unsupervised and deep modeling: prediction, representation learning, classical NLP, and sequential decision making.",
     clusters: [
       {
         label: "Regression and classification",

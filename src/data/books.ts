@@ -8,7 +8,7 @@ export interface Book {
   cover?: string;
 }
 
-// NOTE: "currently reading" flags are placeholders — adjust to taste.
+// NOTE: "currently reading" flags are placeholders - adjust to taste.
 export const books: Book[] = [
   {
     title: "Sapiens",
