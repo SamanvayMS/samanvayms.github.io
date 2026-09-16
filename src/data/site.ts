@@ -28,7 +28,6 @@ export const site = {
     github: "https://github.com/SamanvayMS",
     linkedin: "https://www.linkedin.com/in/samanvayms",
   },
-  resume: "/files/SamanvayResume.pdf",
   /**
    * Set to your Formspree endpoint (https://formspree.io/ → New form →
    * "https://formspree.io/f/<id>") to enable real form submissions.
