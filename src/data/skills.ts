@@ -1,12 +1,7 @@
-/** Where a skill was put to work. Shown under each skill card; empty means a personal project. */
-export const places = ["Northwestern Mutual", "JIA Finance", "Alpha Desk", "UIUC", "BP"] as const;
-export type Place = (typeof places)[number];
-
 export interface SignatureSkill {
   name: string;
   /** One line of evidence: what I built with it. */
   proof: string;
-  where: Place[];
 }
 
 export interface SkillDomain {
@@ -32,22 +27,18 @@ export const skillDomains: SkillDomain[] = [
       {
         name: "Factor models and allocation",
         proof: "Fixed income factor strategies from Barclays QPS research (EMC, ESP, SPIDER), a Black-Litterman model for cross-sector tilts, and Fama-French factors built from scratch.",
-        where: ["Northwestern Mutual", "Alpha Desk"],
       },
       {
         name: "Performance attribution",
         proof: "Brinson attribution with Frongello linking in a self-service Snowflake engine, and daily Brinson-Fachler with Carino linking in my own tracker.",
-        where: ["Northwestern Mutual", "Alpha Desk"],
       },
       {
         name: "Mortgages and MBS",
         proof: "Agency MBS prepayment analytics (CPR, S-curves, WALA ramps) from eMBS loan-level data, and an MBS cash flow and valuation model on a calibrated CIR short rate.",
-        where: ["Northwestern Mutual", "JIA Finance"],
       },
       {
         name: "Market making and microstructure",
         proof: "Order books rebuilt from CME Globex feeds to study market-maker positioning, and Avellaneda-Stoikov strategies backtested in Strategy Studio.",
-        where: ["UIUC"],
       },
     ],
     toolkit: [
@@ -71,22 +62,18 @@ export const skillDomains: SkillDomain[] = [
       {
         name: "Reinforcement learning",
         proof: "DQN and DDPG agents written in C++ with LibTorch and SQLite-backed experience replay, trading inside a high-frequency backtester.",
-        where: ["UIUC"],
       },
       {
         name: "Survival and credit models",
         proof: "Cox proportional hazards and Kaplan-Meier models over 2B+ Fannie Mae loans, run with PySpark on SageMaker and Redshift.",
-        where: ["JIA Finance"],
       },
       {
         name: "Strategy optimization",
         proof: "Forex ladder backtests made 2,000x faster with Numba, then tuned with Optuna, particle swarms and genetic search.",
-        where: ["BP"],
       },
       {
         name: "JAX",
         proof: "An 18-notebook course from jit and autodiff up to custom GPU kernels and deep RL.",
-        where: [],
       },
     ],
     toolkit: [
@@ -109,22 +96,18 @@ export const skillDomains: SkillDomain[] = [
       {
         name: "Production RAG",
         proof: "Hybrid dense and sparse retrieval on Snowflake Cortex over issuer documents, fused with RRF and cited to the chunk. 80% Recall@10 and 0.81 MRR on about 200 labeled queries.",
-        where: ["Northwestern Mutual", "JIA Finance"],
       },
       {
         name: "Agent systems",
         proof: "An equity research agent on a Strands harness in a gVisor sandbox, with MCP tools over prices, positions, factors and attribution. Trades save only on a human click.",
-        where: ["Alpha Desk"],
       },
       {
         name: "Self-hosted inference",
         proof: "Qwen MoE and dense models on two DGX Sparks with vLLM, NVFP4 and speculative decoding. Throughput went up 4x, to 74 tokens a second.",
-        where: ["Alpha Desk"],
       },
       {
         name: "Evals",
         proof: "LLM judges on the RAG triad to choose the embedding model, chunking and fusion weights, and a 33-task agent suite that scores 92% pass@1.",
-        where: ["Northwestern Mutual", "Alpha Desk"],
       },
     ],
     toolkit: [
@@ -150,22 +133,18 @@ export const skillDomains: SkillDomain[] = [
       {
         name: "ELT pipelines",
         proof: "Aladdin, Bloomberg and eMBS analytics loaded with AWS Batch into Snowflake and modeled with dbt, behind a test suite and data integrity monitors.",
-        where: ["Northwestern Mutual"],
       },
       {
         name: "Semantic query engine",
         proof: "Jinja-generated SQL behind Streamlit apps for self-service fixed income analytics, taking ideation to trade from hours to minutes.",
-        where: ["Northwestern Mutual"],
       },
       {
         name: "Tick data",
         proof: "C++ parsers for CME Globex tick, depth and market-by-order feeds from Databento, loaded into kdb+/q through PyKX.",
-        where: ["UIUC"],
       },
       {
         name: "Incremental warehouse",
         proof: "Hash-checked Parquet shards behind DuckDB, plus daily index weights for 47 funds rebuilt from SSGA holdings and SEC filings.",
-        where: ["Alpha Desk"],
       },
     ],
     toolkit: [

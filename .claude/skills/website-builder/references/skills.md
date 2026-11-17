@@ -9,10 +9,8 @@ Each domain has an `id` (used for tab ids), a `title`,
 a one-sentence `pitch`, optional `featured`, exactly four `signature` skills and a
 `toolkit` of about ten supporting items.
 
-A signature skill is `{ name, proof, where }`:
-- `proof` is one line saying what was built with it. Concrete, no adjectives.
-- `where` lists entries from `places` (Northwestern Mutual, JIA Finance, Alpha Desk, UIUC, BP).
-  Leave it empty for personal projects; the card then reads "Personal project".
+A signature skill is `{ name, proof }`. `proof` is one line saying what was built
+with it. Concrete, no adjectives.
 
 Keep it small. The point of this section is that a reader takes in four areas and
 sixteen skills, not a hundred chips.
