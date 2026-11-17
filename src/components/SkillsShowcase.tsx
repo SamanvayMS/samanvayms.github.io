@@ -110,10 +110,10 @@ function MapLayout() {
   const cols = [...places, "Personal"] as const;
   return (
     <div className="glass overflow-x-auto p-4 md:p-6">
-      <table className="w-full min-w-[640px] border-separate border-spacing-0 text-sm">
+      <table className="w-full min-w-[760px] border-separate border-spacing-0 text-sm">
         <thead>
           <tr>
-            <th className="w-[38%] pb-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--color-mute-500)]">
+            <th className="w-[32%] pb-3 text-left text-xs font-semibold uppercase tracking-wider text-[var(--color-mute-500)]">
               Skill
             </th>
             {cols.map((c) => (
