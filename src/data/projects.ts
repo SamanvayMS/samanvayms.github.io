@@ -15,36 +15,38 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // Alpha Desk: one product, three cards (data, portfolio analytics, agent).
+  // Keep this split when the stack moves to the cloud; update tech and copy per card.
   {
-    title: "Alpha Desk: Portfolio Tracking and Market Data Platform",
-    context: "Personal · alphadesk.markets",
+    title: "Alpha Desk: Market Data Platform",
+    context: "Alpha Desk · Data",
     featured: true,
     proprietary: true,
     tags: ["Portfolio Analytics", "Infrastructure"],
     summary:
-      "A self-hosted research desk. An incremental Parquet warehouse mirrors prices, fundamentals, dividends, splits, short interest and macro data into DuckDB, and daily index weights for 47 SPDR funds are rebuilt from SSGA holdings and SEC N-PORT filings. On top sits a Flask dashboard with a cash-checked portfolio tracker, screener, comps and a point-in-time analyser that sets any portfolio against any benchmark.",
-    tech: ["Python", "DuckDB", "Flask", "SQLite", "Cloudflare"],
+      "The data layer under Alpha Desk. An incremental warehouse mirrors prices, fundamentals, dividends, splits, short interest and macro series into hash-checked Parquet shards behind DuckDB views, so a daily run only fetches what changed. A second pipeline rebuilds daily index weights for 47 SPDR funds from SSGA holdings and SEC N-PORT filings, with a security master that maps every holding to a ticker.",
+    tech: ["Python", "DuckDB", "Parquet", "SEC EDGAR"],
     demo: "https://www.alphadesk.markets",
   },
   {
-    title: "Factor Models and Return Attribution",
-    context: "Alpha Desk",
+    title: "Alpha Desk: Portfolio Tracking, Attribution and Factor Models",
+    context: "Alpha Desk · Portfolio analytics",
     featured: true,
     proprietary: true,
     tags: ["Portfolio Analytics", "Trading"],
     summary:
-      "Fama-French style factors (size, value, profitability, investment, momentum, low volatility, sectors) built daily from the warehouse with NYSE breakpoints, and checked against ETF proxies at 0.79 to 0.99 correlation. Portfolios, benchmarks and single stocks get Newey-West regressions, rolling betas and a log-normal forecast with editable inputs. Brinson-Fachler attribution runs every trading day and is linked with Carino smoothing, so the effects add up exactly to the active return.",
-    tech: ["Python", "pandas", "NumPy", "DuckDB"],
+      "A portfolio tracker that replays every trade, deposit and dividend day by day and rejects anything that would overdraw cash. Brinson-Fachler attribution against any of the 47 benchmarks runs daily and is linked with Carino smoothing, so the effects sum exactly to active return. Fama-French style factors built in-house (0.79 to 0.99 correlation with ETF proxies) feed Newey-West regressions, rolling betas and an editable risk and return forecast.",
+    tech: ["Python", "pandas", "NumPy", "Flask", "SQLite"],
     demo: "https://www.alphadesk.markets",
   },
   {
-    title: "Agentic Research Assistant",
-    context: "Alpha Desk",
+    title: "Alpha Desk: Agentic Research Analyst",
+    context: "Alpha Desk · Agent",
     featured: true,
     proprietary: true,
     tags: ["LLM", "Portfolio Analytics"],
     summary:
-      "A chat agent that answers questions about markets and the signed-in user's own portfolio, running on a local Qwen model served by vLLM. It reaches the dashboard through an MCP server with 24 read tools, acting only as that user via short-lived passes. It can draft trades, but they arrive as cards that save only when the user clicks Confirm. Quotas, tool-call limits and an eval suite keep it in check.",
+      "A research analyst that lives in the dashboard and answers questions about markets and the user's own book. It runs on a local Qwen model through vLLM and reaches Alpha Desk through an MCP server with 24 tools, acting only as the signed-in user. It can draft trades, but each one arrives as a card that saves only when the user clicks Confirm. Per-user quotas, tool-call caps and an eval suite keep it honest.",
     tech: ["Strands Agents", "MCP", "vLLM", "Qwen", "Python"],
     demo: "https://www.alphadesk.markets",
   },

@@ -1,65 +1,24 @@
-# Add / edit skills (domains, clusters, stat cards)
+# Add / edit skills
 
-**File:** `src/data/skills.ts`
+**File:** `src/data/skills.ts`, rendered by `src/components/SkillsShowcase.tsx`
+(mounted from `src/components/sections/Skills.astro`).
 
-Renders in the "Skills & Domains" (`#skills`) section (`src/components/sections/Skills.astro`):
-a row of 4 stat cards, then one full-width glass card per domain, each containing
-labeled clusters of skill chips.
+## Shape
 
-## Two exports
+Each domain has an `id` (used by the Terminal layout as `skills <id>`), a `title`,
+a one-sentence `pitch`, optional `featured`, exactly four `signature` skills and a
+`toolkit` of about ten supporting items.
 
-### 1. `skillsSummary` — the stat cards at the top
+A signature skill is `{ name, proof, where }`:
+- `proof` is one line saying what was built with it. Concrete, no adjectives.
+- `where` lists entries from `places` (Northwestern Mutual, Alpha Desk, UIUC, BP).
+  Leave it empty for personal projects; the Map layout shows those under "Personal".
 
-```ts
-export const skillsSummary = [
-  { value: "4", label: "Core domains" },
-  { value: "50+", label: "Methods and tools" },
-  // ...
-];
-```
+Keep it small. The point of this section is that a reader takes in four areas and
+sixteen skills, not a hundred chips.
 
-Each item is one stat card (big `value`, small `label`). Keep it to ~4 cards.
+## Layouts
 
-### 2. `skillDomains` — the domain cards
-
-```ts
-export interface SkillDomain {
-  title: string;
-  slug: string;            // unique id string, e.g. "ml" (lowercase, no spaces)
-  summary: string;         // one-line description under the title
-  featured?: boolean;      // adds a "Focus" badge + accent ring
-  clusters: { label: string; items: string[] }[];
-}
-```
-
-## Example — add a cluster to an existing domain
-
-Find the domain in `skillDomains` and add to its `clusters`:
-
-```ts
-{
-  label: "Reinforcement learning",
-  items: ["Q-Learning", "DQN", "DDPG", "PPO"],
-},
-```
-
-## Example — add a whole new domain
-
-```ts
-{
-  title: "Econometrics and Statistics",
-  slug: "stats",
-  summary: "Statistical inference and time-series modeling.",
-  clusters: [
-    { label: "Time series", items: ["ARIMA", "GARCH"] },
-    { label: "Inference", items: ["Hypothesis Testing", "ANOVA"] },
-  ],
-},
-```
-
-## Notes
-
-- Items are plain text chips here (no icons) — that's intentional; logos belong in
-  the "My Stack" section ([stack.md](stack.md)).
-- Set `featured: true` on at most one domain (it spans full width with a Focus
-  badge). Keep the stat-card numbers roughly consistent with the content.
+The island has three layouts (Lens, Map, Terminal) behind a "Layout preview"
+switcher, also reachable with `?skills=lens|map|terminal`. Once one is chosen,
+delete the other two and the switcher.
