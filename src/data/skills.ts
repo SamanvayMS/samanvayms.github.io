@@ -1,4 +1,4 @@
-/** Where a skill was put to work. Keep these short: they label the Map columns. */
+/** Where a skill was put to work. Shown under each skill card; empty means a personal project. */
 export const places = ["Northwestern Mutual", "JIA Finance", "Alpha Desk", "UIUC", "BP"] as const;
 export type Place = (typeof places)[number];
 
@@ -10,7 +10,7 @@ export interface SignatureSkill {
 }
 
 export interface SkillDomain {
-  /** Short id, used by the terminal layout (`skills quant`). */
+  /** Short id, used for tab ids. */
   id: string;
   title: string;
   /** One sentence, plain. */
