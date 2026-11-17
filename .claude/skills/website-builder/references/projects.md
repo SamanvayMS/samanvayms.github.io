@@ -18,7 +18,7 @@ export interface Project {
   featured?: boolean;   // shows a "Featured" badge
   github?: string;      // GitHub repo link button
   gitlab?: string;      // GitLab repo link button
-  demo?: string;        // live demo link button
+  demo?: string;        // live site link, button reads "Link to site"
   proprietary?: boolean;// no repo → renders "Available on request" with a lock
 }
 ```
