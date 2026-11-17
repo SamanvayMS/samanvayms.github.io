@@ -18,7 +18,7 @@ export interface Project {
   featured?: boolean;   // shows a "Featured" badge
   github?: string;      // GitHub repo link button
   gitlab?: string;      // GitLab repo link button
-  demo?: string;        // live demo link button
+  demo?: string;        // live site link, button reads "Link to site"
   proprietary?: boolean;// no repo → renders "Available on request" with a lock
 }
 ```
@@ -29,7 +29,7 @@ export interface Project {
   built automatically from all `tags` across projects (ordered by frequency), with
   an "All" option. Reuse existing tags so the bar stays tidy. Current tag set:
   `Trading`, `Machine Learning`, `Reinforcement Learning`, `Infrastructure`,
-  `Optimization`, `LLM`. Add a new tag only for a genuinely new theme.
+  `Optimization`, `LLM`, `Portfolio Analytics`. Add a new tag only for a genuinely new theme.
 - **`tech`** are the concrete tools (Python, PyTorch, …) shown as logo pills.
 
 ## Example

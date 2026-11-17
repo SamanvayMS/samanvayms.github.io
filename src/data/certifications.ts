@@ -7,14 +7,24 @@ export interface Certification {
   url?: string;
   /** External credential verification link (e.g. coursera.org/verify/...) */
   verifyUrl?: string;
+  /** Badge image in /public, shown on the card in place of the award icon */
+  badge?: string;
 }
 
 export const certifications: Certification[] = [
   {
-    title: "CFA Level II",
+    title: "AWS Certified Machine Learning Engineer (Associate)",
+    issuer: "Amazon Web Services",
+    badge: "/images/badges/aws-mle-associate.png",
+    verifyUrl: "https://www.credly.com/badges/62bfdd77-2a32-4351-b5a9-8eaed8a84528/public_url",
+    summary:
+      "Building, deploying and running ML workloads on AWS: data preparation, model training and tuning in SageMaker, deployment and orchestration, plus monitoring, cost and security for models in production.",
+  },
+  {
+    title: "CFA Level III Candidate (Feb 2027)",
     issuer: "CFA Institute",
     summary:
-      "Passed Levels I and II of the Chartered Financial Analyst program, with Level II emphasizing asset valuation across equities, fixed income, derivatives, and alternatives, plus financial reporting, quantitative methods, and portfolio management.",
+      "Passed Levels I and II of the Chartered Financial Analyst program and sitting Level III in February 2027. Level II covered asset valuation across equities, fixed income, derivatives and alternatives; Level III is centered on portfolio management and wealth planning.",
   },
   {
     title: "Deep Learning Specialization",

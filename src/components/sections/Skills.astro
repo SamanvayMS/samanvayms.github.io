@@ -1,65 +1,13 @@
 ---
-import { skillDomains, skillsSummary } from "../../data/skills";
 import Section from "../ui/Section.astro";
-import Reveal from "../motion/Reveal.tsx";
+import SkillsShowcase from "../SkillsShowcase.tsx";
 ---
 
 <Section
   id="skills"
   eyebrow="What I do"
-  heading="Skills & Domains"
-  sub="Four core domains spanning machine learning, data engineering, statistics, and quantitative finance."
+  heading="Skills"
+  sub="Four areas and the things I've built in each."
 >
-  <!-- Summary stats -->
-  <Reveal client:visible className="mt-10">
-    <dl class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      {
-        skillsSummary.map((s) => (
-          <div class="glass flex flex-col items-center justify-center gap-1 px-4 py-6 text-center">
-            <dd class="text-3xl font-bold text-[var(--color-accent-light)]">{s.value}</dd>
-            <dt class="text-xs uppercase tracking-wide text-[var(--color-mute-400)]">
-              {s.label}
-            </dt>
-          </div>
-        ))
-      }
-    </dl>
-  </Reveal>
-
-  <!-- Domains: full-width stacked cards, clusters auto-fit -->
-  <div class="mt-6 space-y-5">
-    {
-      skillDomains.map((domain, i) => (
-        <Reveal client:visible index={i}>
-          <article
-            class:list={[
-              "glass glass-interactive p-6 md:p-8",
-              { "ring-1 ring-[var(--color-accent)]/30": domain.featured },
-            ]}
-          >
-            <div class="flex flex-wrap items-center gap-2">
-              <h3 class="text-lg font-semibold text-white">{domain.title}</h3>
-              {domain.featured && <span class="badge-accent">Focus</span>}
-            </div>
-            <p class="mt-1.5 max-w-3xl text-sm text-[var(--color-mute-400)]">{domain.summary}</p>
-
-            <div class="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-              {domain.clusters.map((cluster) => (
-                <div>
-                  <p class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-mute-500)]">
-                    {cluster.label}
-                  </p>
-                  <ul class="flex flex-wrap gap-1.5">
-                    {cluster.items.map((item) => (
-                      <li class="chip rounded-md px-2 py-0.5 text-xs">{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </article>
-        </Reveal>
-      ))
-    }
-  </div>
+  <SkillsShowcase client:visible />
 </Section>

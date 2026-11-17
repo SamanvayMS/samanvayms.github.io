@@ -18,7 +18,18 @@ export default function CertGrid() {
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {certifications.map((cert) => (
           <article key={cert.title} className="glass glass-interactive flex h-full flex-col p-6">
-            <Award className="h-6 w-6 text-[var(--color-accent)]" />
+            {cert.badge ? (
+              <img
+                src={cert.badge}
+                alt={`${cert.title} badge`}
+                width={64}
+                height={64}
+                loading="lazy"
+                className="h-16 w-16 object-contain"
+              />
+            ) : (
+              <Award className="h-6 w-6 text-[var(--color-accent)]" />
+            )}
             <h3 className="mt-4 text-base font-semibold text-white">{cert.title}</h3>
             <p className="mt-0.5 text-sm text-[var(--color-mute-400)]">{cert.issuer}</p>
 

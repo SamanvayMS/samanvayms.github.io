@@ -1,127 +1,163 @@
-export interface SkillCluster {
-  label: string;
-  items: string[];
+export interface SignatureSkill {
+  name: string;
+  /** One line of evidence: what I built with it. */
+  proof: string;
 }
 
 export interface SkillDomain {
+  /** Short id, used for tab ids. */
+  id: string;
   title: string;
-  summary: string;
+  /** One sentence, plain. */
+  pitch: string;
   featured?: boolean;
-  clusters: SkillCluster[];
+  /** Exactly four: the things I'd want a reader to remember. */
+  signature: SignatureSkill[];
+  /** The supporting toolkit, kept to about ten items. */
+  toolkit: string[];
 }
 
 export const skillDomains: SkillDomain[] = [
   {
-    title: "Machine Learning",
-    summary:
-      "Supervised, unsupervised and deep modeling: prediction, representation learning, classical NLP, and sequential decision making.",
-    clusters: [
-      {
-        label: "Regression and classification",
-        items: ["Linear Regression", "Logistic Regression", "Lasso Regression", "Ridge Regression"],
-      },
-      {
-        label: "Trees and ensembles",
-        items: ["Decision Trees", "Random Forests", "Gradient Boosting", "AdaBoost", "XGBoost"],
-      },
-      {
-        label: "Representation learning",
-        items: ["K-Means", "Hierarchical Clustering", "PCA", "t-SNE", "LDA"],
-      },
-      {
-        label: "Natural language",
-        items: ["Text Preprocessing", "Text Classification", "Sentiment Analysis", "Word Embeddings", "Word2Vec"],
-      },
-      {
-        label: "Deep and generative models",
-        items: ["Neural Networks", "CNNs", "RNNs", "LSTM", "GRU", "Transformers", "VAEs", "GANs"],
-      },
-      {
-        label: "Reinforcement learning",
-        items: ["Q-Learning", "Deep Q-Learning", "Policy Gradients", "Actor-Critic", "DQN", "DDPG", "PPO"],
-      },
-    ],
-  },
-  {
-    title: "Generative AI",
-    summary:
-      "Training, adapting and serving large language models, and the engineering around agents built on them.",
-    clusters: [
-      {
-        label: "LLM training and finetuning",
-        items: ["Pretraining", "Finetuning", "Distillation", "Quantisation", "RLHF", "GRPO", "LoRA", "QLoRA"],
-      },
-      {
-        label: "Agentic AI",
-        items: ["Prompt Engineering", "Context Engineering", "Loop Engineering", "RAG"],
-      },
-    ],
-  },
-  {
-    title: "Econometrics and Statistics",
-    summary:
-      "Probability, statistical inference, time series modeling, and strategic systems for market behavior.",
-    clusters: [
-      {
-        label: "Probability",
-        items: ["Conditional Probability and Bayes' Theorem", "Markov Chains", "Martingales", "Hidden Markov Models"],
-      },
-      {
-        label: "Time series",
-        items: ["ARIMA", "SARIMA", "Seasonal Decomposition", "Exponential Smoothing", "GARCH", "Sequence Models"],
-      },
-      {
-        label: "Inference",
-        items: ["Hypothesis Testing", "Confidence Intervals", "ANOVA", "Chi-Square Tests", "Goodness of Fit Tests", "Correlation Analysis"],
-      },
-      {
-        label: "Game theory",
-        items: ["Nash Equilibrium", "Auction Theory", "Mean Field Games", "Stochastic Games"],
-      },
-    ],
-  },
-  {
-    title: "Quant Finance and Trading",
+    id: "quant",
+    title: "Quant Finance",
     featured: true,
-    summary:
-      "Finance-native modeling across derivatives, risk, market microstructure, and systematic trading.",
-    clusters: [
+    pitch: "Fixed income, portfolio analytics and market making, built for the people who trade on the numbers.",
+    signature: [
       {
-        label: "Financial modeling",
-        items: ["CAPM", "Fama-French", "Black-Scholes", "Binomial Option Pricing", "Monte Carlo Simulation", "Interest Rate Modeling", "Implied Volatility Surfaces"],
+        name: "Factor models and allocation",
+        proof: "Fixed income factor strategies from Barclays QPS research (EMC, ESP, SPIDER), a Black-Litterman model for cross-sector tilts, and Fama-French factors built from scratch.",
       },
       {
-        label: "Derivatives",
-        items: ["Options", "Futures", "Swaps", "Forwards", "Interest Rate Derivatives", "Mortgage-Backed Securities", "Credit Derivatives"],
+        name: "Performance attribution",
+        proof: "Brinson attribution with Frongello linking in a self-service Snowflake engine, and daily Brinson-Fachler with Carino linking in my own tracker.",
       },
       {
-        label: "Risk",
-        items: ["Value at Risk", "Conditional Value at Risk", "Stress Testing", "Backtesting", "Risk Parity", "Portfolio Optimization"],
+        name: "Mortgages and MBS",
+        proof: "Agency MBS prepayment analytics (CPR, S-curves, WALA ramps) from eMBS loan-level data, and an MBS cash flow and valuation model on a calibrated CIR short rate.",
       },
       {
-        label: "Trading systems",
-        items: ["Momentum Trading", "Mean Reversion", "Pairs Trading", "Statistical Arbitrage", "Market Making", "High-Frequency Trading", "Sentiment Analysis"],
-      },
-      {
-        label: "Quant toolkit",
-        items: ["Stochastic Calculus", "Portfolio Management", "Market Microstructure", "Numerical Methods", "Financial Machine Learning"],
+        name: "Market making and microstructure",
+        proof: "Order books rebuilt from CME Globex feeds to study market-maker positioning, and Avellaneda-Stoikov strategies backtested in Strategy Studio.",
       },
     ],
+    toolkit: [
+      "Stochastic calculus",
+      "Derivative pricing",
+      "Interest rate models",
+      "Risk management",
+      "Pairs trading",
+      "Transaction cost optimization",
+      "Walk-forward analysis",
+      "Monte Carlo simulation",
+      "Game and auction theory",
+      "A/B testing",
+    ],
   },
-];
-
-const clusterCount = skillDomains.reduce((n, d) => n + d.clusters.length, 0);
-const itemCount = skillDomains.reduce(
-  (n, d) => n + d.clusters.reduce((m, c) => m + c.items.length, 0),
-  0,
-);
-
-/** Derived from skillDomains so the counts can't drift when clusters change.
- *  "Trading and RL themes" is a cross-cutting count with no structural home,
- *  so it stays hand-authored. */
-export const skillsSummary = [
-  { value: `${skillDomains.length}`, label: "Core domains" },
-  { value: `${Math.floor(itemCount / 5) * 5}+`, label: "Methods and tools" },
-  { value: `${clusterCount}`, label: "Skill clusters" },
-  { value: "7", label: "Trading and RL themes" },
+  {
+    id: "ml",
+    title: "Machine Learning",
+    pitch: "Statistical models, deep RL and the optimization around them, tested against a simple baseline first.",
+    signature: [
+      {
+        name: "Reinforcement learning",
+        proof: "DQN and DDPG agents written in C++ with LibTorch and SQLite-backed experience replay, trading inside a high-frequency backtester.",
+      },
+      {
+        name: "Survival and credit models",
+        proof: "Cox proportional hazards and Kaplan-Meier models over 2B+ Fannie Mae loans, run with PySpark on SageMaker and Redshift.",
+      },
+      {
+        name: "Strategy optimization",
+        proof: "Forex ladder backtests made 2,000x faster with Numba, then tuned with Optuna, particle swarms and genetic search.",
+      },
+      {
+        name: "JAX",
+        proof: "An 18-notebook course from jit and autodiff up to custom GPU kernels and deep RL.",
+      },
+    ],
+    toolkit: [
+      "PyTorch",
+      "LibTorch",
+      "TensorFlow",
+      "scikit-learn",
+      "Tree ensembles",
+      "Transformers",
+      "Stochastic optimal control",
+      "statsmodels",
+      "Optuna",
+    ],
+  },
+  {
+    id: "genai",
+    title: "Generative AI and Agents",
+    pitch: "Retrieval and agents over financial data, measured with evals and run on hardware I control.",
+    signature: [
+      {
+        name: "Production RAG",
+        proof: "Hybrid dense and sparse retrieval on Snowflake Cortex over issuer documents, fused with RRF and cited to the chunk. 80% Recall@10 and 0.81 MRR on about 200 labeled queries.",
+      },
+      {
+        name: "Agent systems",
+        proof: "An equity research agent on a Strands harness in a gVisor sandbox, with MCP tools over prices, positions, factors and attribution. Trades save only on a human click.",
+      },
+      {
+        name: "Self-hosted inference",
+        proof: "Qwen MoE and dense models on two DGX Sparks with vLLM, NVFP4 and speculative decoding. Throughput went up 4x, to 74 tokens a second.",
+      },
+      {
+        name: "Evals",
+        proof: "LLM judges on the RAG triad to choose the embedding model, chunking and fusion weights, and a 33-task agent suite that scores 92% pass@1.",
+      },
+    ],
+    toolkit: [
+      "Strands",
+      "Agent Development Kit",
+      "LlamaIndex",
+      "LangChain",
+      "MCP",
+      "Multi-agent orchestration",
+      "Qdrant",
+      "Weaviate",
+      "Neo4j",
+      "Fine-tuning",
+      "Quantization",
+      "Arize",
+    ],
+  },
+  {
+    id: "data",
+    title: "Data Engineering",
+    pitch: "Pipelines and query layers that get clean numbers to a PM before the open.",
+    signature: [
+      {
+        name: "ELT pipelines",
+        proof: "Aladdin, Bloomberg and eMBS analytics loaded with AWS Batch into Snowflake and modeled with dbt, behind a test suite and data integrity monitors.",
+      },
+      {
+        name: "Semantic query engine",
+        proof: "Jinja-generated SQL behind Streamlit apps for self-service fixed income analytics, taking ideation to trade from hours to minutes.",
+      },
+      {
+        name: "Tick data",
+        proof: "C++ parsers for CME Globex tick, depth and market-by-order feeds from Databento, loaded into kdb+/q through PyKX.",
+      },
+      {
+        name: "Incremental warehouse",
+        proof: "Hash-checked Parquet shards behind DuckDB, plus daily index weights for 47 funds rebuilt from SSGA holdings and SEC filings.",
+      },
+    ],
+    toolkit: [
+      "SQL",
+      "Snowflake",
+      "dbt",
+      "kdb+/q",
+      "Airflow",
+      "Spark",
+      "AWS (S3, Batch, Redshift, Lambda)",
+      "GCP (BigQuery, Cloud Run, GCS)",
+      "Docker",
+      "GitLab CI/CD",
+    ],
+  },
 ];

@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         {[
           { href: project.github, Icon: Github, label: "GitHub" },
           { href: project.gitlab, Icon: SiGitlab, label: "GitLab" },
-          { href: project.demo, Icon: ExternalLink, label: "Demo" },
+          { href: project.demo, Icon: ExternalLink, label: "Link to site" },
         ]
           .filter((l) => l.href)
           .map(({ href, Icon, label }) => (

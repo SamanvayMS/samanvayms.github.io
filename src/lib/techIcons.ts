@@ -12,6 +12,9 @@ import {
   SiLangchain,
   SiNumpy,
   SiPandas,
+  SiApacheairflow,
+  SiKx,
+  SiMeta,
   SiGooglecloud,
   SiApachekafka,
   SiDocker,
@@ -33,7 +36,8 @@ import {
   SiRust,
   SiClaude,
 } from "react-icons/si";
-import { BloombergIcon, OandaIcon, VllmIcon, LlamaIndexIcon } from "../components/ui/customIcons";
+import { BloombergIcon, OandaIcon, VllmIcon, LlamaIndexIcon, GoogleCloudIcon,
+  AwsIcon, VertexAiIcon, OpenRouterIcon, ChromaIcon, JaxIcon } from "../components/ui/customIcons";
 
 type IconComponent = ComponentType<{ className?: string; style?: CSSProperties }>;
 
@@ -52,6 +56,11 @@ interface TechMeta {
 /** Alternate spellings → canonical key (applied inside techKey). */
 const ALIASES: Record<string, string> = {
   kafka: "apachekafka",
+  airflow: "apacheairflow",
+  googlecloudplatform: "googlecloud",
+  gcp: "googlecloud",
+  kdb: "qkdb",
+  q: "qkdb",
   numbajit: "numba",
   gpt4: "openai",
   gpt2: "openai",
@@ -83,9 +92,11 @@ const techMeta: Record<string, TechMeta> = {
   langchain: { icon: SiLangchain, color: "#3FB984" },
   numpy: { icon: SiNumpy, color: "#4DABCF" },
   pandas: { icon: SiPandas, color: "#E70488" },
-  googlecloud: { icon: SiGooglecloud, color: "#4285F4" },
+  googlecloud: { icon: GoogleCloudIcon, color: "#4285F4" },
   bigquery: { icon: SiGooglecloud, color: "#669DF6" },
   apachekafka: { icon: SiApachekafka, color: "#D6D6D6" },
+  apacheairflow: { icon: SiApacheairflow, color: "#017CEE" },
+  qkdb: { icon: SiKx, color: "#E8E8E8" },
   docker: { icon: SiDocker, color: "#2496ED" },
   postgresql: { icon: SiPostgresql, color: "#5A8DD6" },
   mysql: { icon: SiMysql, color: "#4479A1" },
@@ -108,15 +119,14 @@ const techMeta: Record<string, TechMeta> = {
   oanda: { icon: OandaIcon, color: "#00A9CE" },
   vllm: { icon: VllmIcon, color: "#30A2FF" },
   llamaindex: { icon: LlamaIndexIcon, color: "#E88FD8" },
+  jax: { icon: JaxIcon, color: "#5E97F6" },
+  vertexai: { icon: VertexAiIcon, color: "#4285F4" },
+  openrouter: { icon: OpenRouterIcon, color: "#94A3F8" },
+  // FAISS has no logo of its own; it is a Meta AI library, so it wears Meta's mark.
+  faiss: { icon: SiMeta, color: "#0081FB" },
+  chromadb: { icon: ChromaIcon, color: "#FFDE2D" },
+  aws: { icon: AwsIcon, color: "#F2F2F2" },
   // color-only (no icon available)
-  // JAX has no monochrome mark in any icon set; its official logo is a wide
-  // multicolour wordmark that is illegible at tile size, so it renders as text.
-  jax: { color: "#5E97F6", label: "JAX" },
-  vertexai: { color: "#4285F4" },
-  openrouter: { color: "#7B83EB" },
-  faiss: { color: "#4267B2" },
-  chromadb: { color: "#FFB000" },
-  aws: { color: "#FF9900" },
   azure: { color: "#3FA9F5" },
   tableau: { color: "#4E79A7" },
   powerbi: { color: "#F2C811" },

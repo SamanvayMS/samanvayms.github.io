@@ -15,6 +15,41 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // Alpha Desk: one product, three cards (data, portfolio analytics, agent).
+  // Keep this split when the stack moves to the cloud; update tech and copy per card.
+  {
+    title: "Alpha Desk: Market Data Platform",
+    context: "Alpha Desk · Data",
+    featured: true,
+    proprietary: true,
+    tags: ["Portfolio Analytics", "Infrastructure"],
+    summary:
+      "The data layer under Alpha Desk. An incremental warehouse mirrors prices, fundamentals, dividends, splits, short interest and macro series into hash-checked Parquet shards behind DuckDB views, so a daily run only fetches what changed. A second pipeline rebuilds daily index weights for 47 SPDR funds from SSGA holdings and SEC N-PORT filings, with a security master that maps every holding to a ticker.",
+    tech: ["Python", "DuckDB", "Parquet", "SEC EDGAR"],
+    demo: "https://www.alphadesk.markets",
+  },
+  {
+    title: "Alpha Desk: Portfolio Tracking, Attribution and Factor Models",
+    context: "Alpha Desk · Portfolio analytics",
+    featured: true,
+    proprietary: true,
+    tags: ["Portfolio Analytics", "Trading"],
+    summary:
+      "A portfolio tracker that replays every trade, deposit and dividend day by day and rejects anything that would overdraw cash. Brinson-Fachler attribution against any of the 47 benchmarks runs daily and is linked with Carino smoothing, so the effects sum exactly to active return. Fama-French style factors built in-house (0.79 to 0.99 correlation with ETF proxies) feed Newey-West regressions, rolling betas and an editable risk and return forecast.",
+    tech: ["Python", "pandas", "NumPy", "Flask", "SQLite"],
+    demo: "https://www.alphadesk.markets",
+  },
+  {
+    title: "Alpha Desk: Agentic Research Analyst",
+    context: "Alpha Desk · Agent",
+    featured: true,
+    proprietary: true,
+    tags: ["LLM", "Portfolio Analytics"],
+    summary:
+      "A research analyst that lives in the dashboard and answers questions about markets and the user's own book. It runs on a local Qwen model through vLLM and reaches Alpha Desk through an MCP server with 24 tools, acting only as the signed-in user. It can draft trades, but each one arrives as a card that saves only when the user clicks Confirm. Per-user quotas, tool-call caps and an eval suite keep it honest.",
+    tech: ["Strands Agents", "MCP", "vLLM", "Qwen", "Python"],
+    demo: "https://www.alphadesk.markets",
+  },
   {
     title: "High-Frequency Trading Strategy Development",
     context: "UIUC · FIN 556",
@@ -50,7 +85,7 @@ export const projects: Project[] = [
       "Kite Connect",
       "Python",
       "BigQuery",
-      "Google Cloud",
+      "Google Cloud Platform",
     ],
   },
   {
