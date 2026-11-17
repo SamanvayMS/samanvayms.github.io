@@ -16,6 +16,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Alpha Desk: Portfolio Tracking and Market Data Platform",
+    context: "Personal · alphadesk.markets",
+    featured: true,
+    proprietary: true,
+    tags: ["Portfolio Analytics", "Infrastructure"],
+    summary:
+      "A self-hosted research desk. An incremental Parquet warehouse mirrors prices, fundamentals, dividends, splits, short interest and macro data into DuckDB, and daily index weights for 47 SPDR funds are rebuilt from SSGA holdings and SEC N-PORT filings. On top sits a Flask dashboard with a cash-checked portfolio tracker, screener, comps and a point-in-time analyser that sets any portfolio against any benchmark.",
+    tech: ["Python", "DuckDB", "Flask", "SQLite", "Cloudflare"],
+    demo: "https://www.alphadesk.markets",
+  },
+  {
+    title: "Factor Models and Return Attribution",
+    context: "Alpha Desk",
+    featured: true,
+    proprietary: true,
+    tags: ["Portfolio Analytics", "Trading"],
+    summary:
+      "Fama-French style factors (size, value, profitability, investment, momentum, low volatility, sectors) built daily from the warehouse with NYSE breakpoints, and checked against ETF proxies at 0.79 to 0.99 correlation. Portfolios, benchmarks and single stocks get Newey-West regressions, rolling betas and a log-normal forecast with editable inputs. Brinson-Fachler attribution runs every trading day and is linked with Carino smoothing, so the effects add up exactly to the active return.",
+    tech: ["Python", "pandas", "NumPy", "DuckDB"],
+    demo: "https://www.alphadesk.markets",
+  },
+  {
+    title: "Agentic Research Assistant",
+    context: "Alpha Desk",
+    featured: true,
+    proprietary: true,
+    tags: ["LLM", "Portfolio Analytics"],
+    summary:
+      "A chat agent that answers questions about markets and the signed-in user's own portfolio, running on a local Qwen model served by vLLM. It reaches the dashboard through an MCP server with 24 read tools, acting only as that user via short-lived passes. It can draft trades, but they arrive as cards that save only when the user clicks Confirm. Quotas, tool-call limits and an eval suite keep it in check.",
+    tech: ["Strands Agents", "MCP", "vLLM", "Qwen", "Python"],
+    demo: "https://www.alphadesk.markets",
+  },
+  {
     title: "High-Frequency Trading Strategy Development",
     context: "UIUC · FIN 556",
     featured: true,

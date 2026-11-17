@@ -53,7 +53,7 @@ export const skillDomains: SkillDomain[] = [
       },
       {
         label: "Agentic AI",
-        items: ["Prompt Engineering", "Context Engineering", "Loop Engineering", "RAG"],
+        items: ["Prompt Engineering", "Context Engineering", "Loop Engineering", "RAG", "MCP", "Tool Calling", "Agent Evals"],
       },
     ],
   },
@@ -96,7 +96,7 @@ export const skillDomains: SkillDomain[] = [
       },
       {
         label: "Risk",
-        items: ["Value at Risk", "Conditional Value at Risk", "Stress Testing", "Backtesting", "Risk Parity", "Portfolio Optimization"],
+        items: ["Value at Risk", "Conditional Value at Risk", "Stress Testing", "Backtesting", "Risk Parity", "Portfolio Optimization", "Factor Models", "Brinson-Fachler Attribution"],
       },
       {
         label: "Trading systems",
