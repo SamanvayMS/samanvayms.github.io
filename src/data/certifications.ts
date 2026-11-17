@@ -7,12 +7,16 @@ export interface Certification {
   url?: string;
   /** External credential verification link (e.g. coursera.org/verify/...) */
   verifyUrl?: string;
+  /** Badge image in /public, shown on the card in place of the award icon */
+  badge?: string;
 }
 
 export const certifications: Certification[] = [
   {
     title: "AWS Certified Machine Learning Engineer (Associate)",
     issuer: "Amazon Web Services",
+    badge: "/images/badges/aws-mle-associate.png",
+    verifyUrl: "https://www.credly.com/badges/62bfdd77-2a32-4351-b5a9-8eaed8a84528/public_url",
     summary:
       "Building, deploying and running ML workloads on AWS: data preparation, model training and tuning in SageMaker, deployment and orchestration, plus monitoring, cost and security for models in production.",
   },

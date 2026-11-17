@@ -14,7 +14,8 @@ export interface Certification {
   summary?: string;     // 1–2 sentences
   courses?: string[];   // optional sub-course list (rendered as a bulleted list)
   url?: string;         // path to the PDF in /public; powers the "View certificate" modal
-  verifyUrl?: string;   // external credential verify link (e.g. coursera.org/verify/<id>) → "Verify" link
+  verifyUrl?: string;   // external credential verify link (coursera.org/verify/<id>, Credly public_url) → "Verify" link
+  badge?: string;       // badge image under /public/images/badges/, shown on the card instead of the award icon
 }
 ```
 
