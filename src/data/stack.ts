@@ -7,7 +7,7 @@ export interface StackGroup {
 export const stackGroups: StackGroup[] = [
   {
     label: "Languages",
-    items: ["Python", "Rust", "C++", "R", "SQL", "Bash"],
+    items: ["Python", "Rust", "C++", "R", "SQL", "q/kdb+", "Bash"],
   },
   {
     label: "ML / AI",
@@ -32,7 +32,7 @@ export const stackGroups: StackGroup[] = [
     label: "Data / Cloud",
     items: [
       "AWS",
-      "Google Cloud",
+      "Google Cloud Platform",
       "Snowflake",
       "Docker",
       "PostgreSQL",
@@ -40,6 +40,7 @@ export const stackGroups: StackGroup[] = [
       "DuckDB",
       "BigQuery",
       "Kafka",
+      "Airflow",
     ],
   },
   {

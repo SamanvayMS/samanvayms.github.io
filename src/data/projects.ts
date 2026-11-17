@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "Kite Connect",
       "Python",
       "BigQuery",
-      "Google Cloud",
+      "Google Cloud Platform",
     ],
   },
   {

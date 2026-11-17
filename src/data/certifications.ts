@@ -11,6 +11,12 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   {
+    title: "AWS Certified Machine Learning Engineer (Associate)",
+    issuer: "Amazon Web Services",
+    summary:
+      "Building, deploying and running ML workloads on AWS: data preparation, model training and tuning in SageMaker, deployment and orchestration, plus monitoring, cost and security for models in production.",
+  },
+  {
     title: "CFA Level II",
     issuer: "CFA Institute",
     summary:

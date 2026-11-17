@@ -12,6 +12,8 @@ import {
   SiLangchain,
   SiNumpy,
   SiPandas,
+  SiApacheairflow,
+  SiKx,
   SiGooglecloud,
   SiApachekafka,
   SiDocker,
@@ -33,7 +35,7 @@ import {
   SiRust,
   SiClaude,
 } from "react-icons/si";
-import { BloombergIcon, OandaIcon, VllmIcon, LlamaIndexIcon } from "../components/ui/customIcons";
+import { BloombergIcon, OandaIcon, VllmIcon, LlamaIndexIcon, GoogleCloudIcon } from "../components/ui/customIcons";
 
 type IconComponent = ComponentType<{ className?: string; style?: CSSProperties }>;
 
@@ -52,6 +54,11 @@ interface TechMeta {
 /** Alternate spellings → canonical key (applied inside techKey). */
 const ALIASES: Record<string, string> = {
   kafka: "apachekafka",
+  airflow: "apacheairflow",
+  googlecloudplatform: "googlecloud",
+  gcp: "googlecloud",
+  kdb: "qkdb",
+  q: "qkdb",
   numbajit: "numba",
   gpt4: "openai",
   gpt2: "openai",
@@ -83,9 +90,11 @@ const techMeta: Record<string, TechMeta> = {
   langchain: { icon: SiLangchain, color: "#3FB984" },
   numpy: { icon: SiNumpy, color: "#4DABCF" },
   pandas: { icon: SiPandas, color: "#E70488" },
-  googlecloud: { icon: SiGooglecloud, color: "#4285F4" },
+  googlecloud: { icon: GoogleCloudIcon, color: "#4285F4" },
   bigquery: { icon: SiGooglecloud, color: "#669DF6" },
   apachekafka: { icon: SiApachekafka, color: "#D6D6D6" },
+  apacheairflow: { icon: SiApacheairflow, color: "#017CEE" },
+  qkdb: { icon: SiKx, color: "#E8E8E8" },
   docker: { icon: SiDocker, color: "#2496ED" },
   postgresql: { icon: SiPostgresql, color: "#5A8DD6" },
   mysql: { icon: SiMysql, color: "#4479A1" },
